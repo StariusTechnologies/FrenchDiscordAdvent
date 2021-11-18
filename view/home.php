@@ -1,18 +1,18 @@
 <?php 
 $user = $data['user'];
-var_dump($user);
 ?>
 
-<h1 id="title"></h1>
 <nav>
     <ul>
         <a class="discord-identity" href="index.php?logout=true">
-            <img src="public/images/Discord-Logo-White.svg" alt="Discord_logo_white">
+            <img src="public/images/discord_logo.svg" alt="Discord_logo_white">
             <?php $extention = strpos($user->avatar, 'a_') === 0 ? '.gif' : '.png'; ?>
             <img class="discord-avatar" src="https://cdn.discordapp.com/avatars/<?=$user->id?>/<?=$user->avatar . $extention?>?size=128" alt="Avatar">
-            <?=$user->username?> - Switch accounts ?
+            <span><?=$user->username?> - Switch accounts ?</span>
         </a>
-        <a href="https://frenchdiscord.com"><img src="public/images/french_logo.svg">French shop</a>
+        <a href="https://frenchdiscord.com"><img src="public/images/french_logo.svg"><span>French shop</span></a>
+        <a href="https://patreon.com/frenchdiscord"><img src="public/images/patreon_logo.png"></a>
+        <h1 id="title"></h1>
     </ul>
 </nav>
 <!--<iframe src="https://ptb.discord.com/widget?id=254463427949494292&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>-->
@@ -62,25 +62,3 @@ var_dump($user);
 
     <p id="popupText"></p>
 </div>
-
-<footer>
-    <div class="site">
-        <h3>Site internet :</h3>
-
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
-
-    <div class="french">
-        <h3>French :</h3>
-
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
-</footer>
