@@ -29,7 +29,9 @@
             <?=$content?>
         </main>
 
+        <script src="public/js/ajax.js"></script>
         <script src="public/js/parts.js"></script>
         <script type="text/javascript" src="public/js/home.js"></script>
+        <script type="text/javascript" src="public/js/openWindow.js"></script>
     </body>
 </html>

@@ -15,7 +15,7 @@ $user = $data['user'];
         <h1 id="title"></h1>
     </ul>
 </nav>
-<!--<iframe src="https://ptb.discord.com/widget?id=254463427949494292&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>-->
+
 <div id="message"></div>
 
 <div id="landscape">

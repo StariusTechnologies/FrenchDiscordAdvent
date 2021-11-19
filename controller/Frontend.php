@@ -6,17 +6,21 @@ use french\avent\model\RenderView;
 
 class Frontend
 {
+    private $user;
+    //private $baseUrl = 'avent.frenchdiscord.com';
+    private $baseUrl = 'localhost/avent/index.php';
+
     public function home(string $apiURLBase)
     {
-        $user = $this->apiRequest($apiURLBase);
-        RenderView::render('template.php', 'home.php', ['user' => $user]);
+        $this->user = $this->apiRequest($apiURLBase);
+        RenderView::render('template.php', 'home.php', ['user' => $this->user]);
     }
 
     public function login()
     {
         $param = [
             'client_id' => OAUTH2_CLIENT_ID,
-            'redirect_uri' => 'http://localhost/avent/index.php',
+            'redirect_uri' => REDIRECT_URI,
             'response_type' => 'code',
             'scope' => 'identify',
             'state' => '15773059ghq9183habn',
@@ -49,7 +53,7 @@ class Frontend
             "grant_type" => "authorization_code",
             'client_id' => OAUTH2_CLIENT_ID,
             'client_secret' => OAUTH2_CLIENT_SECRET,
-            'redirect_uri' => 'http://localhost/avent/index.php',
+            'redirect_uri' => REDIRECT_URI,
             'code' => $code
         ));
 
@@ -57,6 +61,25 @@ class Frontend
     
         header('Location: ' . $_SERVER['PHP_SELF']);
     }
+
+    //-----------------------------//
+    //           AJAX              //
+    //-----------------------------//
+
+    public function getWindowState()
+    {
+        if ($this->user) {
+            $AdventManager = new AdventManager();
+            $windowState = $AdventManager->getWindowState($this->user['id']);
+            echo json_encode($windowState);
+        } else {
+            echo 'false';
+        }
+    }
+
+    //-----------------------------//
+    //          PRIVATE            //
+    //-----------------------------//
 
     private function apiRequest($url, $post = null, $headers = []) {
         $ch = curl_init($url);
