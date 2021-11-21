@@ -31,7 +31,9 @@ class Db {
     public function init(bool $debug = true): void {
         try {
             $this->dbh = new PDO(
-                DB_DRIVER . ':dbname=' . DB_NAME . ';host=' . DB_HOST, DB_USER, DB_PASSWORD
+                DB_DRIVER . ':dbname=' . DB_NAME . ';host=' . DB_HOST . ';port=3306',
+                DB_USER,
+                DB_PASSWORD
             );
         } catch (\PDOException $e) {
             echo 'WARNING: Database connection error: ' . $e->getMessage();
