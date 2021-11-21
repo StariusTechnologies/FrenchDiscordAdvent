@@ -12,7 +12,7 @@ function addEventOpenWindow() {
                     ajaxGet(`getReward?window=${adventWindows[i].textContent}`, (response) => {
                         response = JSON.parse(response);
 
-                        if (!response || response.length < 1 || response === 'false') {
+                        if (!response) {
                             document.location.href = baseUrl;
                         }
                     });
@@ -30,7 +30,7 @@ window.addEventListener(
         ajaxGet('get-opened-windows', (response) => {
             response = JSON.parse(response);
 
-            if (!response || response.length < 1 || response === 'false') {
+            if (!response) {
                 document.location.href = baseUrl;
             }
 
