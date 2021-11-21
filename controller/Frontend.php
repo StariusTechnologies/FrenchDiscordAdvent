@@ -77,6 +77,22 @@ class Frontend
         }
     }
 
+    public function getReward()
+    {
+        if ($this->user) {
+            $AdventManager = new AdventManager();
+            //user is in guild or not
+            //user is patreon or not
+            //pick normal or special reward
+            //get available reward or get amount won token
+            //give reward token or ping lily/moi et user dans bot fun for special reward ()
+            //return label reward to display
+            //echo json_encode($windowState);
+        } else {
+            echo 'false';
+        }
+    }
+
     //-----------------------------//
     //          PRIVATE            //
     //-----------------------------//

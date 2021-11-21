@@ -42,6 +42,9 @@ try {
                 case 'getWindowState': 
                     $Frontend->getWindowState();
                     break;
+                case 'getReward': 
+                    $Frontend->getReward();
+                    break;
             }
         } else {
             $Frontend->home($apiURLBase);

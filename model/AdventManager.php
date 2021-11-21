@@ -5,7 +5,7 @@ use french\avent\model\Database;
 
 class AdventManager extends Database
 {
-    public static $TABLE_NAME = 'advent_opened_window';
+    public static $TABLE_NAME = 'calendar_opened_window';
 
     public function getWindowState(string $userId)
     {
