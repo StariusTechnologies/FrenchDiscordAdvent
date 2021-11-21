@@ -1,0 +1,11 @@
+index:
+  file: 'Home/HomeController.php'
+  action: 'index'
+
+logout:
+  file: 'Home/HomeController.php'
+  action: 'logout'
+
+get-opened-windows:
+  file: 'Home/HomeController.php'
+  action: 'getOpenedWindows'

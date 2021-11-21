@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <title>French Winter Calendar</title>
+
+    <!--meta-->
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Venez fêter l'hiver avec French !">
+
+    <meta name="twitter:title" content="French Discord - Calendrier de l'hiver">
+    <meta name="twitter:description" content="Venez fêter l'hiver avec French !">
+    <meta name="twitter:image" content="images/icone_french_avent.png">
+
+    <meta property="og:title" content="French Discord - Calendrier de l'hiver" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://avent.frenchdiscord.com" />
+    <meta property="og:image" content="images/icone_french_avent.png" />
+    <meta property="og:description" content="Venez fêter l'hiver avec French !" />
+    <meta property="og:site_name" content="French Discord - Calendrier de l'hiver" />
+
+    {% block stylesheets %}{% endblock %}
+    {% block scripts %}{% endblock %}
+
+    {% for path in styles %}
+    <link rel="stylesheet" type="text/css" href="{{ path }}" />
+    {% endfor %}
+
+    {% for path in scripts %}
+    <script type="text/javascript" src="{{ path }}"></script>
+    {% endfor %}
+
+    <script type="text/javascript">
+        var baseUrl = '{{ baseUrl }}';
+    </script>
+</head>
+<body>
+    <div id="pop">
+        {% for error in errors %}
+            <p class="alert alert-error">
+                {{ error }}
+            </p>
+        {% endfor %}
+
+        {% for warning in warnings %}
+            <p class="alert alert-warning">
+                {{ warning }}
+            </p>
+        {% endfor %}
+
+        {% for info in infos %}
+            <p class="alert alert-info">
+                {{ info }}
+            </p>
+        {% endfor %}
+    </div>
+
+    <section id="container">
+        {% block content %}{% endblock %}
+    </section>
+
+    {% for path in footScripts %}
+        <script type="text/javascript" src="{{ path }}"></script>
+    {% endfor %}
+</body>
+</html>

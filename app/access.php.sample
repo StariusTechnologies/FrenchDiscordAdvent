@@ -1,0 +1,12 @@
+<?php
+
+const BEFEW_SECRET_TOKEN = '';
+
+const DB_DRIVER = 'mysql';
+const DB_NAME = '';
+const DB_HOST = '';
+const DB_USER = '';
+const DB_PASSWORD = '';
+
+const OAUTH2_CLIENT_ID = '';
+const OAUTH2_CLIENT_SECRET = '';

@@ -1,0 +1,30 @@
+<?php
+require_once('init.php');
+use Befew\Utils;
+
+switch($_SERVER['argv'][1]) {
+    case 'cache:clear':
+    case 'cc':
+        if(is_dir(CACHE_TWIG_FOLDER)) {
+            echonl('Deleting cache...');
+
+            if(Utils::delete(CACHE_TWIG_FOLDER)) {
+                echonl('Cache successfully deleted!');
+            } else {
+                echonl('Error while deleting cache!');
+                echonl('You may want to retry.');
+                echonl('If it still does not work after the third time, you can try to manually delete the folder cache' . DIRECTORY_SEPARATOR . 'twig');
+            }
+        } else {
+            echonl('Cache is already empty.');
+        }
+
+        break;
+
+    default:
+        echonl('Unknown option: ' . $_SERVER['argv'][1]);
+}
+
+function echonl($string) {
+    echo $string . '\n';
+}

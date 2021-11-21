@@ -18,9 +18,11 @@ class Frontend
 
     public function login()
     {
+        global $OAUTH2_REDIRECT_URI;
+
         $param = [
             'client_id' => OAUTH2_CLIENT_ID,
-            'redirect_uri' => REDIRECT_URI,
+            'redirect_uri' => $OAUTH2_REDIRECT_URI,
             'response_type' => 'code',
             'scope' => 'identify',
             'state' => '15773059ghq9183habn',
@@ -49,16 +51,18 @@ class Frontend
 
     public function getToken(string $tokenURL, string $code)
     {
+        global $OAUTH2_REDIRECT_URI;
+
         $token = $this->apiRequest($tokenURL, array(
             "grant_type" => "authorization_code",
             'client_id' => OAUTH2_CLIENT_ID,
             'client_secret' => OAUTH2_CLIENT_SECRET,
-            'redirect_uri' => REDIRECT_URI,
+            'redirect_uri' => $OAUTH2_REDIRECT_URI,
             'code' => $code
         ));
 
         $_SESSION['access_token'] = $token->access_token;
-    
+
         header('Location: ' . $_SERVER['PHP_SELF']);
     }
 
@@ -98,25 +102,25 @@ class Frontend
     //-----------------------------//
 
     private function apiRequest($url, $post = null, $headers = []) {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-      
+        $ch = \curl_init($url);
+        \curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        \curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
         if($post) {
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
+            \curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
         }
-      
+
         $headers[] = 'Accept: application/json';
-      
+
         if($_SESSION['access_token']){
             $headers[] = 'Authorization: Bearer ' . $_SESSION['access_token'];
         }
-      
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-       
-        $response = curl_exec($ch);
+
+        \curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        \curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        \curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+
+        $response = \curl_exec($ch);
         return json_decode($response);
     }
 }

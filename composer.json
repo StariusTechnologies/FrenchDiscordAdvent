@@ -1,0 +1,13 @@
+{
+    "name": "lily/french-discord-advent",
+    "type": "project",
+    "require": {
+        "twig/twig": "^3.3"
+    },
+    "authors": [
+        {
+            "name": "Lily Wonhalf",
+            "email": "lilywonhalf@gmail.com"
+        }
+    ]
+}

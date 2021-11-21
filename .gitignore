@@ -1,1 +1,5 @@
-env.php
+/vendor/
+.idea
+*.iml
+cache
+app/access.php

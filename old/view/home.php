@@ -1,32 +1,53 @@
-<?php 
+<?php
 $user = $data['user'];
+$discordAvatarExtention = strpos($user->avatar, 'a_') === 0 ? '.gif' : '.png';
+$discordAvatarURL = 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . $discordAvatarExtention . '?size=24';
 ?>
 
 <nav>
     <ul>
-        <a class="discord-identity" href="index.php?logout=true">
-            <img src="public/images/discord_logo.svg" alt="Discord_logo_white">
-            <?php $extention = strpos($user->avatar, 'a_') === 0 ? '.gif' : '.png'; ?>
-            <img class="discord-avatar" src="https://cdn.discordapp.com/avatars/<?=$user->id?>/<?=$user->avatar . $extention?>?size=128" alt="Avatar">
-            <span><?=$user->username?> - Switch accounts ?</span>
-        </a>
-        <a href="https://frenchdiscord.com"><img src="public/images/french_logo.svg"><span>French shop</span></a>
-        <a href="https://patreon.com/frenchdiscord"><img src="public/images/patreon_logo.png"></a>
-        <h1 id="title"></h1>
+        <li>
+            <input type="checkbox" id="nav-discord" />
+            <label for="nav-discord">
+                <a class="discord-identity" href="/index.php?logout=true">
+                    <span>
+                        Switch accounts (logged in as <img class="discord-avatar" src="<?= $discordAvatarURL ?>" alt="Avatar" height="20" /> <?= $user->username ?>)
+                    </span>
+                </a>
+                <img src="/public/images/discord_logo.svg" alt="Discord_logo_white" class="discord-logo" width="22" />
+            </label>
+        </li>
+        <li>
+            <input type="checkbox" id="nav-website" />
+            <label for="nav-website">
+                <a href="https://frenchdiscord.com">
+                    <span>French shop</span>
+                </a>
+                <img src="/public/images/french_logo.svg" alt="French logo" width="20" height="20" />
+            </label>
+        </li>
+        <li>
+            <input type="checkbox" id="nav-patreon" />
+            <label for="nav-patreon">
+                <a href="https://patreon.com/frenchdiscord">
+                    <span>Support us on <img src="/public/images/patreon_logo_word.png" alt="Patreon" class="patreon_word" height="20" /></span>
+                </a>
+                <img src="/public/images/patreon_logo_letter.png" alt="Patreon logo" width="20" />
+            </label>
+        </li>
     </ul>
 </nav>
 
+<h1 id="title"></h1>
 <div id="message"></div>
 
 <div id="landscape">
     <p>Merci de passer en mode paysage pour une meilleure expérience</p>
-    
+
     <i class="fas fa-sync-alt"></i>
 </div>
 
 <section id="content">
-    <img id="background" src="public/images/background.jpg" alt="">
-
     <ul>
         <li onclick="openPopup('box1')" id="box1" class="box">1</li>
         <li onclick="openPopup('box2')" id="box2" class="box">2</li>
