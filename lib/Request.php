@@ -121,7 +121,7 @@ class Request extends Utils {
         return $_SERVER['REQUEST_METHOD'] === 'POST';
     }
 
-    public function isLoggedInUser(): bool {
+    public function isUserLoggedIn(): bool {
         return isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true;
     }
 

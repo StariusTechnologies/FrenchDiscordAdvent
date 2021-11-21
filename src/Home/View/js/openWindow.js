@@ -1,6 +1,7 @@
 var calendarWindows = document.getElementsByClassName('box');
 var windowCount = 31;
 var windowState = [];
+const availableSpecialReward = [];
 
 function addEventOpenWindow() {
     for (let i = 0; i < calendarWindows.length; i++) {
@@ -8,9 +9,14 @@ function addEventOpenWindow() {
             calendarWindows[i].addEventListener(
                 'click',
                 () => {
-                    // get available reward
-                    // pick reward type (random token qtt, special reward like Patreon 1 month/nitro/big token qtt) 1 chance sur 50 ?
-                    // pick concrete reward
+                    ajaxGet(`getReward?window=${adventWindows[i].textContent}`, (response) => {
+                        response = JSON.parse(response);
+
+                        if (!response || response.length < 1 || response === 'false') {
+                            document.location.href = baseUrl;
+                        }
+                    });
+                    //get reward
                     // TODO Lily will add animation
                     // ajax openWindow- set db entry window x opened - give reward somehow - if special reward decrement available speReward on db
                 }
@@ -24,7 +30,7 @@ window.addEventListener(
         ajaxGet('get-opened-windows', (response) => {
             response = JSON.parse(response);
 
-            if (response && response === 'false') {
+            if (!response || response.length < 1 || response === 'false') {
                 document.location.href = baseUrl;
             }
 
