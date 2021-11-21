@@ -24,8 +24,6 @@ class DiscordAPI {
         return self::$instance;
     }
 
-    private function __construct() {}
-
     public function getAuthorizeURL(): string {
         $params = [
             'client_id' => OAUTH2_CLIENT_ID,
@@ -40,9 +38,10 @@ class DiscordAPI {
     }
 
     /**
+     * @return string
      * @throws Exception
      */
-    public function getToken(): void {
+    public function getToken(): string {
         $code = Request::getInstance()->getGet('code');
         $postData = [
             'grant_type' => 'authorization_code',
@@ -55,17 +54,17 @@ class DiscordAPI {
         $data = $this->apiRequest(self::BASE_API_URL . self::API_ENDPOINTS['token'], $postData);
 
         if (isset($data->error) && $data->error !== null) {
-            var_dump($postData);
             throw new Exception($data->error_description);
         }
 
-        $_SESSION['access_token'] = $data->access_token;
+        return $data->access_token;
     }
 
     /**
+     * @return Object
      * @throws Exception
      */
-    public function getUserInfo() {
+    public function getUserInfo(): object {
         $data = $this->apiRequest(self::BASE_API_URL . self::API_ENDPOINTS['me']);
 
         if (isset($data->code) && $data->code === 0) {
@@ -75,26 +74,26 @@ class DiscordAPI {
         return $data;
     }
 
-    public function revokeToken() {
+    public function revokeToken(): void {
         $this->apiRequest(self::BASE_API_URL . self::API_ENDPOINTS['revoke'], [
             'token' => $_SESSION['access_token'],
             'token_type_hint' => 'access_token',
             'client_id' => OAUTH2_CLIENT_ID,
             'client_secret' => OAUTH2_CLIENT_SECRET,
         ]);
-
-        unset($_SESSION['access_token']);
     }
 
-    private function apiRequest($url, ?array $post = null, array $headers = []) {
-        $ch = \curl_init($url);
+    private function __construct() {}
 
-        \curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        \curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    private function apiRequest($url, ?array $post = null, array $headers = []) {
+        $ch = curl_init($url);
+
+        curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         if ($post !== null) {
-            \curl_setopt($ch, CURLOPT_POST, true);
-            \curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
         }
 
         $headers[] = 'Accept: application/json';
@@ -103,11 +102,11 @@ class DiscordAPI {
             $headers[] = 'Authorization: Bearer ' . $_SESSION['access_token'];
         }
 
-        \curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        \curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        \curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
-        $response = \curl_exec($ch);
+        $response = curl_exec($ch);
 
         return json_decode($response);
     }

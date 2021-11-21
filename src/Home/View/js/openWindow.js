@@ -1,10 +1,10 @@
 var calendarWindows = document.getElementsByClassName('box');
 var windowCount = 31;
 var windowState = [];
-const availableSpecialReward = [];
+var availableSpecialReward = [];
 
 function addEventOpenWindow() {
-    for (let i = 0; i < calendarWindows.length; i++) {
+    for (var i = 0; i < calendarWindows.length; i++) {
         if (!forbidden.includes(calendarWindows[i]) && windowState[i] === 'close') {
             calendarWindows[i].addEventListener(
                 'click',
@@ -37,7 +37,7 @@ window.addEventListener(
             if (response.length < 1) {
                 windowState = Array(windowCount).fill('close');
             } else {
-                for (let i = 0; i < windowCount; i++) {
+                for (var i = 0; i < windowCount; i++) {
                     windowState[i] = response[i] ? 'open' : 'close';
                 }
             }

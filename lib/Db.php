@@ -7,7 +7,7 @@ use PDO;
 class Db {
     protected static ?Db $instance = null;
 
-    protected PDO $dbh;
+    protected ?PDO $dbh = null;
     protected bool $isInitialised = false;
 
     public static function getInstance(): ?Db {

@@ -88,7 +88,7 @@ document.getElementById('title').innerHTML = 'J-' + waitTime;
 
 checkLandscape();
 
-for (let i = 31; i > day; i--) {
+for (var i = 31; i > day; i--) {
     document.getElementById('box' + i).style.cursor = 'not-allowed';
     forbidden.push('box' + i);
 }

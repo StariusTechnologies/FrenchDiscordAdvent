@@ -22,10 +22,10 @@ class HomeController extends Controller {
         $this->template->addCSS('default.css');
         $this->template->addCSS('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-        $this->template->addJS('ajax', false);
-        $this->template->addJS('parts', false);
-        $this->template->addJS('home', false);
-        $this->template->addJS('openWindow', false);
+        $this->template->addJS('ajax.js', false);
+        $this->template->addJS('parts.js', false);
+        $this->template->addJS('home.js', false);
+        $this->template->addJS('openWindow.js', false);
 
         if (Request::getInstance()->isUserLoggedIn()) {
             $user = DiscordAPI::getInstance()->getUserInfo();
@@ -40,7 +40,7 @@ class HomeController extends Controller {
             if (!Request::getInstance()->hasGet('code')) {
                 Response::redirect(DiscordAPI::getInstance()->getAuthorizeURL());
             } else {
-                DiscordAPI::getInstance()->getToken();
+                $_SESSION['access_token'] = DiscordAPI::getInstance()->getToken();
                 Request::getInstance()->createSession();
                 Response::redirect(Request::getInstance()->getBaseURL());
             }
@@ -49,6 +49,7 @@ class HomeController extends Controller {
 
     public function logoutAction(): void {
         DiscordAPI::getInstance()->revokeToken();
+        unset($_SESSION['access_token']);
         Request::getInstance()->destroySession();
         Response::redirect(Request::getInstance()->getBaseURL());
     }

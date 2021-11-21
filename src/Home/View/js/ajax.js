@@ -1,8 +1,8 @@
 function ajaxGet(url, callback) {
 	var request = new XMLHttpRequest();
 
-	request.addEventListener('load', function(){
-		if(request.status >= 200 && request.status < 400){
+	request.addEventListener('load', function() {
+		if (request.status >= 200 && request.status < 400) {
 			callback(request.responseText);
 		} else {
 			console.error(request.status + ' ' + request.statusText + ' ' + url);
@@ -34,7 +34,7 @@ function ajaxPost(url, data, callback, isJson) {
 
 	if (isJson) {
 		request.setRequestHeader('Content-Type', 'application/json');
-		data= JSON.stringify(data);
+		data = JSON.stringify(data);
 	}
 
 	request.open('POST', url);

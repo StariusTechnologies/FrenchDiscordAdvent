@@ -103,7 +103,7 @@ class Request extends Utils {
                 break;
 
             default:
-                return ($this->getGet($key) == null) ? $this->getPost($key, $default, $secure) : $this->getGet($key, $default, $secure);
+                return ($this->getGet($key) === null) ? $this->getPost($key, $default, $secure) : $this->getGet($key, $default, $secure);
                 break;
         }
     }
