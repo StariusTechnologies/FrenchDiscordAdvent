@@ -117,12 +117,12 @@ class Request extends Utils {
         session_destroy();
     }
 
-    public function isPostData(): bool {
-        return $_SERVER['REQUEST_METHOD'] === 'POST';
-    }
-
     public function isUserLoggedIn(): bool {
         return isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true;
+    }
+    
+    public function isPostData(): bool {
+        return $_SERVER['REQUEST_METHOD'] === 'POST';
     }
 
     private function __construct() {

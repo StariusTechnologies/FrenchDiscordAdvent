@@ -3,13 +3,14 @@ var windowCount = 31;
 var windowState = [];
 var availableSpecialReward = [];
 
-function addEventOpenWindow() {
+function addEventOpenWindow(calendarWindows) {
     for (var i = 0; i < calendarWindows.length; i++) {
         if (!forbidden.includes(calendarWindows[i]) && windowState[i] === 'close') {
             calendarWindows[i].addEventListener(
-                'click',
-                () => {
-                    ajaxGet(`getReward?window=${adventWindows[i].textContent}`, (response) => {
+                'click', (e) => {
+                    calendarWindow = e.currentTarget;
+
+                    ajaxGet(`get-reward?window=${calendarWindow.innerText}`, (response) => {
                         response = JSON.parse(response);
 
                         if (!response) {
@@ -42,7 +43,7 @@ window.addEventListener(
                 }
             }
 
-            addEventOpenWindow();
+            addEventOpenWindow(calendarWindows);
         });
     }
 );

@@ -15,7 +15,7 @@ class CalendarOpenedWindow extends Entity
     private int $dayNumber;
 
     public static function getAllForUser(string $userSnowflake): array {
-        $query = Db::getInstance()->getDBH()->prepare(
+        $query = Db::getInstance()->query(
             'SELECT * FROM ' . self::TABLE_NAME . ' WHERE user_snowflake = :userSnowflake ORDER BY day_number',
             ['userSnowflake' => $userSnowflake]
         );

@@ -22,16 +22,10 @@ class Db {
         }
     }
 
-    private function __construct() {
-        if (DB_ACTIVE && !$this->isInitialised) {
-            $this->init();
-        }
-    }
-
     public function init(bool $debug = true): void {
         try {
             $this->dbh = new PDO(
-                DB_DRIVER . ':dbname=' . DB_NAME . ';host=' . DB_HOST . ';port=3306',
+                DB_DRIVER . ':dbname=' . DB_NAME . ';host=' . DB_HOST . ';port=' . DB_PORT,
                 DB_USER,
                 DB_PASSWORD
             );
@@ -53,6 +47,18 @@ class Db {
             $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } else {
             $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+        }
+    }
+
+    public function query(string $query, array $queryData = []): ?\PDOStatement {
+        $query = Db::getInstance()->getDBH()->prepare($query);
+        $query->execute($queryData);
+        return $query;
+    }
+
+    private function __construct() {
+        if (DB_ACTIVE && !$this->isInitialised) {
+            $this->init();
         }
     }
 }
