@@ -9,7 +9,6 @@ var MINUTE = 60 * SECOND;
 var HOUR = 60 * MINUTE;
 var DAY = 24 * HOUR
 
-
 // Elements
 var content = document.getElementById('content');
 var landscape = document.getElementById('landscape');
@@ -17,22 +16,11 @@ var message = document.getElementById('message');
 var popup = document.getElementById('popup');
 var popupText = document.getElementById('popupText');
 var partTitle = document.getElementById('partTitle');
+var calendar = document.getElementById('calendar');
 
 var forbidden = [];
 
 var waitTime = Math.ceil((christmas - today) / DAY);
-
-
-// Functions initialization
-function checkLandscape() {
-    if (window.innerWidth>window.innerHeight) { // Landscape
-        content.style.display = 'block';
-        landscape.style.display = 'none';
-    } else { // Portrait
-        landscape.style.display = 'block';
-        content.style.display = 'none';
-    }
-}
 
 function manageText(part) {
     var text = texts[part - 1].split("\n");
@@ -45,7 +33,7 @@ function manageText(part) {
     return managed;
 }
 
-function displayMessage(type,text){
+function displayMessage(type,text) {
     message.style.visibility = 'visible';
     message.style.opacity = '1';
 
@@ -85,16 +73,6 @@ message.style.visibility = 'hidden';
 popup.style.display = 'none';
 document.title = 'J-' + waitTime;
 document.getElementById('title').innerHTML = 'J-' + waitTime;
+Calendar.init(calendar);
 
-checkLandscape();
-
-for (var i = 31; i > day; i--) {
-    document.getElementById('box' + i).style.cursor = 'not-allowed';
-    forbidden.push('box' + i);
-}
-
-
-// Background
-window.addEventListener('onload',checkLandscape);
-window.addEventListener('resize',checkLandscape);
-window.setInterval(checkLandscape, 500);
+window.addEventListener('resize', function() { Calendar.init(calendar) });

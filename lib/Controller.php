@@ -8,6 +8,9 @@ class Controller {
     protected Request $request;
     protected Template $template;
 
+    protected ?Path $templatePath = null;
+    protected ?Path $assetsPath = null;
+
     public function __construct(string $action) {
         $action = $action . 'Action';
         $reflector = new \ReflectionClass(get_class($this));
@@ -15,10 +18,10 @@ class Controller {
         $path = 'src/' . $reflector->getNamespaceName() . '/View/';
         $path = str_replace('/', DIRECTORY_SEPARATOR, $path);
 
-        $templatePath = BEFEW_BASE_URL . DIRECTORY_SEPARATOR . $path;
-        $assetsPath = '..' . DIRECTORY_SEPARATOR . $path;
+        $this->templatePath = new Path(BEFEW_BASE_URL . DIRECTORY_SEPARATOR . $path);
+        $this->assetsPath = new Path('..' . DIRECTORY_SEPARATOR . $path);
 
-        $this->template = new Template($templatePath, $assetsPath);
+        $this->template = new Template($this->templatePath, $this->assetsPath);
         $this->request = Request::getInstance();
 
         if (method_exists($this, $action)) {

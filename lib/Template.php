@@ -18,11 +18,11 @@ class Template {
     private array $footScripts = [];
     private array $data = [];
 
-    public function __construct(string $templatePath, ?string $assetsPath = null) {
+    public function __construct(Path $templatePath, ?Path $assetsPath = null) {
         $this->styles = [];
         $this->scripts = [];
-        $this->templatePath = new Path($templatePath);
-        $this->assetsPath = new Path($assetsPath ?? $templatePath);
+        $this->templatePath = $templatePath->withTrailingSlash();
+        $this->assetsPath = $assetsPath->withTrailingSlash() ?? $this->templatePath;
 
         $loader = new FilesystemLoader(BEFEW_BASE_URL);
         $this->twig = new Environment($loader, [
@@ -87,7 +87,10 @@ class Template {
      */
     public function render(string $file, array $vars = []): void {
         echo $this->twig->render(
-            substr($this->templatePath, strlen(BEFEW_BASE_URL)) . TEMPLATES_FOLDER . DIRECTORY_SEPARATOR . $file,
+            substr(
+                $this->templatePath,
+                strlen(BEFEW_BASE_URL)
+            ) . TEMPLATES_FOLDER . DIRECTORY_SEPARATOR . $file,
             array_merge(
                 $vars,
                 $this->data,
