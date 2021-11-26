@@ -22,4 +22,28 @@ class CalendarOpenedWindow extends Entity
 
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public static function openWindow(string $userSnowflake, int $dayNumber, string $rewardLabel, bool $isHighValue): void {
+        Db::getInstance()->query(
+            'INSERT INTO ' . self::TABLE_NAME . ' 
+            (user_snowflake, day_number, reward_label, is_high_value_reward) 
+            VALUES (:user_snowflake, :day_number, :reward_label, :is_high_value_reward)',
+            [
+                ':user_snowflake' => $userSnowflake,
+                ':day_number' => $dayNumber,
+                ':reward_label' => $rewardLabel,
+                ':is_high_value_reward' => intval($isHighValue)
+            ]
+        );
+    }
+
+    public static function alreadyHadHighValueReward(object $user): bool {
+        $query = Db::getInstance()->query(
+            'SELECT * FROM ' . self::TABLE_NAME . ' 
+            WHERE user_snowflake = :userId AND is_high_value_reward = 1',
+            [':userId' => $user->id]
+        );
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return !!$result;
+    }
 }

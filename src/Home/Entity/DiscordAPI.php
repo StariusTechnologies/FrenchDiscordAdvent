@@ -14,6 +14,8 @@ class DiscordAPI {
         'authorize' => '/oauth2/authorize',
         'token' => '/oauth2/token',
         'revoke' => '/oauth2/token/revoke',
+        'guild' => '/guilds/' . GUILD_ID . '/members/',
+        'event_message' => '/channels/' . EVENT_CHANNEL_SNOWFLAKE . '/messages',
     ];
 
     public static function getInstance(): DiscordAPI {
@@ -29,7 +31,7 @@ class DiscordAPI {
             'client_id' => OAUTH2_CLIENT_ID,
             'redirect_uri' => Request::getInstance()->getBaseURL(),
             'response_type' => 'code',
-            'scope' => 'identify',
+            'scope' => 'guilds.members.read identify guilds',
             'state' => '15773059ghq9183habn',
             'prompt' => 'consent'
         ];
@@ -74,6 +76,20 @@ class DiscordAPI {
         return $data;
     }
 
+    /**
+     * @return Object
+     * @throws Exception
+     */
+    public function getGuildUserInfo($user): object {
+        $data = $this->apiRequest(self::BASE_API_URL . self::API_ENDPOINTS['guild'] . $user->id, null, [], true);
+
+        if (isset($data->code) && $data->code === 0) {
+            throw new Exception($data->message);
+        }
+
+        return $data;
+    }
+
     public function revokeToken(): void {
         $this->apiRequest(self::BASE_API_URL . self::API_ENDPOINTS['revoke'], [
             'token' => $_SESSION['access_token'],
@@ -83,9 +99,19 @@ class DiscordAPI {
         ]);
     }
 
+    public function postEventMessage(string $content): void {
+        $data = $this->apiRequest(self::BASE_API_URL . self::API_ENDPOINTS['event_message'], [
+            'token' => $_SESSION['access_token'],
+            'token_type_hint' => 'access_token',
+            'client_id' => OAUTH2_CLIENT_ID,
+            'client_secret' => OAUTH2_CLIENT_SECRET,
+            'content' => $content,
+        ], [], true);
+    }
+
     private function __construct() {}
 
-    private function apiRequest($url, ?array $post = null, array $headers = []) {
+    private function apiRequest($url, ?array $post = null, array $headers = [], bool $isBotToken = false) {
         $ch = curl_init($url);
 
         curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
@@ -98,8 +124,10 @@ class DiscordAPI {
 
         $headers[] = 'Accept: application/json';
 
-        if (array_key_exists('access_token', $_SESSION)) {
+        if (!$isBotToken && array_key_exists('access_token', $_SESSION)) {
             $headers[] = 'Authorization: Bearer ' . $_SESSION['access_token'];
+        } else if ($isBotToken) {
+            $headers[] = 'Authorization: Bot ' . BOT_TOKEN;
         }
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);

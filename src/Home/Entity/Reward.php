@@ -8,45 +8,84 @@ use PDO;
 
 class Reward extends Entity
 {
+    private static ?Reward $instance = null;
+
     private const TABLE_NAME = 'calendar_special_reward';
 
     private int $id;
     private string $label;
     private int $gifted_quantity;
 
-    public static function getRewardsInfo(): array {
+    public const REWARD_LABEL_NITRO = 'nitro';
+    public const REWARD_LABEL_TOKEN = 'tokens';
+
+    public static function getInstance(): Reward {
+        if (self::$instance === null) {
+            self::$instance = new Reward();
+        }
+
+        return self::$instance;
+    }
+
+    public function getRewardsInfo(?string $elem = null): array {
+        $clauseWhere = '';
+        $queryData = [];
+
+        if ($elem !== null) {
+            $clauseWhere = ' WHERE label = :label';
+            $queryData[':label'] = $elem;
+        }
+
         $query = Db::getInstance()->query(
-            'SELECT * FROM ' . self::TABLE_NAME . ' ORDER BY label DESC'
+            'SELECT * FROM ' . self::TABLE_NAME . $clauseWhere . ' ORDER BY label',
+            $queryData
         );
 
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function pickReward(object $user): array {
+    public function getNitroRewardsInfo(): array {
+        $data = $this->getRewardsInfo(self::REWARD_LABEL_NITRO);
+        return count($data) > 0 ? $data[0] : [];
+    }
+
+    public function pickReward(object $user): array {
         $chanceForSpecialReward = 15;
         $specialRewardNumber = 7;
         $isSpecialReward = rand(0, $chanceForSpecialReward) === $specialRewardNumber;
 
         if ($isSpecialReward) {
-            return self::pickSpecialReward($user);
+            return $this->pickSpecialReward($user);
         } else {
             $minToken = 5;
             $maxToken = 10;
 
             return [
-                'name' => 'tokens',
+                'label' => 'tokens',
                 'amount' => rand($minToken, $maxToken),
             ];
         }
     }
 
-    private static function pickSpecialReward(object $user): array {
+    public function pingForSpecialReward(string $userSnowflake, array $labels): void {
+        //TODO format reward txt
+        $content = '<@' . $userSnowflake . '> a gagné ' . $labels['fr'] . ' en ouvrant la fenêtre d\'aujourd\'hui sur le calendrier de l\'hiver !';
+        $content .= "\n" . '<@' . $userSnowflake . '>, tu seras contacté bientôt';
+        $content .= "\n" . '<@' . $userSnowflake . '> opened today\'s window in the Winter Calendar and won ' . $labels['en'];
+        $content .= "\n" . '<@' . $userSnowflake . '>, you will be contacted shortly';
+
+        DiscordAPI::getInstance()->postEventMessage($content);
+    }
+
+    private function __construct() {}
+
+    private function pickSpecialReward(object $user): array {
         $chanceForhighValueReward = 10;
         $highValueRewardNumber = 7;
         $ishighValueReward = rand(0, $chanceForhighValueReward) === $highValueRewardNumber;
         $reward = [];
 
-        if (self::stillHighValueRewardToGive() && !self::alreadyHadHighValueReward($user) && $ishighValueReward) {
+        if ($this->stillHighValueRewardToGive() && !CalendarOpenedWindow::alreadyHadHighValueReward($user) && $ishighValueReward) {
             $reward = [
                 'label' => 'nitro',
                 'amount' => 1,
@@ -58,47 +97,40 @@ class Reward extends Entity
                 ['label' => 'tokens', 'amount' => '100'],
             ];
 
-            //TODO if don't have patreon, reward .push ['label' => 'patreon', 'amount' => '1']
+            $guildUser = DiscordAPI::getInstance()->getGuildUserInfo($user);
+
+            if (in_array(PATREON_ROLE_SNOWFLAKE, $guildUser->roles)) {
+                $possibleRewards[] = ['label' => 'patreon', 'amount' => '1'];
+            }
 
             $reward =  $possibleRewards[rand(0, count($possibleRewards) - 1)];
         }
 
         $rewardLabel = $reward['label'] === 'tokens'
-            ? $reward['amount'] + ' ' + $reward['label']
+            ? $reward['amount'] . ' ' . $reward['label']
             : $reward['label'];
 
-        self::incrementGiftedValue($rewardLabel, $user);
+        $this->incrementGiftedValue($rewardLabel, $user);
         return $reward;
     }
 
-    private static function incrementGiftedValue(string $rewardLabel, object $user): void {
-        $acceptedValues = ['nitro', 'patreon', '50 token', '75 token', '100 token'];
+    private function incrementGiftedValue(string $rewardLabel): void {
+        $acceptedValues = ['nitro', 'patreon', '50 tokens', '75 tokens', '100 tokens'];
 
         if ($rewardLabel && in_array($rewardLabel, $acceptedValues)) {
             Db::getInstance()->query(
                 'UPDATE ' . self::TABLE_NAME . ' 
                 SET gifted_quantity = gifted_quantity + 1 
-                WHERE label = :label AND user_snowflake = :user_snowflake',
-                [':user_snowflake' => $user->id, ':label' => $rewardLabel]
+                WHERE label = :label',
+                [':label' => $rewardLabel]
             );
         }
     }
 
-    private static function stillHighValueRewardToGive(): bool {
-        $rewardsInfo = self::getRewardsInfo();
+    private function stillHighValueRewardToGive(): bool {
+        $rewardsInfo = $this->getNitroRewardsInfo();
         $maxHighValueRewardGifted = 3;
 
-        return $rewardsInfo && $rewardsInfo['nitro'] && $rewardsInfo['nitro']['gifted_quantity'] < $maxHighValueRewardGifted;
-    }
-
-    private static function alreadyHadHighValueReward(object $user): bool {
-        $query = Db::getInstance()->query(
-            'SELECT * FROM ' . self::TABLE_NAME . ' 
-            WHERE user_snowflake = :userId AND is_high_value_reward = 1',
-            [':userId' => $user->id]
-        );
-
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-        return count($result) > 0;
+        return $rewardsInfo && $rewardsInfo['gifted_quantity'] < $maxHighValueRewardGifted;
     }
 }

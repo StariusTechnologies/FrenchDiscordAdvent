@@ -10,11 +10,11 @@ function addEventOpenWindow(calendarWindows) {
                 'click', (e) => {
                     calendarWindow = e.currentTarget;
 
-                    ajaxGet(`get-reward?window=${calendarWindow.innerText}`, (response) => {
+                    ajaxGet(`get-reward?dayNumber=${calendarWindow.innerText}`, (response) => {
                         response = JSON.parse(response);
 
                         if (!response) {
-                            document.location.href = baseUrl;
+                            //TODO document.location.href = baseUrl;
                         }
                     });
                     //get reward

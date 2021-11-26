@@ -1,6 +1,11 @@
 <?php
 
 const BEFEW_SECRET_TOKEN = '';
+const BOT_TOKEN = '';
+const GUILD_TOKEN = '';
+
+const PATREON_ROLE_SNOWFLAKE = '';
+const EVENT_CHANNEL_SNOWFLAKE = '';
 
 const DB_DRIVER = 'mysql';
 const DB_NAME = '';

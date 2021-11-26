@@ -8,6 +8,7 @@ use Befew\Response;
 use Exception;
 use Home\Entity\CalendarOpenedWindow;
 use Home\Entity\Reward;
+use Home\Entity\MemberToken;
 use Home\Entity\DiscordAPI;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -73,15 +74,26 @@ class HomeController extends Controller {
      * @throws Exception
      */
     public function getRewardAction(): void {
-        if (Request::getInstance()->isUserLoggedIn()) {
+        $dayNumber = Request::getInstance()->getGet('dayNumber');
+
+        if (Request::getInstance()->isUserLoggedIn() && $dayNumber) {
             $user = DiscordAPI::getInstance()->getUserInfo();
-            $reward = Reward::pickReward($user);
-            // user is in guild or not
-            // user is patreon or not
-            // pick normal or special reward
-            // get available reward or get amount won token
-            // give reward token or ping lily/moi et user dans bot fun for special reward () AND increment amoutGifted
-            // return label reward to display
+            // TODO $reward = Reward::getInstance()->pickReward($user);
+            $reward = ['label' => 'nitro', 'amount' => 1];//
+            CalendarOpenedWindow::openWindow($user->id, $dayNumber, $reward['label'], $reward['label'] === Reward::REWARD_LABEL_NITRO);
+
+            $labels = [
+                'fr' => 'un abonnement Nitro d\'un mois',
+                'en' => 'one month of Nitro'
+            ];
+            Reward::getInstance()->pingForSpecialReward($user->id, $labels);//TODO
+            /* if ($reward['label'] === Reward::REWARD_LABEL_TOKEN) {
+                MemberToken::getInstance()->giveTokens($user->id, $reward['amount']);
+            } else {
+                Reward::getInstance()->pingForSpecialReward($user->id, $reward['amount']);
+            } */
+
+            echo json_encode($reward);
         } else {
             echo json_encode(false);
         }
