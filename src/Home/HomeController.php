@@ -93,20 +93,20 @@ class HomeController extends Controller {
 
         if (Request::getInstance()->isUserLoggedIn() && $dayNumber) {
             $user = DiscordAPI::getInstance()->getUserInfo();
-            // TODO $reward = Reward::getInstance()->pickReward($user);
-            $reward = ['label' => 'nitro', 'amount' => 1];//
+            $reward = Reward::getInstance()->pickReward($user);
             CalendarOpenedWindow::openWindow($user->id, $dayNumber, $reward['label'], $reward['label'] === Reward::REWARD_LABEL_NITRO);
 
+            //TODO switch reward value and setup fr/en labels
             $labels = [
                 'fr' => 'un abonnement Nitro d\'un mois',
                 'en' => 'one month of Nitro'
             ];
-            Reward::getInstance()->pingForSpecialReward($user->id, $labels);//TODO
-            /* if ($reward['label'] === Reward::REWARD_LABEL_TOKEN) {
+            
+            if ($reward['label'] === Reward::REWARD_LABEL_TOKEN) {
                 MemberToken::getInstance()->giveTokens($user->id, $reward['amount']);
             } else {
-                Reward::getInstance()->pingForSpecialReward($user->id, $reward['amount']);
-            } */
+                Reward::getInstance()->pingForSpecialReward($user->id, $labels);
+            }
 
             echo json_encode($reward);
         } else {

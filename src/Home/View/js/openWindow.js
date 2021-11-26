@@ -14,12 +14,10 @@ function addEventOpenWindow(calendarWindows) {
                         response = JSON.parse(response);
 
                         if (!response) {
-                            //TODO document.location.href = baseUrl;
+                            //TODO do something I guess / document.location.href = baseUrl;
                         }
                     });
-                    //get reward
                     // TODO Lily will add animation
-                    // ajax openWindow- set db entry window x opened - give reward somehow - if special reward decrement available speReward on db
                 }
             );
         }
