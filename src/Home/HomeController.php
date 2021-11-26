@@ -3,6 +3,7 @@
 namespace Home;
 
 use Befew\Controller;
+use Befew\Path;
 use Befew\Request;
 use Befew\Response;
 use Exception;
@@ -23,6 +24,7 @@ class HomeController extends Controller {
         $this->template->addCSS('default.css');
         $this->template->addCSS('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+        $this->template->addJS('calendar.js');
         $this->template->addJS('ajax.js', false);
         $this->template->addJS('parts.js', false);
         $this->template->addJS('home.js', false);
@@ -33,9 +35,22 @@ class HomeController extends Controller {
             $discordAvatarExtension = strpos($user->avatar, 'a_') === 0 ? '.gif' : '.png';
             $discordAvatarURL = 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . $discordAvatarExtension . '?size=24';
 
+            $relativeCalendarImagesFolderPath = (clone $this->assetsPath)
+                ->concat('images', 'calendar-windows')
+                ->withTrailingSlash()
+                ->withWebSeparators();
+
+            $absoluteCalendarImagesPath = new Path(__DIR__, 'View', 'images', 'calendar-windows', '*');
+            $calendarImages = array_map(function (string $path) use ($relativeCalendarImagesFolderPath): string {
+                $filename = substr($path, strripos($path, DIRECTORY_SEPARATOR) + 1);
+
+                return $relativeCalendarImagesFolderPath . $filename;
+            }, glob($absoluteCalendarImagesPath));
+
             $this->template->render('index.html.twig', [
                 'user' => $user,
                 'discordAvatarURL' => $discordAvatarURL,
+                'calendarImages' => $calendarImages,
             ]);
         } else {
             if (!Request::getInstance()->hasGet('code')) {

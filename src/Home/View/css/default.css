@@ -27,20 +27,12 @@ html, body, #container, #content {
     height: 100%;
 }
 
-#content {
-    height: calc(100% - 100px);
-}
-
 h1 {
     text-align: center;
     padding: 10px 0;
     font-size: 3em;
-}
-
-h2 {
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 15px
+    position: absolute;
+    width: 100%;
 }
 
 li {
@@ -55,11 +47,16 @@ nav {
     z-index: 10;
 }
 
+nav, nav > ul, nav > ul > li {
+    pointer-events: none;
+}
+
 nav > ul > li > input {
     display: none;
 }
 
 nav > ul > li > label {
+    pointer-events: all;
     display: inline-block;
     background-color: #2F3136;
     height: 50px;
@@ -156,6 +153,16 @@ nav > ul label .discord-logo {
     opacity: 50%;
 }
 
+#calendar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
 #popup {
     position: fixed;
     height: 100vh;
@@ -174,6 +181,8 @@ nav > ul label .discord-logo {
     margin: 15px 20px;
     cursor: pointer;
     transition: .3s ease-in-out;
+    background: none;
+    border: 0;
 }
 
 #close:hover {
@@ -187,152 +196,4 @@ nav > ul label .discord-logo {
     float: left;
     font-size: 20px;
     width: calc(100% - 150px);
-}
-
-
-/* Box */
-.box {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    border: 2px solid var(--black);
-    position: absolute;
-    font-size: 20px;
-    font-weight: bold;
-    transition: .4s ease-in-out;
-    cursor: pointer;
-    user-select: none;
-}
-
-.box:hover {
-    background-color: var(--white);
-    color: var(--black);
-}
-
-#box1 {
-    top: 60%;
-    left: 5%;
-}
-
-#box2 {
-    top: 16%;
-    right: 24%;
-}
-
-#box3 {
-    top: 12%;
-    left: 27.5%;
-}
-
-#box4 {
-    bottom: 19.8%;
-    right: 36%;
-}
-
-#box5 {
-    top: 37.4%;
-    left: 50.3%;
-}
-
-#box6 {
-    top: 26%;
-    left: 9.4%;
-}
-
-#box7 {
-    bottom: 13.1%;
-    left: 25.3%;
-}
-
-#box8 {
-    top: 35%;
-    right: 15.3%;
-}
-
-#box9 {
-    bottom: 34.7%;
-    left: 38.4%;
-}
-
-#box10 {
-    bottom: 9.2%;
-    left: 4.7%;
-}
-
-#box11 {
-    bottom: 31%;
-    right: 7.3%;
-}
-
-#box12 {
-    top: 10.5%;
-    left: 44.1%;
-}
-
-#box13 {
-    top: 39%;
-    left: 23.9%;
-}
-
-#box14 {
-    top: 3.6%;
-    right: 4.5%;
-}
-
-#box15 {
-    top: 52%;
-    right: 29.9%;
-}
-
-#box16 {
-    bottom: 6.6%;
-    left: 43.6%;
-}
-
-#box17 {
-    bottom: 25.9%;
-    right: 20.3%;
-}
-
-#box18 {
-    top: 25.8%;
-    right: 34.3%;
-}
-
-#box19 {
-    bottom: 6.4%;
-    right: 10.5%;
-}
-
-#box20 {
-    bottom: 40%;
-    left: 15.6%;
-}
-
-#box21 {
-    top: 30.2%;
-    left: 36.2%;
-}
-
-#box22 {
-    bottom: 28.5%;
-    right: 45.1%;
-}
-
-#box23 {
-    top: 19.6%;
-    right: 10.9%;
-}
-
-#box24 {
-    top: 6.7%;
-    left: 5.3%;
-}
-
-footer * {
-    padding-left: 2.5%;
-}
-
-footer {
-    display: flex;
 }
