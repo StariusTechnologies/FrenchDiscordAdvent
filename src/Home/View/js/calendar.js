@@ -35,7 +35,7 @@ var CalendarWindow = {
         var x = mousePosition.x - this.x;
         var y = mousePosition.y - this.y;
 
-        return Math.abs(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
+        return Math.abs(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))) < this.radius;
     },
 
     setActive: function (active) {
@@ -52,6 +52,11 @@ var CalendarWindow = {
         context.fillStyle = this.colours.background;
         context.strokeStyle = this.colours.stroke;
         context.lineWidth = 4;
+
+        if (this.isMouseOver(mousePosition)) {
+            context.shadowBlur = 10;
+            context.shadowColor = 'white';
+        }
 
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
@@ -98,6 +103,19 @@ var CalendarWindow = {
 
         this.x += this.vx;
         this.y += this.vy;
+    },
+
+    clickHandler(event) {
+        var mousePosition = {
+            x: event.clientX,
+            y: event.clientY,
+        }
+
+        if (!this.isMouseOver(mousePosition)) {
+            return;
+        }
+
+        alert('YOOOOOOO ' + this.text); // TODO replace with actual action
     },
 };
 
@@ -250,7 +268,12 @@ var Calendar = {
     mouseMoveHandler: function (event) {
         this.mousePosition.x = event.clientX - this.canvas.offsetLeft;
         this.mousePosition.y = event.clientY - this.canvas.offsetTop;
-    }
+    },
+
+    clickHandler: function (event) {
+        this.windows.forEach(calendarWindow => calendarWindow.clickHandler.bind(calendarWindow)(event));
+    },
 };
 
 document.addEventListener('mousemove', Calendar.mouseMoveHandler.bind(Calendar));
+document.addEventListener('click', Calendar.clickHandler.bind(Calendar));
