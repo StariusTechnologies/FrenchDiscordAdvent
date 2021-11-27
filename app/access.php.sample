@@ -2,7 +2,7 @@
 
 const BEFEW_SECRET_TOKEN = '';
 const BOT_TOKEN = '';
-const GUILD_TOKEN = '';
+const GUILD_ID = '';
 
 const PATREON_ROLE_SNOWFLAKE = '';
 const EVENT_CHANNEL_SNOWFLAKE = '';
@@ -12,6 +12,7 @@ const DB_NAME = '';
 const DB_HOST = '';
 const DB_USER = '';
 const DB_PASSWORD = '';
+const DB_PORT = '';
 
 const OAUTH2_CLIENT_ID = '';
 const OAUTH2_CLIENT_SECRET = '';
