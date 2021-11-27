@@ -4,6 +4,7 @@ namespace Home\Entity;
 
 use Befew\Db;
 use Befew\Entity;
+use Befew\Request;
 use PDO;
 
 class Reward extends Entity
@@ -18,6 +19,10 @@ class Reward extends Entity
 
     public const REWARD_LABEL_NITRO = 'nitro';
     public const REWARD_LABEL_TOKEN = 'tokens';
+    public const DISPLAYED_FR_LABEL_NITRO = 'un abonnement Nitro d\'un mois';
+    public const DISPLAYED_EN_LABEL_NITRO = 'one month of Nitro';
+    public const DISPLAYED_FR_LABEL_PATREON = 'un mois de Patreon French';
+    public const DISPLAYED_EN_LABEL_PATREON = 'one month French Patreon';
 
     public static function getInstance(): Reward {
         if (self::$instance === null) {
@@ -68,11 +73,15 @@ class Reward extends Entity
     }
 
     public function pingForSpecialReward(string $userSnowflake, array $labels): void {
-        //TODO format reward txt
-        $content = '<@' . $userSnowflake . '> a gagné ' . $labels['fr'] . ' en ouvrant la fenêtre d\'aujourd\'hui sur le calendrier de l\'hiver !';
-        $content .= "\n" . '<@' . $userSnowflake . '>, tu seras contacté bientôt';
-        $content .= "\n" . '<@' . $userSnowflake . '> opened today\'s window in the Winter Calendar and won ' . $labels['en'];
-        $content .= "\n" . '<@' . $userSnowflake . '>, you will be contacted shortly';
+        $frEmoji = DiscordAPI::getInstance()->getGuildEmoji(FR_EMOJI_SNOWFLAKE);
+        $enEmoji = DiscordAPI::getInstance()->getGuildEmoji(EN_EMOJI_SNOWFLAKE);
+
+        $content = $frEmoji . "\n";
+        $content .= '<@' . $userSnowflake . '> a gagné **' . $labels['fr'] . '** en ouvrant la fenêtre d\'aujourd\'hui sur le **Calendrier de l\'hiver** !';
+        $content .= "\n" . '<@' . $userSnowflake . '>, Lily te contactera bientôt pour te donner ta récompense !';
+        $content .= "\n\n" . $enEmoji;
+        $content .= "\n" . '<@' . $userSnowflake . '> opened today\'s window in the **Winter Calendar** and won **' . $labels['en'] . '**';
+        $content .= "\n" . '<@' . $userSnowflake . '>, Lily will contact you shortly to give you your reward';
 
         DiscordAPI::getInstance()->postEventMessage($content);
     }

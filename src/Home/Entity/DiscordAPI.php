@@ -16,6 +16,7 @@ class DiscordAPI {
         'revoke' => '/oauth2/token/revoke',
         'guild' => '/guilds/' . GUILD_ID . '/members/',
         'event_message' => '/channels/' . EVENT_CHANNEL_SNOWFLAKE . '/messages',
+        'getEmoji' => 'guilds/' . GUILD_ID . '/emojis/',
     ];
 
     public static function getInstance(): DiscordAPI {
@@ -82,6 +83,20 @@ class DiscordAPI {
      */
     public function getGuildUserInfo($user): object {
         $data = $this->apiRequest(self::BASE_API_URL . self::API_ENDPOINTS['guild'] . $user->id, null, [], true);
+
+        if (isset($data->code) && $data->code === 0) {
+            throw new Exception($data->message);
+        }
+
+        return $data;
+    }
+
+    /**
+     * @return Object
+     * @throws Exception
+     */
+    public function getGuildEmoji($emojiSnowflake): object {
+        $data = $this->apiRequest(DiscordAPI::BASE_API_URL . DiscordAPI::API_ENDPOINTS['getEmoji'] . $emojiSnowflake);
 
         if (isset($data->code) && $data->code === 0) {
             throw new Exception($data->message);

@@ -7,6 +7,9 @@ const GUILD_TOKEN = '';
 const PATREON_ROLE_SNOWFLAKE = '';
 const EVENT_CHANNEL_SNOWFLAKE = '';
 
+const FR_EMOJI_SNOWFLAKE = '';
+const EN_EMOJI_SNOWFLAKE = '';
+
 const DB_DRIVER = 'mysql';
 const DB_NAME = '';
 const DB_HOST = '';
