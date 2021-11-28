@@ -58,7 +58,7 @@ class Reward extends Entity
         $chanceForSpecialReward = 15;
         $specialRewardNumber = 7;
         $isSpecialReward = rand(0, $chanceForSpecialReward) === $specialRewardNumber;
-
+        
         if ($isSpecialReward) {
             return $this->pickSpecialReward($user);
         } else {
@@ -73,15 +73,17 @@ class Reward extends Entity
     }
 
     public function pingForSpecialReward(string $userSnowflake, array $labels): void {
-        $frEmoji = DiscordAPI::getInstance()->getGuildEmoji(FR_EMOJI_SNOWFLAKE);
-        $enEmoji = DiscordAPI::getInstance()->getGuildEmoji(EN_EMOJI_SNOWFLAKE);
+        $frEmoji = '<:' . FR_EMOJI_NAME . ':' . FR_EMOJI_SNOWFLAKE . '>';
+        $enEmoji = '<:' . EN_EMOJI_NAME . ':' . EN_EMOJI_SNOWFLAKE . '>';
 
         $content = $frEmoji . "\n";
         $content .= '<@' . $userSnowflake . '> a gagné **' . $labels['fr'] . '** en ouvrant la fenêtre d\'aujourd\'hui sur le **Calendrier de l\'hiver** !';
         $content .= "\n" . '<@' . $userSnowflake . '>, Lily te contactera bientôt pour te donner ta récompense !';
+        $content .= "\n" . '**Toi aussi, tente ta chance** ! ici -> **https://avent.frenchdiscord.com**';
         $content .= "\n\n" . $enEmoji;
         $content .= "\n" . '<@' . $userSnowflake . '> opened today\'s window in the **Winter Calendar** and won **' . $labels['en'] . '**';
         $content .= "\n" . '<@' . $userSnowflake . '>, Lily will contact you shortly to give you your reward';
+        $content .= "\n" . '**Take your chance too**! right here -> **https://avent.frenchdiscord.com**';
 
         DiscordAPI::getInstance()->postEventMessage($content);
     }
@@ -101,18 +103,18 @@ class Reward extends Entity
             ];
         } else {
             $possibleRewards = [
-                ['label' => 'tokens', 'amount' => '50'],
-                ['label' => 'tokens', 'amount' => '75'],
-                ['label' => 'tokens', 'amount' => '100'],
+                ['label' => 'tokens', 'amount' => 50],
+                ['label' => 'tokens', 'amount' => 75],
+                ['label' => 'tokens', 'amount' => 100],
             ];
 
             $guildUser = DiscordAPI::getInstance()->getGuildUserInfo($user);
 
-            if (in_array(PATREON_ROLE_SNOWFLAKE, $guildUser->roles)) {
+            if (!in_array(PATREON_ROLE_SNOWFLAKE, $guildUser->roles)) {
                 $possibleRewards[] = ['label' => 'patreon', 'amount' => '1'];
             }
 
-            $reward =  $possibleRewards[rand(0, count($possibleRewards) - 1)];
+            $reward = $possibleRewards[rand(0, count($possibleRewards) - 1)];
         }
 
         $rewardLabel = $reward['label'] === 'tokens'

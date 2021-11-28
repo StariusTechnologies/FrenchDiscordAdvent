@@ -115,7 +115,21 @@ var CalendarWindow = {
             return;
         }
 
-        alert('YOOOOOOO ' + this.text); // TODO replace with actual action
+        this.openTodayWindow();
+    },
+
+    openTodayWindow() {
+        ajaxGet('get-reward&window=' + this.text, (response) => {
+            response = JSON.parse(response);
+
+            if (!response) {
+                return;
+            }
+
+            //animation of window opening
+            //
+            // TODO pop modal with associated txt and reward
+        });
     },
 };
 

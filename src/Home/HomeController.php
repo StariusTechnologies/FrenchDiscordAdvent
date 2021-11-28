@@ -29,7 +29,6 @@ class HomeController extends Controller {
         $this->template->addJS('ajax.js', false);
         $this->template->addJS('parts.js', false);
         $this->template->addJS('home.js', false);
-        $this->template->addJS('openWindow.js', false);
 
         if (Request::getInstance()->isUserLoggedIn()) {
             $user = DiscordAPI::getInstance()->getUserInfo();
@@ -74,25 +73,14 @@ class HomeController extends Controller {
     /**
      * @throws Exception
      */
-    public function getOpenedWindowsAction(): void {
-        if (Request::getInstance()->isUserLoggedIn()) {
-            $user = DiscordAPI::getInstance()->getUserInfo();
-            $openedWindows = CalendarOpenedWindow::getAllForUser($user->id);
-
-            echo json_encode($openedWindows);
-        } else {
-            echo json_encode(false);
-        }
-    }
-
-    /**
-     * @throws Exception
-     */
     public function getRewardAction(): void {
-        $dayNumber = Request::getInstance()->getGet('dayNumber');
+        $user = DiscordAPI::getInstance()->getUserInfo();
+        $windowNumber = Request::getInstance()->getGet('window');
+        $dayNumber = date('d');
+        $isTodayWindow = $windowNumber && $windowNumber == $dayNumber;
+        $canOpenTodayWindow = CalendarOpenedWindow::canOpenTodayWindow($user, $dayNumber);
 
-        if (Request::getInstance()->isUserLoggedIn() && $dayNumber) {
-            $user = DiscordAPI::getInstance()->getUserInfo();
+        if (Request::getInstance()->isUserLoggedIn() && $isTodayWindow && $canOpenTodayWindow) {
             $reward = Reward::getInstance()->pickReward($user);
             CalendarOpenedWindow::openWindow($user->id, $dayNumber, $reward['label'], $reward['label'] === Reward::REWARD_LABEL_NITRO);
             

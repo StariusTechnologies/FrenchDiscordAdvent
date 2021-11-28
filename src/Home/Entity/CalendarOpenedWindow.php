@@ -37,12 +37,24 @@ class CalendarOpenedWindow extends Entity
         );
     }
 
+    public static function canOpenTodayWindow(object $user, int $day_number): bool {
+        $query = Db::getInstance()->query(
+            'SELECT * FROM ' . self::TABLE_NAME . ' 
+            WHERE user_snowflake = :userId AND day_number = :day_number',
+            [':userId' => $user->id, ':day_number' => $day_number]
+        );
+
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return !$result;
+    }
+
     public static function alreadyHadHighValueReward(object $user): bool {
         $query = Db::getInstance()->query(
             'SELECT * FROM ' . self::TABLE_NAME . ' 
             WHERE user_snowflake = :userId AND is_high_value_reward = 1',
             [':userId' => $user->id]
         );
+
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return !!$result;
     }

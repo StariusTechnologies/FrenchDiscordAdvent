@@ -6,10 +6,6 @@ logout:
   file: 'Home/HomeController.php'
   action: 'logout'
 
-get-opened-windows:
-  file: 'Home/HomeController.php'
-  action: 'getOpenedWindows'
-
 get-reward:
   file: 'Home/HomeController.php'
   action: 'getReward'
