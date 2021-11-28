@@ -8,6 +8,7 @@ use Befew\Request;
 use Befew\Response;
 use Exception;
 use Home\Entity\CalendarOpenedWindow;
+use Home\Entity\CalendarStory;
 use Home\Entity\Reward;
 use Home\Entity\MemberToken;
 use Home\Entity\DiscordAPI;
@@ -100,7 +101,10 @@ class HomeController extends Controller {
                 Reward::getInstance()->pingForSpecialReward($user->id, $displayedLabels);
             }
 
-            echo json_encode($reward);
+            echo json_encode([
+                'reward' => $reward,
+                'story' => CalendarStory::getTodayStory()
+            ]);
         } else {
             echo json_encode(false);
         }

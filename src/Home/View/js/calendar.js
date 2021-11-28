@@ -126,9 +126,14 @@ var CalendarWindow = {
                 return;
             }
 
-            //animation of window opening
-            //
-            // TODO pop modal with associated txt and reward
+            //TODO Lily: animation of window opening
+            var popup = document.getElementById('popup');
+            var popupText = document.getElementById('popupText');
+            var popupTitle = document.getElementById('partTitle');
+
+            popupTitle.innerText = response['story'].title;
+            popupText.innerText = response['story'].content;
+            popup.style.display = 'flex';
         });
     },
 };

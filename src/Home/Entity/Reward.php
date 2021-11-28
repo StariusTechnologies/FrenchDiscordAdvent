@@ -4,7 +4,6 @@ namespace Home\Entity;
 
 use Befew\Db;
 use Befew\Entity;
-use Befew\Request;
 use PDO;
 
 class Reward extends Entity

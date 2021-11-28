@@ -7,8 +7,6 @@ class Response {
         http_response_code($code);
 
         switch ($code) {
-            case 401 :
-                self::redirect(Request::getInstance()->getBaseURL());
             default:
                 include(dirname(__FILE__, 2) . '/app/404.php');
                 break;
