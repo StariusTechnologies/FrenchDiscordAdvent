@@ -41,6 +41,11 @@ class HomeController extends Controller {
             $goalDate = new DateTime('2022-01-01');
             $daysLeft = ceil(($goalDate->getTimestamp() - time()) / (24 * 60 * 60));
 
+            $canOpenTodayWindow = CalendarOpenedWindow::canOpenTodayWindow(
+                $user,
+                date('d')
+            );
+
             $relativeCalendarActiveImagesFolderPath = (clone $this->assetsPath)
                 ->concat('images', 'calendar-windows', 'active')
                 ->withTrailingSlash()
@@ -72,6 +77,7 @@ class HomeController extends Controller {
                 'calendarActiveImages' => $calendarActiveImages,
                 'calendarInactiveImages' => $calendarInactiveImages,
                 'daysLeft' => $daysLeft,
+                'canOpenTodayWindow' => $canOpenTodayWindow,
                 'debug' => Request::getInstance()->has('debug'),
             ]);
         } else {
@@ -99,7 +105,7 @@ class HomeController extends Controller {
         $user = DiscordAPI::getInstance()->getUserInfo();
         $windowNumber = Request::getInstance()->getGet('day');
         $dayNumber = date('d');
-        $isTodayWindow = $windowNumber !== null && $windowNumber === $dayNumber;
+        $isTodayWindow = $windowNumber !== null && (int) $windowNumber === (int) $dayNumber;
         $canOpenTodayWindow = CalendarOpenedWindow::canOpenTodayWindow($user, $dayNumber);
 
         if (Request::getInstance()->isUserLoggedIn()) {

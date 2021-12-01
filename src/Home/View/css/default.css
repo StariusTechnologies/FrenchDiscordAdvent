@@ -18,7 +18,14 @@
 }
 
 body {
-    background: url('../images/background.jpg') var(--black);
+    background-color: var(--black);
+    background-image:
+        url('../images/background-stardust.png'),
+        url('../images/background-stars3.png'),
+        url('../images/background-stars2.png'),
+        url('../images/background-stars1.png'),
+        url('../images/background.jpg');
+    background-size: cover;
     color: var(--white)
 }
 

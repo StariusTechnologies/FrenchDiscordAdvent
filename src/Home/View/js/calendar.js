@@ -3,7 +3,7 @@ var CALENDAR_WINDOW_PROPERTIES = {
         colours: {
             background: '#CCCCCC',
             stroke: '#666666',
-            text: '#AAAAAA',
+            text: '#888888',
         },
         radius: 40,
     },
@@ -17,6 +17,7 @@ var CALENDAR_WINDOW_PROPERTIES = {
     },
 };
 var ANIMATION_DURATION = 0.5;
+var FRENCH_COLOURS = ['#7eb301', '#fdcd00', '#0198e9', '#e40001', '#5d0073'];
 
 var CalendarWindow = {
     x: 0,
@@ -33,6 +34,7 @@ var CalendarWindow = {
     appearing: false,
     popping: false,
     appeared: false,
+    frenchColoursIndex: 0,
     animating: false,
     animationFrame: 0,
     animationFrameEnd: null,
@@ -49,6 +51,19 @@ var CalendarWindow = {
         this.fullRadius = CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].radius;
         this.radius = CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].radius;
         this.active = !!active;
+
+        this.bumpColour();
+
+        return this;
+    },
+
+    bumpColour: function () {
+        if (this.active && window.canOpenTodayWindow) {
+            this.colours.stroke = FRENCH_COLOURS[this.frenchColoursIndex % FRENCH_COLOURS.length];
+            this.frenchColoursIndex++;
+        } else {
+            this.colours.stroke = CALENDAR_WINDOW_PROPERTIES.inactive.colours.stroke;
+        }
 
         return this;
     },
@@ -164,7 +179,7 @@ var CalendarWindow = {
 
     addGlow: function (context) {
         context.shadowBlur = 10;
-        context.shadowColor = 'white';
+        context.shadowColor = this.colours.background;
     },
 
     drawBubble: function (context) {
@@ -175,9 +190,18 @@ var CalendarWindow = {
         context.fill();
         context.stroke();
 
+        context.beginPath();
+        context.arc(
+            this.x - (this.radius / 1.5),
+            this.y - (this.radius / 1.5),
+            this.radius / 2, 0,
+            Math.PI * 2,
+            true
+        );
+        context.closePath();
+        context.fill();
+
         context.restore();
-
-
     },
 
     drawImage: function (context, image) {
@@ -191,10 +215,14 @@ var CalendarWindow = {
     },
 
     drawNumber: function (context) {
-        context.font = this.radius + 'px Roboto'
+        context.font = this.radius / 2 + 'px Roboto'
         context.fillStyle = this.colours.text;
         context.textAlign = 'center';
-        context.fillText(this.text, this.x, this.y + this.radius / 48 * 17);
+        context.fillText(
+            this.text,
+            this.x - (this.radius / 1.5),
+            (this.y + (this.radius / 1.5) / 4) - (this.radius / 1.5)
+        );
 
         context.restore();
     },
@@ -209,12 +237,14 @@ var CalendarWindow = {
             this.vx = 0;
         } else if (tooFarLeft || tooFarRight) {
             this.vx *= -1;
+            this.bumpColour();
         }
 
         if (tooFarUp && tooFarDown) {
             this.vy = 0;
         } else if (tooFarUp || tooFarDown) {
             this.vy *= -1;
+            this.bumpColour();
         }
 
         this.x += this.vx;
@@ -517,6 +547,10 @@ var Calendar = {
             }
 
             if (response.status < 1) {
+                var calendarWindow = this.getWindowInstanceFromDay(day);
+
+                window.canOpenTodayWindow = false;
+                calendarWindow.setActive(calendarWindow.active);
                 Modal.open(response['story'].title, response['story'].content);
             } else {
                 Modal.open(
@@ -524,7 +558,7 @@ var Calendar = {
                     'An error occurred. This is not your fault, don\'t worry. Please refresh the page, it should fix the problem.'
                 );
             }
-        });
+        }.bind(this));
     },
 
     mouseMoveHandler: function (event) {

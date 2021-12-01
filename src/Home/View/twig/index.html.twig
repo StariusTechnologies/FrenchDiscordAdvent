@@ -44,6 +44,7 @@
     </div>
 
     <script type="text/javascript">
+        var canOpenTodayWindow = {{ canOpenTodayWindow ? 'true' : 'false' }};
         var calendarWindowActiveImages = {{ calendarActiveImages|json_encode|raw }};
         var calendarWindowInactiveImages = {{ calendarInactiveImages|json_encode|raw }};
         var debug = {{ debug ? 'true' : 'false' }};
