@@ -535,10 +535,6 @@ var Calendar = {
     },
 
     openWindow: function (day) {
-        Modal.closeHandler = function () {
-            this.getWindowInstanceFromDay(day).animate('appearing', this.fps);
-        }.bind(this);
-
         ajaxGet('get-reward&day=' + day, function (response) {
             response = JSON.parse(response);
 
@@ -547,11 +543,21 @@ var Calendar = {
             }
 
             if (response.status < 1) {
-                var calendarWindow = this.getWindowInstanceFromDay(day);
+                if (response.story) {
+                    var calendarWindow = this.getWindowInstanceFromDay(day);
 
-                window.canOpenTodayWindow = false;
-                calendarWindow.setActive(calendarWindow.active);
-                Modal.open(response);
+                    Modal.closeHandler = function () {
+                        this.getWindowInstanceFromDay(day).animate('appearing', this.fps);
+                    }.bind(this);
+
+                    window.canOpenTodayWindow = false;
+                    calendarWindow.setActive(calendarWindow.active);
+                    Modal.open(response);
+                } else {
+                    setTimeout(function () {
+                        this.getWindowInstanceFromDay(day).animate('appearing', this.fps);
+                    }.bind(this), ANIMATION_DURATION * 1.5);
+                }
             } else {
                 Modal.open(
                     'Error',

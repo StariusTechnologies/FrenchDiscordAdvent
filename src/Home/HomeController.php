@@ -107,6 +107,7 @@ class HomeController extends Controller {
         $dayNumber = date('d');
         $isTodayWindow = $windowNumber !== null && (int) $windowNumber === (int) $dayNumber;
         $canOpenTodayWindow = CalendarOpenedWindow::canOpenTodayWindow($user, $dayNumber);
+        $isDayUpcoming = (int) $windowNumber > (int) $dayNumber;
 
         if (Request::getInstance()->isUserLoggedIn()) {
             $reward = null;
@@ -118,7 +119,7 @@ class HomeController extends Controller {
             echo json_encode([
                 'status' => 0,
                 'reward' => $reward,
-                'story' => CalendarStory::getDayStory($windowNumber),
+                'story' => $isDayUpcoming ? null : CalendarStory::getDayStory($windowNumber),
             ]);
         } else {
             echo json_encode([

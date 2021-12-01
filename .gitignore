@@ -3,3 +3,4 @@
 *.iml
 cache
 app/access.php
+/deploy.*

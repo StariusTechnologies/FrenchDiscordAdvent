@@ -34,7 +34,7 @@ function autoloader($classname) {
     $filename .= str_replace('_', DIRECTORY_SEPARATOR, $classname) . '.php';
 
     require preg_replace(
-        '/^Befew' . preg_quote(DIRECTORY_SEPARATOR) . '/',
+        '/^Befew' . preg_quote(DIRECTORY_SEPARATOR, '/') . '/',
         'lib' . DIRECTORY_SEPARATOR,
         $filename
     );
