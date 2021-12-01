@@ -41,6 +41,7 @@ function autoloader($classname) {
 }
 
 spl_autoload_register('autoloader');
+date_default_timezone_set('America/Los_Angeles');
 
 if(defined('DB_NAME')) {
     define('DB_ACTIVE', true);

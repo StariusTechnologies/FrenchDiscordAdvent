@@ -53,6 +53,7 @@ class Db {
     public function query(string $query, array $queryData = []): ?\PDOStatement {
         $query = Db::getInstance()->getDBH()->prepare($query);
         $query->execute($queryData);
+
         return $query;
     }
 

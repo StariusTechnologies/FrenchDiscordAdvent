@@ -28,11 +28,19 @@ html, body, #container, #content {
 }
 
 h1 {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     padding: 10px 0;
     font-size: 3em;
     position: absolute;
     width: 100%;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 2em;
 }
 
 li {
@@ -176,7 +184,7 @@ nav > ul label .discord-logo {
     align-items: center;
 }
 
-#close {
+#popup .close {
     color: var(--blue);
     font-size: 4em;
     float: right;
@@ -188,11 +196,11 @@ nav > ul label .discord-logo {
     align-self: flex-end;
 }
 
-#close:hover {
+#popup .close:hover {
     color: #1d73c3;
 }
 
-#popupText {
+#popup p {
     text-align: justify;
     margin-top: 15px;
     margin-left: 20px;

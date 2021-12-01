@@ -1,11 +1,11 @@
 var CALENDAR_WINDOW_PROPERTIES = {
     inactive: {
         colours: {
-            background: 'grey',
+            background: '#CCCCCC',
             stroke: '#666666',
             text: '#AAAAAA',
         },
-        radius: 25,
+        radius: 40,
     },
     active: {
         colours: {
@@ -16,20 +16,26 @@ var CALENDAR_WINDOW_PROPERTIES = {
         radius: 100,
     },
 };
+var ANIMATION_DURATION = 0.5;
 
 var CalendarWindow = {
     x: 0,
     y: 0,
     vx: 0,
     vy: 0,
-    radius: 25,
-    colours: {
-        background: 'grey',
-        stroke: '#666666',
-        text: '#AAAAAA',
-    },
+    fullRadius: CALENDAR_WINDOW_PROPERTIES.inactive.radius,
+    radius: CALENDAR_WINDOW_PROPERTIES.inactive.radius,
+    colours: CALENDAR_WINDOW_PROPERTIES.inactive.colours,
+    opacity: 1,
     text: '',
     active: false,
+    fps: 60,
+    appearing: false,
+    popping: false,
+    appeared: false,
+    animating: false,
+    animationFrame: 0,
+    animationFrameEnd: null,
 
     isMouseOver: function (mousePosition) {
         var x = mousePosition.x - this.x;
@@ -40,24 +46,128 @@ var CalendarWindow = {
 
     setActive: function (active) {
         this.colours = CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].colours;
+        this.fullRadius = CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].radius;
         this.radius = CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].radius;
         this.active = !!active;
 
         return this;
     },
 
+    animate: function (animation, fps) {
+        if (fps) {
+            this.fps = fps;
+        }
+
+        this.animating = true;
+        this.animationFrame = 0;
+        this.animationFrameEnd = this.fps * ANIMATION_DURATION;
+
+        ['appearing', 'popping'].forEach(function (key) {
+            this[key] = key === animation;
+        }.bind(this));
+    },
+
+    endAnimation: function () {
+        this.animating = false;
+        this.animationFrame = 0;
+
+        ['appearing', 'popping'].forEach(function (key) {
+            this[key] = false;
+        }.bind(this));
+    },
+
     draw: function (context, mousePosition, image) {
+        if (this.animating) {
+            context.save();
+            this.handleAnimation(context);
+        }
+
+        this.setContextStyle(context);
+
+        if (this.isMouseOver(mousePosition)) {
+            this.addGlow(context);
+        }
+
+        this.drawBubble(context);
+        this.drawImage(context, image);
+        this.drawNumber(context);
+        this.calculateVelocity(context);
+
+        if (this.animating) {
+            context.restore();
+        }
+    },
+
+    handleAnimation: function () {
+        if (this.appearing) {
+            this.animateAppearing();
+        } else if (this.popping) {
+            this.animatePopping();
+        }
+    },
+
+    animateAppearing: function () {
+        var radiusFactor = this.fullRadius / this.animationFrameEnd;
+        var opacityFactor = 1 / this.animationFrameEnd;
+
+        this.radius = this.animationFrame * radiusFactor;
+        this.opacity = this.animationFrame * opacityFactor;
+
+        this.animationFrame++;
+
+        if (this.animationFrame >= this.animationFrameEnd) {
+            this.radius = this.fullRadius;
+            this.appeared = true;
+            this.opacity = 1;
+            this.endAnimation();
+        }
+    },
+
+    animatePopping: function () {
+        var radiusFunction = function (number) {
+            var result = (Math.log10(number + 0.01) + 2) / 2;
+
+            return result < 0 ? 0 : result;
+        };
+
+        var opacityFunction = function (number) {
+            var result = (Math.log10(-1 * Math.pow(number, 3) + 0.03) + 3.52) / 2;
+
+            return isNaN(result) || result < 0 ? 0 : result;
+        };
+
+        var frameProgression = this.animationFrame / this.animationFrameEnd;
+
+        var radiusFactor = radiusFunction(frameProgression);
+        var addedRadius = this.fullRadius * radiusFactor;
+
+        this.opacity = opacityFunction(frameProgression);
+        this.radius = this.fullRadius + addedRadius;
+
+        this.animationFrame++;
+
+        if (this.animationFrame >= this.animationFrameEnd) {
+            this.opacity = 0;
+            this.endAnimation();
+        }
+    },
+
+    setContextStyle: function (context) {
+        context.globalAlpha = this.opacity;
+
         context.save();
 
         context.fillStyle = this.colours.background;
         context.strokeStyle = this.colours.stroke;
         context.lineWidth = 4;
+    },
 
-        if (this.isMouseOver(mousePosition)) {
-            context.shadowBlur = 10;
-            context.shadowColor = 'white';
-        }
+    addGlow: function (context) {
+        context.shadowBlur = 10;
+        context.shadowColor = 'white';
+    },
 
+    drawBubble: function (context) {
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
         context.closePath();
@@ -65,8 +175,12 @@ var CalendarWindow = {
         context.fill();
         context.stroke();
 
-        context.restore()
+        context.restore();
 
+
+    },
+
+    drawImage: function (context, image) {
         context.drawImage(
             image,
             this.x - this.radius / 1.38,
@@ -74,20 +188,22 @@ var CalendarWindow = {
             this.radius * 1.5,
             this.radius * 1.5
         );
+    },
 
-        context.restore();
-
+    drawNumber: function (context) {
         context.font = this.radius + 'px Roboto'
         context.fillStyle = this.colours.text;
         context.textAlign = 'center';
         context.fillText(this.text, this.x, this.y + this.radius / 48 * 17);
 
         context.restore();
+    },
 
-        var tooFarLeft = this.x <= this.radius;
-        var tooFarRight = this.x >= context.canvas.width - this.radius;
-        var tooFarUp = this.y <= this.radius + context.lineWidth;
-        var tooFarDown = this.y >= context.canvas.height - this.radius - context.lineWidth;
+    calculateVelocity: function (context) {
+        var tooFarLeft = this.x <= this.fullRadius;
+        var tooFarRight = this.x >= context.canvas.width - this.fullRadius;
+        var tooFarUp = this.y <= this.fullRadius + context.lineWidth;
+        var tooFarDown = this.y >= context.canvas.height - this.fullRadius - context.lineWidth;
 
         if (tooFarLeft && tooFarRight) {
             this.vx = 0;
@@ -105,36 +221,13 @@ var CalendarWindow = {
         this.y += this.vy;
     },
 
-    clickHandler(event) {
+    clickHandler: function (event) {
         var mousePosition = {
             x: event.clientX,
             y: event.clientY,
         }
 
-        if (!this.isMouseOver(mousePosition)) {
-            return;
-        }
-
-        this.openTodayWindow();
-    },
-
-    openTodayWindow() {
-        ajaxGet('get-reward&window=' + this.text, (response) => {
-            response = JSON.parse(response);
-
-            if (!response) {
-                return;
-            }
-
-            //TODO Lily: animation of window opening
-            var popup = document.getElementById('popup');
-            var popupText = document.getElementById('popupText');
-            var popupTitle = document.getElementById('partTitle');
-
-            popupTitle.innerText = response['story'].title;
-            popupText.innerText = response['story'].content;
-            popup.style.display = 'flex';
-        });
+        return this.isMouseOver(mousePosition);
     },
 };
 
@@ -144,21 +237,67 @@ var Calendar = {
     requestAnimationFrame: null,
     mousePosition: {x: 0, y: 0},
     active: new Date().getDate(),
+    imagesLoaded: false,
+    fpsLoaded: false,
+    fpsCount: 0,
+    fps: 0,
     loaded: false,
     loadingAngle: 0,
-    imagesToLoad: null,
-    calendarWindowImages: [],
+    activeImagesToLoad: null,
+    inactiveImagesToLoad: null,
+    debug: false,
+    calendarWindowActiveImages: [],
+    calendarWindowInactiveImages: [],
+    saveFPSInterval: null,
+    loadFPSTimeout: null,
 
     init: function (element) {
+        this.reset();
+        this.setupCanvas(element);
+
+        this.activeImagesToLoad = window.calendarWindowActiveImages.filter(() => true);
+        this.inactiveImagesToLoad = window.calendarWindowInactiveImages.filter(() => true);
+        this.loadImages();
+
+        this.saveFPSInterval = setInterval(this.saveFPS.bind(this), 1000);
+        this.loadFPSTimeout = setTimeout(function () {
+            this.fpsLoaded = true;
+
+            if (this.imagesLoaded) {
+                this.loaded = true;
+            }
+        }.bind(this), 3000);
+
+        this.requestAnimationFrame = window.requestAnimationFrame(this.draw.bind(this));
+
+        this.initCalendarWindows();
+    },
+
+    reset: function() {
         if (this.requestAnimationFrame) {
             window.cancelAnimationFrame(this.requestAnimationFrame);
         }
 
-        var context = this.setupCanvas(element);
+        if (this.saveFPSInterval) {
+            clearInterval(this.saveFPSInterval);
+        }
 
-        this.imagesToLoad = window.calendarWindowImages.filter(() => true);
-        this.loadImages();
-        this.requestAnimationFrame = window.requestAnimationFrame(this.draw.bind(this));
+        if (this.loadFPSTimeout) {
+            clearTimeout(this.loadFPSTimeout);
+        }
+
+        this.windows = [];
+        this.imagesLoaded = false;
+        this.fpsLoaded = false;
+        this.fpsCount = 0;
+        this.fps = 0;
+        this.loaded = false;
+        this.loadingAngle = 0;
+        this.debug = typeof debug === 'undefined' ? false : debug;
+    },
+
+    initCalendarWindows: function () {
+        var context = this.setupCanvas();
 
         this.windows = [];
 
@@ -173,8 +312,19 @@ var Calendar = {
         this.windows.push(this.createCalendarWindow(context, (this.active).toString(), true));
     },
 
+    saveFPS: function () {
+        this.fps = this.fpsCount;
+        this.fpsCount = 0;
+    },
+
+    toggleDebug: function () {
+        this.debug = !this.debug;
+    },
+
     setupCanvas: function (element) {
-        this.canvas = element;
+        if (element) {
+            this.canvas = element;
+        }
 
         this.canvas.width = this.canvas.offsetWidth;
         this.canvas.height = this.canvas.offsetHeight;
@@ -185,20 +335,45 @@ var Calendar = {
     },
 
     loadImages: function () {
-        var loadHandler = function (event) {
-            this.imagesToLoad.splice(this.imagesToLoad.indexOf(event.target.src), 1);
-
-            if (this.imagesToLoad.length < 1) {
-                this.loaded = true;
+        var loadHandler = function (event, active) {
+            if (active) {
+                this.activeImagesToLoad.splice(this.activeImagesToLoad.indexOf(event.target.src), 1);
+            } else {
+                this.inactiveImagesToLoad.splice(this.inactiveImagesToLoad.indexOf(event.target.src), 1);
             }
 
-            this.calendarWindowImages.push(event.target);
+            if (this.activeImagesToLoad.length < 1 && this.inactiveImagesToLoad.length < 1) {
+                this.imagesLoaded = true;
+
+                if (this.fpsLoaded) {
+                    this.loaded = true;
+                }
+            }
+
+            if (active) {
+                this.calendarWindowActiveImages.push(event.target);
+            } else {
+                this.calendarWindowInactiveImages.push(event.target);
+            }
         }.bind(this);
 
-        for (var imagePath of this.imagesToLoad) {
-            var image = new Image();
+        var imagePath, image;
 
-            image.onload = loadHandler;
+        for (imagePath of this.activeImagesToLoad) {
+            image = new Image();
+
+            image.onload = function (event) {
+                loadHandler(event, true);
+            };
+            image.src = imagePath;
+        }
+
+        for (imagePath of this.inactiveImagesToLoad) {
+            image = new Image();
+
+            image.onload = function (event) {
+                loadHandler(event, false);
+            };
             image.src = imagePath;
         }
     },
@@ -211,8 +386,8 @@ var Calendar = {
         calendarWindow.vx = this.getRandomSpeed();
         calendarWindow.vy = this.getRandomSpeed();
 
-        calendarWindow.x = Math.random() * (this.canvas.offsetWidth - calendarWindow.radius * 2) + calendarWindow.radius;
-        calendarWindow.y = Math.random() * (this.canvas.offsetHeight - calendarWindow.radius * 2) + calendarWindow.radius;
+        calendarWindow.x = Math.random() * (this.canvas.offsetWidth - calendarWindow.fullRadius * 2) + calendarWindow.fullRadius;
+        calendarWindow.y = Math.random() * (this.canvas.offsetHeight - calendarWindow.fullRadius * 2) + calendarWindow.fullRadius;
 
         calendarWindow.text = text;
 
@@ -236,14 +411,20 @@ var Calendar = {
         context.clearRect(0, 0, this.canvas.offsetWidth, this.canvas.offsetHeight);
     },
 
-    calendarWindowImage: function* () {
+    calendarWindowImage: function* (active) {
         var index = 0;
+        var length = active ? this.calendarWindowActiveImages.length : this.calendarWindowInactiveImages.length;
 
         while (true) {
-            yield this.calendarWindowImages[index];
+            if (active) {
+                yield this.calendarWindowActiveImages[index];
+            } else {
+                yield this.calendarWindowInactiveImages[index];
+            }
+
             index++;
 
-            if (index === this.calendarWindowImages.length) {
+            if (index === length) {
                 index = 0;
             }
         }
@@ -253,44 +434,127 @@ var Calendar = {
         var context = this.canvas.getContext('2d');
 
         this.clear();
+        this.fpsCount++;
+
+        if (this.debug) {
+            this.drawFPS(context);
+        }
 
         if (this.loaded) {
-            var calendarWindowImageIterator = this.calendarWindowImage();
+            var calendarWindowActiveImageIterator = this.calendarWindowImage(true);
+            var calendarWindowInactiveImageIterator = this.calendarWindowImage(false);
 
-            for (var calendarWindow of this.windows) {
-                calendarWindow.draw(context, this.mousePosition, calendarWindowImageIterator.next().value);
+            for (var i = 0; i < this.windows.length; i++) {
+                var calendarWindow = this.windows[i];
+                var image = calendarWindow.active
+                    ? calendarWindowActiveImageIterator.next().value
+                    : calendarWindowInactiveImageIterator.next().value;
+
+                calendarWindow.draw(context, this.mousePosition, image);
+
+                if (!calendarWindow.animating && !calendarWindow.appeared) {
+                    calendarWindow.animate('appearing', this.fps);
+                }
             }
         } else {
-            context.save();
-
-            context.strokeStyle = '#FFFFFF';
-            context.lineWidth = 10;
-
-            context.beginPath();
-            context.arc(
-                this.canvas.width / 2,
-                this.canvas.height / 2,
-                50,
-                this.loadingAngle + Math.cos(this.loadingAngle * 45 * Math.PI / 180),
-                Math.PI * 1.25 + this.loadingAngle + Math.sin(this.loadingAngle * 45 * Math.PI / 180)
-            );
-
-            context.stroke();
-            this.loadingAngle += 0.1;
-
-            context.restore();
+            this.drawLoading(context);
         }
 
         this.requestAnimationFrame = window.requestAnimationFrame(this.draw.bind(this));
     },
 
+    drawFPS: function (context) {
+        context.save();
+
+        context.font = '16px Roboto'
+        context.fillStyle = 'white';
+        context.strokeStyle = 'black';
+        context.strokeWidth = '2px';
+        context.textAlign = 'center';
+        context.fillText((this.fps ?? 'null') + ' FPS', this.canvas.width - 50, 30);
+        context.stroke();
+
+        context.restore();
+    },
+
+    drawLoading: function (context) {
+        context.save();
+
+        context.strokeStyle = '#FFFFFF';
+        context.lineWidth = 10;
+
+        context.beginPath();
+        context.arc(
+            this.canvas.width / 2,
+            this.canvas.height / 2,
+            50,
+            this.loadingAngle + Math.cos(this.loadingAngle * 45 * Math.PI / 180),
+            Math.PI * 1.25 + this.loadingAngle + Math.sin(this.loadingAngle * 45 * Math.PI / 180)
+        );
+
+        context.stroke();
+        this.loadingAngle += 0.1;
+
+        context.restore();
+    },
+
+    getWindowInstanceFromDay: function (day) {
+        return this.windows.find(function (calendarWindow) {
+            return parseInt(calendarWindow.text) === parseInt(day);
+        });
+    },
+
+    openWindow: function (day) {
+        Modal.closeHandler = function () {
+            this.getWindowInstanceFromDay(day).animate('appearing', this.fps);
+        }.bind(this);
+
+        ajaxGet('get-reward&day=' + day, function (response) {
+            response = JSON.parse(response);
+
+            if (!response) {
+                return;
+            }
+
+            if (response.status < 1) {
+                Modal.open(response['story'].title, response['story'].content);
+            } else {
+                Modal.open(
+                    'Error',
+                    'An error occurred. This is not your fault, don\'t worry. Please refresh the page, it should fix the problem.'
+                );
+            }
+        });
+    },
+
     mouseMoveHandler: function (event) {
-        this.mousePosition.x = event.clientX - this.canvas.offsetLeft;
-        this.mousePosition.y = event.clientY - this.canvas.offsetTop;
+        if (this.canvas) {
+            this.mousePosition.x = event.clientX - this.canvas.offsetLeft;
+            this.mousePosition.y = event.clientY - this.canvas.offsetTop;
+        }
     },
 
     clickHandler: function (event) {
-        this.windows.forEach(calendarWindow => calendarWindow.clickHandler.bind(calendarWindow)(event));
+        if (!Modal.isOpen) {
+            var clickedDays = this.windows.filter(function (calendarWindow) {
+                return calendarWindow.clickHandler.bind(calendarWindow)(event);
+            }).map(function (calendarWindow) {
+                return parseInt(calendarWindow.text);
+            });
+
+            if (clickedDays.length > 0) {
+                var windowToOpen = clickedDays.sort()[0];
+
+                if (clickedDays.indexOf(this.active) > -1) {
+                    windowToOpen = this.active;
+                }
+
+                this.openWindow(windowToOpen);
+                var calendarWindow = this.getWindowInstanceFromDay(windowToOpen);
+
+                calendarWindow.animate('popping', this.fps);
+            }
+        }
     },
 };
 

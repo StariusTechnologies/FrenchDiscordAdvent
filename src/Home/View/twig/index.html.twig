@@ -35,20 +35,17 @@
         </ul>
     </nav>
 
-    <h1 id="title"></h1>
+    <h1 id="title">D-{{ daysLeft }}</h1>
     <div id="message"></div>
 
     <canvas id="calendar"></canvas>
 
     <div id="popup">
-        <button onclick="closePopup()" id="close" aria-label="Close">×</button>
-
-        <h2 id="partTitle"></h2>
-
-        <p id="popupText"></p>
     </div>
 
     <script type="text/javascript">
-        var calendarWindowImages = {{ calendarImages|json_encode|raw }};
+        var calendarWindowActiveImages = {{ calendarActiveImages|json_encode|raw }};
+        var calendarWindowInactiveImages = {{ calendarInactiveImages|json_encode|raw }};
+        var debug = {{ debug ? 'true' : 'false' }};
     </script>
 {% endblock %}
