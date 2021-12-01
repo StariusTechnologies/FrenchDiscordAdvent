@@ -2,6 +2,7 @@ var Modal = {
     element: null,
     contentBlock: null,
     shadow: null,
+    specialRewardSrc: null,
     rewardSrc: null,
     isOpen: false,
     closeHandler: null,
@@ -10,6 +11,7 @@ var Modal = {
         this.element = element;
         this.contentBlock = contentBlock;
         this.shadow = shadow;
+        this.specialRewardSrc = document.getElementById('specialRewardTag').innerHTML;
         this.rewardSrc = document.getElementById('rewardTag').innerHTML;
 
         this.shadow.addEventListener(
@@ -51,10 +53,17 @@ var Modal = {
             var separator = document.createElement('hr');
             var rewardImg = document.createElement('img');
             var rewardLabel = document.createElement('p');
-            rewardLabel.classList.add('rewardLabel');
+            var rewardContent = '';
 
-            rewardImg.src = this.rewardSrc;
-            rewardLabel.innerText = '✨ ' + reward['amount'] + ' ' + reward['label'] + ' ✨';
+            rewardLabel.classList.add('rewardLabel');
+            rewardLabel.innerHTML = '✨ ' + reward['amount'] + ' ' + reward['label'] + ' ✨';
+
+            if (reward['isHighValue']) {
+                rewardImg.src = this.specialRewardSrc;
+                rewardLabel.innerHTML += '<br>Tu as été ping sur le serveur French !<br>You have been pinged on the French server!';
+            } else {
+                rewardImg.src = this.rewardSrc;
+            }
 
             this.contentBlock.appendChild(separator);
             this.contentBlock.appendChild(rewardImg);

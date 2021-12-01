@@ -51,7 +51,10 @@
         var calendarWindowInactiveImages = {{ calendarInactiveImages|json_encode|raw }};
         var debug = {{ debug ? 'true' : 'false' }};
     </script>
-    <script type="text/plain" id="rewardTag">
+    <script type="text/plain" id="specialRewardTag">
         {{ asset('images/cadeau.png') }}
+    </script>
+    <script type="text/plain" id="rewardTag">
+        {{ asset('images/token.png') }}
     </script>
 {% endblock %}
