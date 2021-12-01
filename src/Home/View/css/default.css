@@ -1,11 +1,3 @@
-:root {
-    --black: #191919;
-    --white: #FDFFFC;
-    --blue: #145C9E;
-    --lightblue: #2EC4B6;
-    --red: #931F1D;
-}
-
 ::selection {
     background-color: #1d73c3;
 }
@@ -18,7 +10,7 @@
 }
 
 body {
-    background-color: var(--black);
+    background-color: #191919;
     background-image:
         url('../images/background-stardust.png'),
         url('../images/background-stars3.png'),
@@ -26,7 +18,7 @@ body {
         url('../images/background-stars1.png'),
         url('../images/background.jpg');
     background-size: cover;
-    color: var(--white)
+    color: #FDFFFC;
 }
 
 html, body, #container, #content {
@@ -131,7 +123,7 @@ nav > ul label .discord-logo {
     height: 100px;
     line-height: 100px;
     font-size: 2em;
-    color: var(--white);
+    color: #FDFFFC;
     font-weight: bold;
     text-align: center;
     transition: all .3s ease-in-out;
@@ -145,7 +137,7 @@ nav > ul label .discord-logo {
 }
 
 #landscape p {
-    color: var(--white);
+    color: #FDFFFC;
     font-size: 30px;
     margin-top: 20%;
 }
@@ -153,7 +145,7 @@ nav > ul label .discord-logo {
 #landscape i {
     margin-top: 10%;
     font-size: 80px;
-    color: var(--lightblue);
+    color: #2EC4B6;
 }
 
 #content {
@@ -182,20 +174,18 @@ nav > ul label .discord-logo {
     position: fixed;
     height: 100vh;
     width: 100%;
-    background-color: var(--black);
-    opacity: 80%;
     top: 0;
     left: 0;
-    overflow-y: auto;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 #popup .close {
-    color: var(--blue);
+    color: #2F3136;
     font-size: 4em;
     float: right;
-    margin: 15px 20px;
+    margin: 0 20px;
     cursor: pointer;
     transition: .3s ease-in-out;
     background: none;
@@ -203,8 +193,32 @@ nav > ul label .discord-logo {
     align-self: flex-end;
 }
 
-#popup .close:hover {
-    color: #1d73c3;
+#popup div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    height: 60vh;
+    border: solid 1px #191919;
+    border-radius: 5px;
+    background-color: #FDFFFC;
+    z-index: 1500;
+    overflow-y: auto;
+    padding: 15px 10px;
+}
+
+#popupShadow {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(25, 25, 25, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#popup div > * {
+    color: #191919;
 }
 
 #popup p {

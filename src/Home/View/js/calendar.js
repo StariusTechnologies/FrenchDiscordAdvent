@@ -551,7 +551,7 @@ var Calendar = {
 
                 window.canOpenTodayWindow = false;
                 calendarWindow.setActive(calendarWindow.active);
-                Modal.open(response['story'].title, response['story'].content);
+                Modal.open(response);
             } else {
                 Modal.open(
                     'Error',
