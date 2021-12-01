@@ -2,6 +2,7 @@ var Modal = {
     element: null,
     contentBlock: null,
     shadow: null,
+    rewardSrc: null,
     isOpen: false,
     closeHandler: null,
 
@@ -9,6 +10,7 @@ var Modal = {
         this.element = element;
         this.contentBlock = contentBlock;
         this.shadow = shadow;
+        this.rewardSrc = document.getElementById('rewardTag').innerHTML;
 
         this.shadow.addEventListener(
             'click',
@@ -46,12 +48,13 @@ var Modal = {
         this.contentBlock.appendChild(contents);
 
         if (reward) {
-            rewardImg.src = "../images/cadeau.png";
-            rewardLabel.innerText = reward['amount'] + " " + reward['label'];
-
             var separator = document.createElement('hr');
             var rewardImg = document.createElement('img');
             var rewardLabel = document.createElement('p');
+            rewardLabel.classList.add('rewardLabel');
+
+            rewardImg.src = this.rewardSrc;
+            rewardLabel.innerText = '✨ ' + reward['amount'] + ' ' + reward['label'] + ' ✨';
 
             this.contentBlock.appendChild(separator);
             this.contentBlock.appendChild(rewardImg);
