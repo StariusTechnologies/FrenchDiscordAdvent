@@ -316,6 +316,7 @@ var Calendar = {
             clearTimeout(this.loadFPSTimeout);
         }
 
+        this.active = window.day;
         this.windows = [];
         this.imagesLoaded = false;
         this.fpsLoaded = false;

@@ -76,6 +76,7 @@ class HomeController extends Controller {
                 'discordAvatarURL' => $discordAvatarURL,
                 'calendarActiveImages' => $calendarActiveImages,
                 'calendarInactiveImages' => $calendarInactiveImages,
+                'day' => (int) date('d'),
                 'daysLeft' => $daysLeft,
                 'canOpenTodayWindow' => $canOpenTodayWindow,
                 'debug' => Request::getInstance()->has('debug'),
