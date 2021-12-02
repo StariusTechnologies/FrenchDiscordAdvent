@@ -16,7 +16,7 @@ class CalendarStory extends Entity
             Do, mi, sol, do, la.
             Mais soudain, Poc ! Poc ! Poc ! Tombe la neige, tombe la neige… Poc ! Poc ! Poc ! Tombe la
             neige sur son toit.
-            Alors, en un éclair, Petite Mère abandonne son harmonica. Hop ! Hop ! Hop ! Tresses
+            Alors, en un éclair, Petite Mère abandonne son harmonica. Hop ! Hop ! Hop ! tresse
             guirlandes de pommes, rubans et papillotes, branches dorées et moussues en une couronne,
             qu’elle accroche à sa porte en signe de bienvenue.
             Seul dans la clairière, Bonhomme Hiver sort de sa grande besace des fleurs de glace qu’il sème
@@ -42,27 +42,11 @@ class CalendarStory extends Entity
         '2' => [
             'title' => 'LE SORTILÈGE DE LAIDE-COMME-UN-POU',
             'content' => <<<CONTENT
-            Une ambiance de fête régnait dans le royaume Lumière d’or : le roi et la reine venaient de
-            donner naissance à une petite fille ! Ils la nommèrent Fleur, car elle était aussi belle qu’une
-            rose venant d’éclore. Tous s’émerveillaient devant la belle enfant quand soudain, la terrible
-            princesse Laide-comme-un-pou surgit et jeta un sort à la princesse : "Fleur sera la plus laide
-            de toutes les princesses et lorsqu’elle atteindra l’âge de se marier, chaque prétendant qui la
-            verra se figera en statue."
-            Et tandis que les années passaient, le visage de Fleur se fanait comme les pétales d’une rose.
-            La pauvre s’enlaidissait seule dans son coin, rejetée par tous.
-            Un jour, le roi décidé qu’il était temps de marier sa fille. Il convia tous les princes et chevaliers
-            et ce qui devait arriver arriva : chaque fois qu’un prince rencontrait le regard de la princesse,
-            il se transformait en statue ! Désespérée, Fleur s’enferma dans la plus haute tour du château
-            et pleura jour et nuit. Phénomène incroyable, ses gémissements sitôt sortis de sa bouche se
-            transformaient en une voix mélodieuse. Venu d’un royaume lointain, un jeune homme qui
-            passait à proximité du château fut saisi d’admiration.
-            Quand on l’informa que la jeune femme était la plus laide de toutes les princesses, il refusa de
-            le croire et demanda à la voir. Fleur accepta qu’ils se parlent à travers la porte. Ils firent
-            connaissance et devinrent si amoureux l’un de l’autre qu’ils décidèrent de se marier sans
-            s’être jamais vus !
-            La cérémonie se déroula devant la porte du donjon qui séparait les deux mariés. Au dernier
-            mot, Fleur ouvrit la porte : dans une lumière éblouissante, elle apparut rayonnante et belle
-            comme une rose. L’amour venait de briser le sortilège !
+            Une ambiance de fête régnait dans le royaume Lumière d’or : le roi et la reine venaient de donner naissance à une petite fille ! Ils la nommèrent Fleur, car elle était aussi belle qu’une rose venant d’éclore. Tous s’émerveillaient devant la belle enfant quand soudain, la terrible sorcière Laide-comme-un-pou surgit et jeta un sort à la princesse : « Fleur sera la plus laide de toutes les princesses et lorsqu’elle atteindra l’âge de se marier, chaque prétendant qui la verra se figera en statue. »
+            Et tandis que les années passaient, le visage de Fleur se fanait comme les pétales d’une rose. La pauvre s’enlaidissait seule dans son coin, rejetée par tous.
+            Un jour, le roi décida qu’il était temps de marier sa fille. Il convia tous les princes et chevaliers et ce qui devait arriver arriva : chaque fois qu’un prince rencontrait le regard de la princesse, il se transformait en statue ! Désespérée, Fleur s’enferma dans la plus haute tour du château et pleura jour et nuit. Phénomène incroyable, ses gémissements sitôt sortis de sa bouche se transformaient en une voix mélodieuse. Venu d’un royaume lointain, un jeune homme qui passait à proximité du château fut saisi d’admiration.
+            Quand on l’informa que la jeune femme était la plus laide de toutes les princesses, il refusa de le croire et demanda à la voir. Fleur accepta qu’ils se parlent à travers la porte. Ils firent connaissance et devinrent si amoureux l’un de l’autre qu’ils décidèrent de se marier sans s’être jamais vus !
+            La cérémonie se déroula devant la porte du donjon qui séparait les deux mariés. Au dernier mot, Fleur ouvrit la porte : dans une lumière éblouissante, elle apparut rayonnante et belle comme une rose. L’amour venait de briser le sortilège !
             Le royaume Lumière d’or retrouva sa gaieté et s’appela désormais le royaume de Belle-Fleur.
             
             - Les plus belles histoires du soir

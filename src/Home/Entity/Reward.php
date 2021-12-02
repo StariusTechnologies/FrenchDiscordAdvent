@@ -78,11 +78,11 @@ class Reward extends Entity
         $content = $frEmoji . "\n";
         $content .= '<@' . $userSnowflake . '> a gagné **' . $labels['fr'] . '** en ouvrant la fenêtre d\'aujourd\'hui sur le **Calendrier de l\'hiver** !';
         $content .= "\n" . '<@' . $userSnowflake . '>, Lily te contactera bientôt pour te donner ta récompense !';
-        $content .= "\n" . '**Toi aussi, tente ta chance** ! ici -> **https://avent.frenchdiscord.com**';
+        $content .= "\n" . '**Toi aussi, tente ta chance** ! ici -> **https://winter.frenchdiscord.com**';
         $content .= "\n\n" . $enEmoji;
         $content .= "\n" . '<@' . $userSnowflake . '> opened today\'s window in the **Winter Calendar** and won **' . $labels['en'] . '**';
         $content .= "\n" . '<@' . $userSnowflake . '>, Lily will contact you shortly to give you your reward';
-        $content .= "\n" . '**Take your chance too**! right here -> **https://avent.frenchdiscord.com**';
+        $content .= "\n" . '**Take your chance too**! right here -> **https://winter.frenchdiscord.com**';
 
         DiscordAPI::getInstance()->postEventMessage($content);
     }
