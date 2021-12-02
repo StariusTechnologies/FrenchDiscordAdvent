@@ -194,9 +194,11 @@ nav > ul label .discord-logo {
 }
 
 #popup .close {
+    position: absolute;
     color: #2F3136;
     font-size: 4em;
-    float: right;
+    top: 0;
+    right: 0;
     margin: 0 20px;
     cursor: pointer;
     transition: .3s ease-in-out;
@@ -207,16 +209,17 @@ nav > ul label .discord-logo {
 
 #popup div:first-of-type {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
-    width: 60%;
-    height: 60vh;
+    width: 100%;
+    height: 100vh;
     border: solid 1px #191919;
     border-radius: 5px;
     background-color: #FDFFFC;
     z-index: 1500;
     overflow-y: auto;
-    padding: 15px 10px 100px 10px;
+    padding: 50px 10px;
 }
 
 #popupShadow {
@@ -236,7 +239,19 @@ nav > ul label .discord-logo {
 #popup p {
     text-align: justify;
     margin-top: 15px;
-    float: left;
     font-size: 20px;
-    width: calc(100% - 150px);
+    width: calc(100% - 90px);
+}
+
+@media (min-width: 800px) {
+    #popup div:first-of-type {
+        width: 60%;
+        height: 60vh;
+    }
+}
+
+@media (min-width: 1024px) {
+    #popup p {
+        width: calc(100% - 150px);
+    }
 }
