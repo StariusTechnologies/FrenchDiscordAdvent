@@ -90,7 +90,7 @@ class Reward extends Entity
     private function __construct() {}
 
     private function pickSpecialReward(object $user): array {
-        $chanceForhighValueReward = 10;
+        $chanceForhighValueReward = 20;
         $highValueRewardNumber = 7;
         $ishighValueReward = rand(0, $chanceForhighValueReward) === $highValueRewardNumber;
         $reward = [];
@@ -103,7 +103,13 @@ class Reward extends Entity
         } else {
             $possibleRewards = [
                 ['label' => 'tokens', 'amount' => 50],
+                ['label' => 'tokens', 'amount' => 50],
+                ['label' => 'tokens', 'amount' => 50],
+                ['label' => 'tokens', 'amount' => 50],
                 ['label' => 'tokens', 'amount' => 75],
+                ['label' => 'tokens', 'amount' => 75],
+                ['label' => 'tokens', 'amount' => 75],
+                ['label' => 'tokens', 'amount' => 100],
                 ['label' => 'tokens', 'amount' => 100],
             ];
 
