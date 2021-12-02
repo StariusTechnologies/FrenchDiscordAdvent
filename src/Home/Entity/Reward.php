@@ -57,7 +57,7 @@ class Reward extends Entity
         $chanceForSpecialReward = 15;
         $specialRewardNumber = 7;
         $isSpecialReward = rand(0, $chanceForSpecialReward) === $specialRewardNumber;
-        
+
         if ($isSpecialReward) {
             return $this->pickSpecialReward($user);
         } else {
@@ -72,14 +72,11 @@ class Reward extends Entity
     }
 
     public function pingForSpecialReward(string $userSnowflake, array $labels): void {
-        $frEmoji = '<:' . FR_EMOJI_NAME . ':' . FR_EMOJI_SNOWFLAKE . '>';
-        $enEmoji = '<:' . EN_EMOJI_NAME . ':' . EN_EMOJI_SNOWFLAKE . '>';
-
-        $content = $frEmoji . "\n";
+        $content = FR_EMOJI . "\n";
         $content .= '<@' . $userSnowflake . '> a gagné **' . $labels['fr'] . '** en ouvrant la fenêtre d\'aujourd\'hui sur le **Calendrier de l\'hiver** !';
         $content .= "\n" . '<@' . $userSnowflake . '>, Lily te contactera bientôt pour te donner ta récompense !';
         $content .= "\n" . '**Toi aussi, tente ta chance** ! ici -> **https://winter.frenchdiscord.com**';
-        $content .= "\n\n" . $enEmoji;
+        $content .= "\n\n" . EN_EMOJI;
         $content .= "\n" . '<@' . $userSnowflake . '> opened today\'s window in the **Winter Calendar** and won **' . $labels['en'] . '**';
         $content .= "\n" . '<@' . $userSnowflake . '>, Lily will contact you shortly to give you your reward';
         $content .= "\n" . '**Take your chance too**! right here -> **https://winter.frenchdiscord.com**';
