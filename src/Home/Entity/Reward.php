@@ -18,6 +18,7 @@ class Reward extends Entity
 
     public const REWARD_LABEL_NITRO = 'nitro';
     public const REWARD_LABEL_TOKEN = 'tokens';
+
     public const DISPLAYED_FR_LABEL_NITRO = 'un abonnement Nitro d\'un mois';
     public const DISPLAYED_EN_LABEL_NITRO = 'one month of Nitro';
     public const DISPLAYED_FR_LABEL_PATREON = 'un mois de Patreon French';
@@ -53,13 +54,13 @@ class Reward extends Entity
         return count($data) > 0 ? $data[0] : [];
     }
 
-    public function pickReward(object $user): array {
+    public function pickReward(object $user, object $guildUser): array {
         $chanceForSpecialReward = 15;
         $specialRewardNumber = 7;
         $isSpecialReward = rand(0, $chanceForSpecialReward) === $specialRewardNumber;
 
-        if ($isSpecialReward) {
-            return $this->pickSpecialReward($user);
+        if ($isSpecialReward && MemberActivity::getInstance()->hasEnoughActivity($user->id)) {
+            return $this->pickSpecialReward($user, $guildUser);
         } else {
             $minToken = 5;
             $maxToken = 10;
@@ -86,7 +87,7 @@ class Reward extends Entity
 
     private function __construct() {}
 
-    private function pickSpecialReward(object $user): array {
+    private function pickSpecialReward(object $user, object $guildUser): array {
         $chanceForhighValueReward = 20;
         $highValueRewardNumber = 7;
         $ishighValueReward = rand(0, $chanceForhighValueReward) === $highValueRewardNumber;
@@ -109,8 +110,6 @@ class Reward extends Entity
                 ['label' => 'tokens', 'amount' => 100],
                 ['label' => 'tokens', 'amount' => 100],
             ];
-
-            $guildUser = DiscordAPI::getInstance()->getGuildUserInfo($user);
 
             if (!in_array(PATREON_ROLE_SNOWFLAKE, $guildUser->roles)) {
                 $possibleRewards[] = ['label' => 'patreon', 'amount' => '1'];

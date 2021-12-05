@@ -40,10 +40,10 @@ class DiscordAPI {
     }
 
     /**
-     * @return string
+     * @return object
      * @throws Exception
      */
-    public function getToken(): string {
+    public function getTokenData(): object {
         $code = Request::getInstance()->getGet('code');
         $postData = [
             'grant_type' => 'authorization_code',
@@ -59,7 +59,7 @@ class DiscordAPI {
             throw new Exception($data->error_description);
         }
 
-        return $data->access_token;
+        return $data;
     }
 
     /**

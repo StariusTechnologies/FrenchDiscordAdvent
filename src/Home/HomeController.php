@@ -85,7 +85,9 @@ class HomeController extends Controller {
             if (!Request::getInstance()->hasGet('code')) {
                 Response::redirect(DiscordAPI::getInstance()->getAuthorizeURL());
             } else {
-                $_SESSION['access_token'] = DiscordAPI::getInstance()->getToken();
+                $data = DiscordAPI::getInstance()->getTokenData();
+                $_SESSION['access_token'] = $data->access_token;
+                $_SESSION['refresh_token'] = $data->refresh_token;
                 Request::getInstance()->createSession();
                 Response::redirect(Request::getInstance()->getBaseURL());
             }
@@ -95,6 +97,7 @@ class HomeController extends Controller {
     public function logoutAction(): void {
         DiscordAPI::getInstance()->revokeToken();
         unset($_SESSION['access_token']);
+        unset($_SESSION['refresh_token']);
         Request::getInstance()->destroySession();
         Response::redirect(Request::getInstance()->getBaseURL());
     }
@@ -111,10 +114,12 @@ class HomeController extends Controller {
         $isDayUpcoming = (int) $windowNumber > (int) $dayNumber;
 
         if (Request::getInstance()->isUserLoggedIn()) {
+            $guildUser = DiscordAPI::getInstance()->getGuildUserInfo($user);
+            $isGuildUser = !isset($guildUser->message) || isset($guildUser->message) && $guildUser->message != "Unknown Member";
             $reward = null;
 
-            if ($isTodayWindow && $canOpenTodayWindow) {
-                $reward = $this->handleReward($user, $dayNumber);
+            if ($isGuildUser && $isTodayWindow && $canOpenTodayWindow) {
+                $reward = $this->handleReward($user, $guildUser, $dayNumber);
             }
 
             echo json_encode([
@@ -129,8 +134,8 @@ class HomeController extends Controller {
         }
     }
 
-    private function handleReward(object $user, string $dayNumber): array {
-        $reward = Reward::getInstance()->pickReward($user);
+    private function handleReward(object $user, object $guildUser, string $dayNumber): array {
+        $reward = Reward::getInstance()->pickReward($user, $guildUser);
         CalendarOpenedWindow::openWindow($user->id, $dayNumber, $reward['label'], $reward['label'] === Reward::REWARD_LABEL_NITRO);
 
         if ($reward['label'] === Reward::REWARD_LABEL_TOKEN) {

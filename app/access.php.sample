@@ -7,10 +7,8 @@ const GUILD_ID = '';
 const PATREON_ROLE_SNOWFLAKE = '';
 const EVENT_CHANNEL_SNOWFLAKE = '';
 
-const FR_EMOJI_NAME = '';
-const FR_EMOJI_SNOWFLAKE = '';
-const EN_EMOJI_NAME = '';
-const EN_EMOJI_SNOWFLAKE = '';
+const FR_EMOJI = '';
+const EN_EMOJI = '';
 
 const DB_DRIVER = 'mysql';
 const DB_NAME = '';
