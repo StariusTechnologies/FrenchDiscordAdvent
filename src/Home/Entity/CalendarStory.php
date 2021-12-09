@@ -42,7 +42,7 @@ class CalendarStory extends Entity
         '2' => [
             'title' => 'LE SORTILÈGE DE LAIDE-COMME-UN-POU',
             'content' => <<<CONTENT
-            Une ambiance de fête régnait dans le royaume Lumière d’or : le roi et la reine venaient de donner naissance à une petite fille ! Ils la nommèrent Fleur, car elle était aussi belle qu’une rose venant d’éclore. Tous s’émerveillaient devant la belle enfant quand soudain, la terrible sorcière Laide-comme-un-pou surgit et jeta un sort à la princesse : « Fleur sera la plus laide de toutes les princesses et lorsqu’elle atteindra l’âge de se marier, chaque prétendant qui la verra se figera en statue. »
+            Une ambiance de fête régnait dans le royaume Lumière d’or : le roi et la reine venaient de donner naissance à une petite fille ! Ils la nommèrent Fleur, car elle était aussi belle qu’une rose venant d’éclore. Tous s’émerveillaient devant la belle enfant quand soudain, la terrible sorcière Laide-comme-un-pou surgit et jeta un sort à la princesse : " Fleur sera la plus laide de toutes les princesses et lorsqu’elle atteindra l’âge de se marier, chaque prétendant qui la verra se figera en statue. "
             Et tandis que les années passaient, le visage de Fleur se fanait comme les pétales d’une rose. La pauvre s’enlaidissait seule dans son coin, rejetée par tous.
             Un jour, le roi décida qu’il était temps de marier sa fille. Il convia tous les princes et chevaliers et ce qui devait arriver arriva : chaque fois qu’un prince rencontrait le regard de la princesse, il se transformait en statue ! Désespérée, Fleur s’enferma dans la plus haute tour du château et pleura jour et nuit. Phénomène incroyable, ses gémissements sitôt sortis de sa bouche se transformaient en une voix mélodieuse. Venu d’un royaume lointain, un jeune homme qui passait à proximité du château fut saisi d’admiration.
             Quand on l’informa que la jeune femme était la plus laide de toutes les princesses, il refusa de le croire et demanda à la voir. Fleur accepta qu’ils se parlent à travers la porte. Ils firent connaissance et devinrent si amoureux l’un de l’autre qu’ils décidèrent de se marier sans s’être jamais vus !
@@ -229,60 +229,510 @@ class CalendarStory extends Entity
             CONTENT,
         ],
         '9' => [
-            'title' => 'title day 9',
-            'content' => 'texte day 9',
+            'title' => 'SALADE ET BALADE',
+            'content' => <<<CONTENT
+            - Nathan, va à la ferme chercher une salade ! demande sa maman qui est très pressée.
+            Nathan ne se le fait pas dire deux fois. Il adore se balader avec son nouveau vélo. Et hop, le
+            voilà parti sur la petite route goudronnée qui passe derrière son jardin.
+            En cinq minutes, il arrive et distingue devant lui les bâtiments de la ferme. Le fermier, assis sur
+            son gros tracteur, se prépare à partir. Nathan s’approche et parle très fort, car le moteur du
+            véhicule fait beaucoup de bruit. De plus, le fermier n’est plus tout jeune, il est dur d’oreille et
+            n’entend pas toujours bien.
+            - Bonjour Monsieur ! crie Nathan.
+            - Bonjour petit !
+            - Je voudrais une salade, dit Nathan.
+            - Parle plus fort, je ne t’entends pas !
+            - Je voudrais une salade ! Une salade ! crie Nathan.
+            - Une balade ? dit le fermier qui entend toujours aussi mal. Une balade en tracteur !
+            Monte !
+            Et le fermier prend Nathan sous les bras, le soulève et le fait asseoir à côté de lui, sur un tout
+            petit siège.
+            Nathan est très étonné, mais il se dit : " Chic ! Une balade en tracteur. "
+            L’homme fait rouler le tracteur sur le chemin et Nathan est vraiment très content de cette
+            promenade improvisée. Au bout d’un moment, le fermier s’arrête à l’entrée d’un champ pour
+            voir ses vaches. Puis il remonte sur sa machine.
+            Nathan lui demande alors s’il peut conduire un petit peu le tracteur au retour. Le fermier est
+            d’accord pour un court moment, mais en restant bien à côté de lui, prêt à reprendre le volant
+            au moindre danger.
+            Nathan est content, très fier, car il conduit le tracteur tout seul sur quelques dizaines de
+            mètres.
+            De retour, le fermier arrête le moteur. Nathan saute du tracteur et dit :
+            - Merci beaucoup pour la balade, mais j’allais oublier, maintenant il me faudrait une
+            salade.
+            - Une salade ? Tu ne pouvais pas le dire plus tôt ! Viens !
+            Et le fermier entraîne Nathan dans le champ à côté et cueille une salade. Puis Nathan reprend
+            son vélo et rentre à la maison.
+            - Tu as été bien long ! dit sa maman.
+            - C’est magique, maman !
+            - Qu’est-ce qui est magique, Nathan ?
+            - Une salade qui s’est transformée en balade !
+            CONTENT,
         ],
         '10' => [
-            'title' => 'title day 10',
-            'content' => 'texte day 10',
+            'title' => 'UN MONDE MINIATURE',
+            'content' => <<<CONTENT
+            " Tu vas de nouveau regarder les petits trains ! "
+            J’entends encore la voix moqueuse de Charlène, ma sœur. C’est vrai, je vais de temps à autre
+            voir mon grand-père Francis qui est modéliste. Passionné par les petits trains en modèles
+            réduits, il a consacré une petite pièce de son appartement pour ses réseaux miniatures.
+            C’est lorsque je sonne à sa porte que me revient cette phrase de Charlène, son ton narquois
+            et son air moqueur, un peu comme si regarder défiler les trains miniatures était réservé aux
+            gens stupides. C’est encore à cela que je réfléchis lorsque mon grand-père m’ouvre la porte.
+            Grand-père est souriant. Non, assurément, il n’est pas stupide. C’est, à mon avis, un homme,
+            bon, intelligent et qui sait apprécier la vie.
+            Oui, mais… regarder les petits trains, c’est réservé aux enfants, pense-t-on, alors que grandpère n’est plus un enfant depuis longtemps !
+            Je m’avance dans la fameuse pièce où sont installés les réseaux miniatures de grand-père.
+            Tout de suite, mes yeux brillent d’admiration devant une machine à vapeur tractant un wagon
+            sur une petite voie ferrée bordée d’arbres et de prés.
+            - Attends-moi un moment, lance mon grand-père Francis.
+            Il revient au bout d’une minute.
+            - Regarde ma dernière acquisition : une locomotive de manœuvre.
+            Il me présente une locomotive reproduite à la perfection, toute verte avec des bandes jaunes.
+            Son gros capot couvre un énorme moteur entouré d’un garde-corps. La petite cabine est
+            garnie de minuscules vitres munies d’essuie-glaces.
+            Il me fait remarquer la petite plaque signalétique de l’engin comme sur les vrais modèles ainsi
+            que la qualité de tous les détails. Un seul regret : les phares ne s’allument pas. Je contemple,
+            fasciné, ce petit bijou. J’apprends que la machine est surnommée " yo-yo ", à cause des
+            multiples allers et retours qu’elle effectue dans les gares.
+            Puis je regarde de nouveau les trains rouler. Je m’émerveille devant ce monde miniature : les
+            voies ferrées bien entretenues, le champ avec son petit tracteur immobile, le petit chemin
+            bordé d’arbres avec ses deux promeneurs…
+            Mon grand père a créé de la beauté, de l’art, comme il dit… Bien sûr, ce n’est pas le genre
+            d’art que l’on peut voir dans les musées, ce qui est bien dommage… mais un jour, qui sait ?
+            Il a créé un tout petit monde à lui, un peu à son image. Et tout cela, il le partage, c’est son
+            talent.
+            Alors, regarder les petits trains, en être fasciné, oui, bien sûr, cela n’a rien de stupide !
+            Et d’ailleurs, quand le monde sera trop dur, j’irai encore une fois m’émerveiller devant celui
+            qu’a créé mon grand-père Francis, et cela me fera du bien, beaucoup de bien.
+            - Les plus belles histoires du soir
+            CONTENT,
         ],
         '11' => [
-            'title' => 'title day 11',
-            'content' => 'texte day 11',
+            'title' => 'LA POUPÉE',
+            'content' => <<<CONTENT
+            Berce-la ta poupée
+            Serre-la dans tes bras
+            Plus tard, tu apprendras
+            Qu’elle riait aux fées
+            Garde-la ta poupée
+            Plus tard tu pleureras
+            Le matin triste et froid
+            Où tu l’auras donnée
+            Garde-la ta poupée
+            Tout ce que tu auras
+            Plus tard, ne vaudra pas
+            Sa robe chiffonnée
+            Chéris-la, ta poupée
+            Plus tard, tu pleureras
+            Le matin triste et froid
+            Où tu l’auras donnée
+            Serre-la dans tes bras,
+            Car, plus tard, tes journées,
+            Sans livres, sans poupée
+            Ne riront plus aux fées
+            - Maurice Carême
+            CONTENT,
         ],
         '12' => [
-            'title' => 'title day 12',
-            'content' => 'texte day 12',
+            'title' => 'LA PLANTE DANGEREUSE',
+            'content' => <<<CONTENT
+            Il était une fois une tortue qui était très avisée et tous les animaux avaient beaucoup d’estime
+            pour elle. De temps en temps, elle se rendait dans un village d’hommes pour écouter ce qu’ils
+            se disaient, après quoi elle mettait les animaux en garde :
+            " Attention les hommes vont partir chasser ! "
+            Ou bien encore :
+            " Les hommes vont brûler l’herbe, il faut vous enfuir ! "
+            Un jour, la tortue remarqua dans le champ des hommes une tige qu’elle n’avait jamais vue
+            auparavant. Quand ils furent partis, la tortue s’approcha du champ de son pas dandinant et
+            déclara :
+            " Comme tu es fraîche, jolie et verte. Je viens pour faire ta découverte. Dis-moi, quel est ton
+            nom ? Quelle est sa signification ? "
+            Et la plante inconnue répondit :
+            " Les hommes m’ont donné un nom noble et beau. Il veut dire " danger pour tous les
+            animaux ". "
+            La tortue remercia les feuilles vertes et retourna prévenir ses amis.
+            " Nous devrions détruire ce champ, car les hommes nous préparent un mauvais tour. "
+            Seulement, les animaux étaient paresseux et n’avaient aucune envie de déterrer des racines
+            sur une surface aussi grande.
+            " Nous allons éviter cet endroit, conclurent-ils. Si nous ne mangeons pas de cette plante, rien
+            ne pourra nous arriver. "
+            En peu de temps, des tiges robustes poussèrent dans le champ. Les hommes les arrachèrent
+            et en firent des cordes. Grâce à ces cordes, ils tressèrent des filets avec lesquels ils attrapèrent
+            des oiseaux, des poissons et des antilopes. Ils attachèrent les pattes des animaux pour les
+            empêcher de s’enfuir. Ils nouèrent aussi des fils aux flèches pour faire tomber leur proie à
+            terre.
+            Les animaux n’étaient plus en sécurité nulle part. Désespérés, ils se rappelèrent les paroles de
+            la tortue. Elle était la seule à ne pas être en proie à ce danger car, avec ses dents pointues, elle
+            pouvait ronger sans mal le plus solide des filets.
+            La tortue, quant à elle, continuait à mettre en garde les petits des animaux contre cette plante
+            dangereuse :
+            " Les hommes lui ont donné un nom noble et beau. Il veut dire " danger pour tous les
+            animaux ". "
+            La plante si terrible de ce conte est le chanvre. Dans nos pays, on en fait des cordes.
+            - Les nouvelles histoires du soir, 
+            Conte du Burkina Faso
+            CONTENT,
         ],
         '13' => [
-            'title' => 'title day 13',
-            'content' => 'texte day 13',
+            'title' => 'LA POULE DE LUCILE',
+            'content' => <<<CONTENT
+            C’est une toute petite poule dont prend soin Lucile. Chaque jour, Lucile va au fond du jardin
+            renouveler sa provision de graines. Elle place aussi un récipient avec de l’eau bien propre.
+            La poulette, que Lucile a nommée " Didounette " est très contente qu’on s’occupe si bien
+            d‘elle. Elle dispose même d’une minuscule cabane en bois pour s’abriter.
+            Cependant, ce matin, quand Lucile arrive à la cabane, plus de poule ! Elle cherche partout, fait
+            le tour du jardin, écarte les branches des haies, mais rien !
+            Le jardin est pourtant bien clos par des haies et du grillage. Didounette n’aurait pas pu partir…
+            Se serait-elle envolée ? Mais non ! Les poules ne volent pas, tout le monde le sait. Elles
+            peuvent tout au plus s’élever à quelques centimètres du sol en courant très vite et en battant
+            des ailes. Mais ce n’est pas voler ça ! Alors qu’est devenue Didounette ?
+            Lucile cherche partout sans comprendre, puis elle a l’idée de regarder au bas des haies. Peutêtre y a-t-il une brèche ?
+            Effectivement, tout au fond du jardin, il y a comme un petit trou entre les branches basses.
+            Didounette aurait très bien pu passer par là. Pour en avoir le cœur net, Lucile ouvre le portillon
+            au fond du jardin. Il donne sur un chemin ombragé.
+            Elle n’a pas fait quelques pas qu’elle voit Didounette dans l’herbe, immobile.
+            Lucile s’approche, contente.
+            - Ah ! Enfin je t’ai retrouvée !
+            Puis, voyant que Didounette ne bouge pas :
+            - Mais qu’est-ce que tu fais là ? Tu ne couves pas un œuf, toi qui n’es encore qu’une
+            poulette ?
+            Lucile pousse un peu la poule, mais rien à faire, celle-ci ne veut pas bouger. Lucile la prend
+            alors dans ses mains. Didounette, furieuse, bat des ailes en poussant de petits cris. Lucile pose
+            alors Didounette un peu plus loin et murmure :
+            - Maintenant, je vais voir ce qu’elle couvait.
+            Dans l’herbe, Lucile aperçoit quelque chose qui brille, mais au moment où elle s’approche
+            pour voir ce que c’est, Didounette qui est revenue, s’empare de l’objet brillant avec son bec.
+            Lucile n’a que le temps de l’immobiliser afin de lui reprendre ce qu’elle a pris.
+            - Oh ! mais c’est une bague !
+            Elle regarde de plus près le bijou doré et s’exclame :
+            - Mais c’est la jolie bague que j’avais perdue l’hiver dernier dans la neige !
+            Et contente de l’avoir retrouvée, Lucile la glisse à son doigt. Mais il y en a une qui n’est pas
+            contente du tout. C’est Didounette qui tourne autour de Lucile, en colère. Lucile se penche
+            vers elle.
+            - Oh ! ma pauvre Didounette, je t’ai pris ta bague… Attends, je vais te consoler.
+            Lucile ramène la poulette à sa cabane, puis elle court jusqu’à la maison et en ressort presque
+            aussitôt.
+            Maintenant, Lucile et Didounette sont satisfaites. Lucile est heureuse de contempler sa belle
+            bague retrouvée. Didounette est aussi contente, car elle jour avec une petite bague sans
+            valeur, en plastique, que vient de lui donner Lucile.
+            CONTENT,
         ],
         '14' => [
-            'title' => 'title day 14',
-            'content' => 'texte day 14',
+            'title' => 'LE LION FIDÈLE',
+            'content' => <<<CONTENT
+            Il était une fois un chef de tribu qui était bien cruel avec ses sujets. Ils devaient lui obéir
+            aveuglément. C’est pourquoi ils lui faisaient offrande de leurs biens les plus chers et, le soir
+            venu, ils dansaient pour lui, malgré leur extrême fatigue.
+            Un jour, un de ses sujets se rebella : il ne voulait plus se soumettre à ces ordres et décida de
+            partir dans la savane.
+            " Tu seras une proie facile pour les animaux sauvages, lui dirent ses amis.
+            - Un homme intelligent arrive toujours à trouver une solution. Je préfère mourir plutôt
+            que de continuer à vivre privé de liberté. "
+            Il décida de ne pas écouter les conseils de ses amis, prit donc sa lance et quitta le village. Dans
+            sa colère, il partit sur-le-champ et vécut quelques jours dans la savane, se nourrissant de ce
+            qu’il chassait et étanchant sa soif dans la rivière. Un jour, l’herbe se mit à ondoyer devant lui
+            et des buissons sortit un énorme lion.
+            L’homme saisit sa lance et attendit un mouvement du lion. À sa grande surprise, le fauve ne
+            l’attaqua pas, il s’arrêta et, tout en gémissant, lui tendit la patte. Alors, l’homme s’aperçut que
+            le lion était très blessé et qu’une longue épine était enfoncée dans sa patte.
+            " Le lion est un ennemi puissant, pensa l’homme, mais aider un ennemi tombé à terre est une
+            preuve de noblesse. Je dois surmonter ma peur. "
+            Il domina sa peur et s’approcha doucement, pas à pas. Il posa sa lance dans l’herbe,
+            s’agenouilla devant le lion et retira délicatement l’épine. Ensuite, il banda la plaie d’un
+            morceau de tissu arraché à sa propre chemise. Le lion, ayant compris que l’homme l’avait
+            secouru, rugit en guise de remerciement et ne le quitta plus. Dès que sa patte fut guérie, il
+            chassa aux côtés de son sauveur et l’amitié entre l’homme et l’animal grandit de jour en jour.
+            Au bout de quelques mois, l’homme et le lion décidèrent de retourner au village. Les
+            habitants, terrorisés par le fauve, se cachèrent à leur approche, mais l’homme leur dit qu’ils
+            n’avaient rien à craindre. Le lion ne ferait pas de mal aux honnêtes gens, il était venu dans
+            l’unique but de punir le tyran…
+            Le chef de la tribu, comprenant que son heure était proche, s’enfuit à toutes jambes et ne
+            revint plus jamais au village. Depuis ce jour, tous vécurent en paix. L’homme sage fut élu chef
+            de la tribu et la dirigea avec honnêteté et justice. Le lion protégeait le village des envahisseurs
+            et chassait en compagnie de son ami les animaux qui suffisaient à nourrir le peuple.
+            CONTENT,
         ],
         '15' => [
-            'title' => 'title day 15',
-            'content' => 'texte day 15',
+            'title' => 'AU PAYS DES LÉGUMES',
+            'content' => <<<CONTENT
+            Par un temps légumineux
+            je voyageais en citrouille
+            car il était plus de minuit ;
+            j’étais fatigué,
+            mes lentilles vertes
+            me faisaient mal aux yeux.
+            Je me dis : salsifis, salsifis comme ça
+            et je m’arrêtai,
+            au coin de la rhubarbe
+            dans une petite aubergine.
+            Je pris une chambre qui donnait
+            sur une jolie courgette fleurie
+            et je dormis dans un brocoli moelleux.
+            Quand je me réveillai
+            le soleil brillait de tous ses pétales,
+            il faisait artichaut,
+            j’étais chou rouge.
+            L’aubergine était très chère
+            et comme je n’avais plus d’oseille
+            je suis parti
+            sans topinambour ni trompette,
+            en appuyant sur le champignon
+            - Poèmes farfelus et compagnie
+            CONTENT,
         ],
         '16' => [
-            'title' => 'title day 16',
-            'content' => 'texte day 16',
+            'title' => 'UN COW-BOY TROP GOURMAND',
+            'content' => <<<CONTENT
+            Un cow-boy cheminait dans le désert brûlant et les Peaux-Rouges l’épiaient avec inquiétude.
+            Il avait un bagage mystérieux : une énorme boule blanche, plus haute qu’un tipi de chef,
+            montée sur une charrette ! Elle devait être lourde, car le cheval qui la tirait avançait comme
+            un escargot. Le plus étonnant c’est que la boule rapetissait au fil du temps.
+            C’est pourquoi les Peaux-Rouges avaient surnommé ce Blanc " Escargot Rapetissant ". Les
+            Indiens envoyèrent leur meilleur espion en observation.
+            Il revint terrifié : " Ugh ! Fennec Rusé a touché la boule. La peau de ses doigts a failli y rester
+            collée. Elle est d’un froid qui n’existe pas sur Terre. Fennec Rusé le déclare : Escargot
+            Rapetissant est un démon ! "
+            Très inquiets, les chefs des cinq tribus du désert se réunirent et déterrèrent la hache de guerre.
+            Ce fut la plus grande attaque peau-rouge de tous les temps. Escargot Rapetissant fut fait
+            prisonnier.
+            " Ugh ! Avant d’être scalpé, livre-nous ton secret. Qu’est-ce que c’est que cette boule
+            démoniaque ? demande le plus vieux chef.
+            - Ma gourmandise m’a perdu ! Je suis un pauvre cow-boy qui explore le Far West. Mais
+            j’aime manger chaque soir une bonne glace à trois boules. Et où trouver des glaces
+            dans ces plaines brûlantes ? J’ai donc apporté un iceberg depuis le pôle Nord, pour
+            maintenir au froid ma réserve de glaces ", répondit en tremblant Escargot Rapetissant.
+            Les chefs se grattèrent les plumes de la tête, interloqués. Escargot Rapetissant tenta sa
+            dernière chance : il leur offrit un cornet à trois boules. Ils le dégustèrent en silence. Le plus
+            âgé pleurait d’émotion : il n’avait jamais rien mangé d’aussi bon. Il alluma le calumet de la
+            paix, en tira une bouffée et le passa à Escargot Rapetissant avec une grimace : " Ugh, désolé !
+            Ce calumet n’a aucun goût après un délice pareil. Reste avec nous, Escargot Gourmant, nous
+            t’offrons l’hospitalité en échange d’une glace de temps en temps ! "
+            - Les plus belles histoires du soir
+            CONTENT,
         ],
         '17' => [
-            'title' => 'title day 17',
-            'content' => 'texte day 17',
+            'title' => 'SALADE ET BALADE',
+            'content' => <<<CONTENT
+            - Nathan, va à la ferme chercher une salade ! demande sa maman qui est très pressée.
+            Nathan ne se le fait pas dire deux fois. Il adore se balader avec son nouveau vélo. Et hop, le
+            voilà parti sur la petite route goudronnée qui passe derrière son jardin.
+            En cinq minutes, il arrive et distingue devant lui les bâtiments de la ferme. Le fermier, assis sur
+            son gros tracteur, se prépare à partir. Nathan s’approche et parle très fort, car le moteur du
+            véhicule fait beaucoup de bruit. De plus, le fermier n’est plus tout jeune, il est dur d’oreille et
+            n’entend pas toujours bien.
+            - Bonjour Monsieur ! crie Nathan.
+            - Bonjour petit !
+            - Je voudrais une salade, dit Nathan.
+            - Parle plus fort, je ne t’entends pas !
+            - Je voudrais une salade ! Une salade ! crie Nathan.
+            - Une balade ? dit le fermier qui entend toujours aussi mal. Une balade en tracteur !
+            Monte !
+            Et le fermier prend Nathan sous les bras, le soulève et le fait asseoir à côté de lui, sur un tout
+            petit siège.
+            Nathan est très étonné, mais il se dit : " Chic ! Une balade en tracteur. "
+            L’homme fait rouler le tracteur sur le chemin et Nathan est vraiment très content de cette
+            promenade improvisée. Au bout d’un moment, le fermier s’arrête à l’entrée d’un champ pour
+            voir ses vaches. Puis il remonte sur sa machine.
+            Nathan lui demande alors s’il peut conduire un petit peu le tracteur au retour. Le fermier est
+            d’accord pour un court moment, mais en restant bien à côté de lui, prêt à reprendre le volant
+            au moindre danger.
+            Nathan est content, très fier, car il conduit le tracteur tout seul sur quelques dizaines de
+            mètres.
+            De retour, le fermier arrête le moteur. Nathan saute du tracteur et dit :
+            - Merci beaucoup pour la balade, mais j’allais oublier, maintenant il me faudrait une
+            salade.
+            - Une salade ? Tu ne pouvais pas le dire plus tôt ! Viens !
+            Et le fermier entraîne Nathan dans le champ à côté et cueille une salade. Puis Nathan reprend
+            son vélo et rentre à la maison.
+            - Tu as été bien long ! dit sa maman.
+            - C’est magique, maman !
+            - Qu’est-ce qui est magique, Nathan ?
+            - Une salade qui s’est transformée en balade !
+            CONTENT,
         ],
         '18' => [
-            'title' => 'title day 18',
-            'content' => 'texte day 18',
+            'title' => 'UN MONDE MINIATURE',
+            'content' => <<<CONTENT
+            " Tu vas de nouveau regarder les petits trains ! "
+            J’entends encore la voix moqueuse de Charlène, ma sœur. C’est vrai, je vais de temps à autre
+            voir mon grand-père Francis qui est modéliste. Passionné par les petits trains en modèles
+            réduits, il a consacré une petite pièce de son appartement pour ses réseaux miniatures.
+            C’est lorsque je sonne à sa porte que me revient cette phrase de Charlène, son ton narquois
+            et son air moqueur, un peu comme si regarder défiler les trains miniatures était réservé aux
+            gens stupides. C’est encore à cela que je réfléchis lorsque mon grand-père m’ouvre la porte.
+            Grand-père est souriant. Non, assurément, il n’est pas stupide. C’est, à mon avis, un homme,
+            bon, intelligent et qui sait apprécier la vie.
+            Oui, mais… regarder les petits trains, c’est réservé aux enfants, pense-t-on, alors que grandpère n’est plus un enfant depuis longtemps !
+            Je m’avance dans la fameuse pièce où sont installés les réseaux miniatures de grand-père.
+            Tout de suite, mes yeux brillent d’admiration devant une machine à vapeur tractant un wagon
+            sur une petite voie ferrée bordée d’arbres et de prés.
+            - Attends-moi un moment, lance mon grand-père Francis.
+            Il revient au bout d’une minute.
+            - Regarde ma dernière acquisition : une locomotive de manœuvre.
+            Il me présente une locomotive reproduite à la perfection, toute verte avec des bandes jaunes.
+            Son gros capot couvre un énorme moteur entouré d’un garde-corps. La petite cabine est
+            garnie de minuscules vitres munies d’essuie-glaces.
+            Il me fait remarquer la petite plaque signalétique de l’engin comme sur les vrais modèles ainsi
+            que la qualité de tous les détails. Un seul regret : les phares ne s’allument pas. Je contemple,
+            fasciné, ce petit bijou. J’apprends que la machine est surnommée " yo-yo ", à cause des
+            multiples allers et retours qu’elle effectue dans les gares.
+            Puis je regarde de nouveau les trains rouler. Je m’émerveille devant ce monde miniature : les
+            voies ferrées bien entretenues, le champ avec son petit tracteur immobile, le petit chemin
+            bordé d’arbres avec ses deux promeneurs…
+            Mon grand père a créé de la beauté, de l’art, comme il dit… Bien sûr, ce n’est pas le genre
+            d’art que l’on peut voir dans les musées, ce qui est bien dommage… mais un jour, qui sait ?
+            Il a créé un tout petit monde à lui, un peu à son image. Et tout cela, il le partage, c’est son
+            talent.
+            Alors, regarder les petits trains, en être fasciné, oui, bien sûr, cela n’a rien de stupide !
+            Et d’ailleurs, quand le monde sera trop dur, j’irai encore une fois m’émerveiller devant celui
+            qu’a créé mon grand-père Francis, et cela me fera du bien, beaucoup de bien.
+            - Les plus belles histoires du soir
+            CONTENT,
         ],
         '19' => [
-            'title' => 'title day 19',
-            'content' => 'texte day 19',
+            'title' => 'LA POUPÉE',
+            'content' => <<<CONTENT
+            Berce-la ta poupée
+            Serre-la dans tes bras
+            Plus tard, tu apprendras
+            Qu’elle riait aux fées
+            Garde-la ta poupée
+            Plus tard tu pleureras
+            Le matin triste et froid
+            Où tu l’auras donnée
+            Garde-la ta poupée
+            Tout ce que tu auras
+            Plus tard, ne vaudra pas
+            Sa robe chiffonnée
+            Chéris-la, ta poupée
+            Plus tard, tu pleureras
+            Le matin triste et froid
+            Où tu l’auras donnée
+            Serre-la dans tes bras,
+            Car, plus tard, tes journées,
+            Sans livres, sans poupée
+            Ne riront plus aux fées
+            - Maurice Carême
+            CONTENT,
         ],
         '20' => [
-            'title' => 'title day 20',
-            'content' => 'texte day 20',
+            'title' => 'LA PLANTE DANGEREUSE',
+            'content' => <<<CONTENT
+            Il était une fois une tortue qui était très avisée et tous les animaux avaient beaucoup d’estime
+            pour elle. De temps en temps, elle se rendait dans un village d’hommes pour écouter ce qu’ils
+            se disaient, après quoi elle mettait les animaux en garde :
+            " Attention les hommes vont partir chasser ! "
+            Ou bien encore :
+            " Les hommes vont brûler l’herbe, il faut vous enfuir ! "
+            Un jour, la tortue remarqua dans le champ des hommes une tige qu’elle n’avait jamais vue
+            auparavant. Quand ils furent partis, la tortue s’approcha du champ de son pas dandinant et
+            déclara :
+            " Comme tu es fraîche, jolie et verte. Je viens pour faire ta découverte. Dis-moi, quel est ton
+            nom ? Quelle est sa signification ? "
+            Et la plante inconnue répondit :
+            " Les hommes m’ont donné un nom noble et beau. Il veut dire " danger pour tous les
+            animaux ". "
+            La tortue remercia les feuilles vertes et retourna prévenir ses amis.
+            " Nous devrions détruire ce champ, car les hommes nous préparent un mauvais tour. "
+            Seulement, les animaux étaient paresseux et n’avaient aucune envie de déterrer des racines
+            sur une surface aussi grande.
+            " Nous allons éviter cet endroit, conclurent-ils. Si nous ne mangeons pas de cette plante, rien
+            ne pourra nous arriver. "
+            En peu de temps, des tiges robustes poussèrent dans le champ. Les hommes les arrachèrent
+            et en firent des cordes. Grâce à ces cordes, ils tressèrent des filets avec lesquels ils attrapèrent
+            des oiseaux, des poissons et des antilopes. Ils attachèrent les pattes des animaux pour les
+            empêcher de s’enfuir. Ils nouèrent aussi des fils aux flèches pour faire tomber leur proie à
+            terre.
+            Les animaux n’étaient plus en sécurité nulle part. Désespérés, ils se rappelèrent les paroles de
+            la tortue. Elle était la seule à ne pas être en proie à ce danger car, avec ses dents pointues, elle
+            pouvait ronger sans mal le plus solide des filets.
+            La tortue, quant à elle, continuait à mettre en garde les petits des animaux contre cette plante
+            dangereuse :
+            " Les hommes lui ont donné un nom noble et beau. Il veut dire " danger pour tous les
+            animaux ". "
+            La plante si terrible de ce conte est le chanvre. Dans nos pays, on en fait des cordes.
+            - Les nouvelles histoires du soir, 
+            Conte du Burkina Faso
+            CONTENT,
         ],
         '21' => [
-            'title' => 'title day 21',
-            'content' => 'texte day 21',
+            'title' => 'LA POULE DE LUCILE',
+            'content' => <<<CONTENT
+            C’est une toute petite poule dont prend soin Lucile. Chaque jour, Lucile va au fond du jardin
+            renouveler sa provision de graines. Elle place aussi un récipient avec de l’eau bien propre.
+            La poulette, que Lucile a nommée " Didounette " est très contente qu’on s’occupe si bien
+            d‘elle. Elle dispose même d’une minuscule cabane en bois pour s’abriter.
+            Cependant, ce matin, quand Lucile arrive à la cabane, plus de poule ! Elle cherche partout, fait
+            le tour du jardin, écarte les branches des haies, mais rien !
+            Le jardin est pourtant bien clos par des haies et du grillage. Didounette n’aurait pas pu partir…
+            Se serait-elle envolée ? Mais non ! Les poules ne volent pas, tout le monde le sait. Elles
+            peuvent tout au plus s’élever à quelques centimètres du sol en courant très vite et en battant
+            des ailes. Mais ce n’est pas voler ça ! Alors qu’est devenue Didounette ?
+            Lucile cherche partout sans comprendre, puis elle a l’idée de regarder au bas des haies. Peutêtre y a-t-il une brèche ?
+            Effectivement, tout au fond du jardin, il y a comme un petit trou entre les branches basses.
+            Didounette aurait très bien pu passer par là. Pour en avoir le cœur net, Lucile ouvre le portillon
+            au fond du jardin. Il donne sur un chemin ombragé.
+            Elle n’a pas fait quelques pas qu’elle voit Didounette dans l’herbe, immobile.
+            Lucile s’approche, contente.
+            - Ah ! Enfin je t’ai retrouvée !
+            Puis, voyant que Didounette ne bouge pas :
+            - Mais qu’est-ce que tu fais là ? Tu ne couves pas un œuf, toi qui n’es encore qu’une
+            poulette ?
+            Lucile pousse un peu la poule, mais rien à faire, celle-ci ne veut pas bouger. Lucile la prend
+            alors dans ses mains. Didounette, furieuse, bat des ailes en poussant de petits cris. Lucile pose
+            alors Didounette un peu plus loin et murmure :
+            - Maintenant, je vais voir ce qu’elle couvait.
+            Dans l’herbe, Lucile aperçoit quelque chose qui brille, mais au moment où elle s’approche
+            pour voir ce que c’est, Didounette qui est revenue, s’empare de l’objet brillant avec son bec.
+            Lucile n’a que le temps de l’immobiliser afin de lui reprendre ce qu’elle a pris.
+            - Oh ! mais c’est une bague !
+            Elle regarde de plus près le bijou doré et s’exclame :
+            - Mais c’est la jolie bague que j’avais perdue l’hiver dernier dans la neige !
+            Et contente de l’avoir retrouvée, Lucile la glisse à son doigt. Mais il y en a une qui n’est pas
+            contente du tout. C’est Didounette qui tourne autour de Lucile, en colère. Lucile se penche
+            vers elle.
+            - Oh ! ma pauvre Didounette, je t’ai pris ta bague… Attends, je vais te consoler.
+            Lucile ramène la poulette à sa cabane, puis elle court jusqu’à la maison et en ressort presque
+            aussitôt.
+            Maintenant, Lucile et Didounette sont satisfaites. Lucile est heureuse de contempler sa belle
+            bague retrouvée. Didounette est aussi contente, car elle jour avec une petite bague sans
+            valeur, en plastique, que vient de lui donner Lucile.
+            CONTENT,
         ],
         '22' => [
-            'title' => 'title day 22',
-            'content' => 'texte day 22',
+            'title' => 'LE LION FIDÈLE',
+            'content' => <<<CONTENT
+            Il était une fois un chef de tribu qui était bien cruel avec ses sujets. Ils devaient lui obéir
+            aveuglément. C’est pourquoi ils lui faisaient offrande de leurs biens les plus chers et, le soir
+            venu, ils dansaient pour lui, malgré leur extrême fatigue.
+            Un jour, un de ses sujets se rebella : il ne voulait plus se soumettre à ces ordres et décida de
+            partir dans la savane.
+            " Tu seras une proie facile pour les animaux sauvages, lui dirent ses amis.
+            - Un homme intelligent arrive toujours à trouver une solution. Je préfère mourir plutôt
+            que de continuer à vivre privé de liberté. "
+            Il décida de ne pas écouter les conseils de ses amis, prit donc sa lance et quitta le village. Dans
+            sa colère, il partit sur-le-champ et vécut quelques jours dans la savane, se nourrissant de ce
+            qu’il chassait et étanchant sa soif dans la rivière. Un jour, l’herbe se mit à ondoyer devant lui
+            et des buissons sortit un énorme lion.
+            L’homme saisit sa lance et attendit un mouvement du lion. À sa grande surprise, le fauve ne
+            l’attaqua pas, il s’arrêta et, tout en gémissant, lui tendit la patte. Alors, l’homme s’aperçut que
+            le lion était très blessé et qu’une longue épine était enfoncée dans sa patte.
+            " Le lion est un ennemi puissant, pensa l’homme, mais aider un ennemi tombé à terre est une
+            preuve de noblesse. Je dois surmonter ma peur. "
+            Il domina sa peur et s’approcha doucement, pas à pas. Il posa sa lance dans l’herbe,
+            s’agenouilla devant le lion et retira délicatement l’épine. Ensuite, il banda la plaie d’un
+            morceau de tissu arraché à sa propre chemise. Le lion, ayant compris que l’homme l’avait
+            secouru, rugit en guise de remerciement et ne le quitta plus. Dès que sa patte fut guérie, il
+            chassa aux côtés de son sauveur et l’amitié entre l’homme et l’animal grandit de jour en jour.
+            Au bout de quelques mois, l’homme et le lion décidèrent de retourner au village. Les
+            habitants, terrorisés par le fauve, se cachèrent à leur approche, mais l’homme leur dit qu’ils
+            n’avaient rien à craindre. Le lion ne ferait pas de mal aux honnêtes gens, il était venu dans
+            l’unique but de punir le tyran…
+            Le chef de la tribu, comprenant que son heure était proche, s’enfuit à toutes jambes et ne
+            revint plus jamais au village. Depuis ce jour, tous vécurent en paix. L’homme sage fut élu chef
+            de la tribu et la dirigea avec honnêteté et justice. Le lion protégeait le village des envahisseurs
+            et chassait en compagnie de son ami les animaux qui suffisaient à nourrir le peuple.
+            CONTENT,
         ],
         '23' => [
             'title' => 'title day 23',
