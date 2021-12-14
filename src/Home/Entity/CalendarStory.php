@@ -453,166 +453,94 @@ class CalendarStory extends Entity
             CONTENT,
         ],
         '15' => [
-            'title' => 'AU PAYS DES LÉGUMES',
+            'title' => 'L’ÉCRIN – PARTIE 1',
             'content' => <<<CONTENT
-            Par un temps légumineux
-            je voyageais en citrouille
-            car il était plus de minuit ;
-            j’étais fatigué,
-            mes lentilles vertes
-            me faisaient mal aux yeux.
-            Je me dis : salsifis, salsifis comme ça
-            et je m’arrêtai,
-            au coin de la rhubarbe
-            dans une petite aubergine.
-            Je pris une chambre qui donnait
-            sur une jolie courgette fleurie
-            et je dormis dans un brocoli moelleux.
-            Quand je me réveillai
-            le soleil brillait de tous ses pétales,
-            il faisait artichaut,
-            j’étais chou rouge.
-            L’aubergine était très chère
-            et comme je n’avais plus d’oseille
-            je suis parti
-            sans topinambour ni trompette,
-            en appuyant sur le champignon
-            - Poèmes farfelus et compagnie
+            ¡Feliz Navidad!, s'exclame Julie à côté de sa signature toute en courbes élégantes. D'ordinaire,
+            Sara apprécie que sa correspondante glisse quelques mots d'espagnol dans son courrier, mais
+            cette fois-ci ça la rend triste. Pour tant d'autres gens, dans d'autres langues, ces mots
+            évoquent le froid, la neige et les vœux échangés près de l'âtre, et Julie n'a pas manqué de lui
+            raconter ses fêtes en détail.
+            Son auteure a dix-neuf ans, comme Sara, mais la jeune Française n'a pas perdu ses yeux
+            d'enfant : cette année encore, son écriture pétille d'enthousiasme quand elle lui explique ce
+            qu'elle fait de ses vacances. Et comme à chaque fois, Sara a senti dans son cœur un agréable
+            picotement en lisant tant de gaieté entre les lignes. Ce n'est pas la première fois, et elle espère
+            que ça ne sera pas la dernière, bien qu'elle ne comprenne pas trop pourquoi elle ressent une
+            telle chose pour une fille.
+            - @Eowyn#5122
             CONTENT,
         ],
         '16' => [
-            'title' => 'UN COW-BOY TROP GOURMAND',
+            'title' => 'L’ÉCRIN – PARTIE 2',
             'content' => <<<CONTENT
-            Un cow-boy cheminait dans le désert brûlant et les Peaux-Rouges l’épiaient avec inquiétude.
-            Il avait un bagage mystérieux : une énorme boule blanche, plus haute qu’un tipi de chef,
-            montée sur une charrette ! Elle devait être lourde, car le cheval qui la tirait avançait comme
-            un escargot. Le plus étonnant c’est que la boule rapetissait au fil du temps.
-            C’est pourquoi les Peaux-Rouges avaient surnommé ce Blanc " Escargot Rapetissant ". Les
-            Indiens envoyèrent leur meilleur espion en observation.
-            Il revint terrifié : " Ugh ! Fennec Rusé a touché la boule. La peau de ses doigts a failli y rester
-            collée. Elle est d’un froid qui n’existe pas sur Terre. Fennec Rusé le déclare : Escargot
-            Rapetissant est un démon ! "
-            Très inquiets, les chefs des cinq tribus du désert se réunirent et déterrèrent la hache de guerre.
-            Ce fut la plus grande attaque peau-rouge de tous les temps. Escargot Rapetissant fut fait
-            prisonnier.
-            " Ugh ! Avant d’être scalpé, livre-nous ton secret. Qu’est-ce que c’est que cette boule
-            démoniaque ? demande le plus vieux chef.
-            - Ma gourmandise m’a perdu ! Je suis un pauvre cow-boy qui explore le Far West. Mais
-            j’aime manger chaque soir une bonne glace à trois boules. Et où trouver des glaces
-            dans ces plaines brûlantes ? J’ai donc apporté un iceberg depuis le pôle Nord, pour
-            maintenir au froid ma réserve de glaces ", répondit en tremblant Escargot Rapetissant.
-            Les chefs se grattèrent les plumes de la tête, interloqués. Escargot Rapetissant tenta sa
-            dernière chance : il leur offrit un cornet à trois boules. Ils le dégustèrent en silence. Le plus
-            âgé pleurait d’émotion : il n’avait jamais rien mangé d’aussi bon. Il alluma le calumet de la
-            paix, en tira une bouffée et le passa à Escargot Rapetissant avec une grimace : " Ugh, désolé !
-            Ce calumet n’a aucun goût après un délice pareil. Reste avec nous, Escargot Gourmant, nous
-            t’offrons l’hospitalité en échange d’une glace de temps en temps ! "
-            - Les plus belles histoires du soir
+            Elle est à peu près certaine que son amie lui a déjà souhaité un joyeux Noël l'année
+            précédente, mais les choses ont changé. Si tout s'était passé comme prévu, Sara serait déjà
+            en France, et peut-être aurait-elle pu partager cet hiver blanc qu'elle avait appris à aimer de
+            loin.
+            Il y avait une petite boîte dans l'enveloppe. Ou plutôt un écrin, mais curieux d'aspect : il
+            semblait métallique et hermétiquement scellé. Un mot de Julie y était attaché avec un
+            morceau de ruban adhésif : " c'est un cadeau bien éphémère… pas comme notre histoire,
+            j'espère ! "
+            Sara mit quelques instants avant de parvenir à ouvrir l'étrange écrin. À l'intérieur, un petit tas
+            de copeaux translucides scintillait. Elle le referma précipitamment et le serra contre son cœur
+            battant. De la neige ! De la vraie neige ! Les larmes aux yeux, elle comprit enfin ce que signifiait
+            l'émotion qui l'emplissait toujours en ouvrant les lettres de Julie, et en lui répondant. Elle sut
+            aussi que l'hiver à venir serait plein de promesses.
+            - @Eowyn#5122
             CONTENT,
         ],
         '17' => [
-            'title' => 'SALADE ET BALADE',
+            'title' => 'NOCTABUS, LE CRÉATEUR DE RÊVES – PARTIE 1',
             'content' => <<<CONTENT
-            - Nathan, va à la ferme chercher une salade ! demande sa maman qui est très pressée.
-            Nathan ne se le fait pas dire deux fois. Il adore se balader avec son nouveau vélo. Et hop, le
-            voilà parti sur la petite route goudronnée qui passe derrière son jardin.
-            En cinq minutes, il arrive et distingue devant lui les bâtiments de la ferme. Le fermier, assis sur
-            son gros tracteur, se prépare à partir. Nathan s’approche et parle très fort, car le moteur du
-            véhicule fait beaucoup de bruit. De plus, le fermier n’est plus tout jeune, il est dur d’oreille et
-            n’entend pas toujours bien.
-            - Bonjour Monsieur ! crie Nathan.
-            - Bonjour petit !
-            - Je voudrais une salade, dit Nathan.
-            - Parle plus fort, je ne t’entends pas !
-            - Je voudrais une salade ! Une salade ! crie Nathan.
-            - Une balade ? dit le fermier qui entend toujours aussi mal. Une balade en tracteur !
-            Monte !
-            Et le fermier prend Nathan sous les bras, le soulève et le fait asseoir à côté de lui, sur un tout
-            petit siège.
-            Nathan est très étonné, mais il se dit : " Chic ! Une balade en tracteur. "
-            L’homme fait rouler le tracteur sur le chemin et Nathan est vraiment très content de cette
-            promenade improvisée. Au bout d’un moment, le fermier s’arrête à l’entrée d’un champ pour
-            voir ses vaches. Puis il remonte sur sa machine.
-            Nathan lui demande alors s’il peut conduire un petit peu le tracteur au retour. Le fermier est
-            d’accord pour un court moment, mais en restant bien à côté de lui, prêt à reprendre le volant
-            au moindre danger.
-            Nathan est content, très fier, car il conduit le tracteur tout seul sur quelques dizaines de
-            mètres.
-            De retour, le fermier arrête le moteur. Nathan saute du tracteur et dit :
-            - Merci beaucoup pour la balade, mais j’allais oublier, maintenant il me faudrait une
-            salade.
-            - Une salade ? Tu ne pouvais pas le dire plus tôt ! Viens !
-            Et le fermier entraîne Nathan dans le champ à côté et cueille une salade. Puis Nathan reprend
-            son vélo et rentre à la maison.
-            - Tu as été bien long ! dit sa maman.
-            - C’est magique, maman !
-            - Qu’est-ce qui est magique, Nathan ?
-            - Une salade qui s’est transformée en balade !
+            Comme chaque soir, avant de se coucher, Hippolyte appelle Noctabus, le créateur de rêves,
+            en appuyant sur le bouton lumineux de sa table de nuit. Aussitôt, un personnage rond
+            comme une balle se matérialise dans sa chambre, un minuscule ordinateur portable à la
+            main.
+            " Bonjour Hippolyte, salue-t-il. Quelle est ta commande pour cette nuit ?
+            - Je voudrais des chevaliers, de la glace et de la guimauve ", répond le garçon.
+            Noctabus tapote sur son petit ordinateur. " C’est parfait " ! dit-il. Maintenant couche-toi et
+            mets ton casque. Je t’enverrai un rêve fabuleux dès que tu dormiras. Puis, Noctabus
+            disparaît aussi vite qu’il est venu. Hippolyte se précipite vers son lit, enfile son casque à
+            antenne et ferme les yeux.
+            Bientôt, il dort profondément. Et comme souhaité, il rêve de chevaliers, de glace et de
+            guimauve.
+            Nous sommes en 2237 et, maintenant, tous les enfants appellent Noctabus avant d’aller
+            dormir. A tel point que le bonhomme est un peu débordé…
+            - Les plus belles histoires du soir
             CONTENT,
         ],
         '18' => [
-            'title' => 'UN MONDE MINIATURE',
+            'title' => 'NOCTABUS, LE CRÉATEUR DE RÊVES – PARTIE 2',
             'content' => <<<CONTENT
-            " Tu vas de nouveau regarder les petits trains ! "
-            J’entends encore la voix moqueuse de Charlène, ma sœur. C’est vrai, je vais de temps à autre
-            voir mon grand-père Francis qui est modéliste. Passionné par les petits trains en modèles
-            réduits, il a consacré une petite pièce de son appartement pour ses réseaux miniatures.
-            C’est lorsque je sonne à sa porte que me revient cette phrase de Charlène, son ton narquois
-            et son air moqueur, un peu comme si regarder défiler les trains miniatures était réservé aux
-            gens stupides. C’est encore à cela que je réfléchis lorsque mon grand-père m’ouvre la porte.
-            Grand-père est souriant. Non, assurément, il n’est pas stupide. C’est, à mon avis, un homme,
-            bon, intelligent et qui sait apprécier la vie.
-            Oui, mais… regarder les petits trains, c’est réservé aux enfants, pense-t-on, alors que grandpère n’est plus un enfant depuis longtemps !
-            Je m’avance dans la fameuse pièce où sont installés les réseaux miniatures de grand-père.
-            Tout de suite, mes yeux brillent d’admiration devant une machine à vapeur tractant un wagon
-            sur une petite voie ferrée bordée d’arbres et de prés.
-            - Attends-moi un moment, lance mon grand-père Francis.
-            Il revient au bout d’une minute.
-            - Regarde ma dernière acquisition : une locomotive de manœuvre.
-            Il me présente une locomotive reproduite à la perfection, toute verte avec des bandes jaunes.
-            Son gros capot couvre un énorme moteur entouré d’un garde-corps. La petite cabine est
-            garnie de minuscules vitres munies d’essuie-glaces.
-            Il me fait remarquer la petite plaque signalétique de l’engin comme sur les vrais modèles ainsi
-            que la qualité de tous les détails. Un seul regret : les phares ne s’allument pas. Je contemple,
-            fasciné, ce petit bijou. J’apprends que la machine est surnommée " yo-yo ", à cause des
-            multiples allers et retours qu’elle effectue dans les gares.
-            Puis je regarde de nouveau les trains rouler. Je m’émerveille devant ce monde miniature : les
-            voies ferrées bien entretenues, le champ avec son petit tracteur immobile, le petit chemin
-            bordé d’arbres avec ses deux promeneurs…
-            Mon grand père a créé de la beauté, de l’art, comme il dit… Bien sûr, ce n’est pas le genre
-            d’art que l’on peut voir dans les musées, ce qui est bien dommage… mais un jour, qui sait ?
-            Il a créé un tout petit monde à lui, un peu à son image. Et tout cela, il le partage, c’est son
-            talent.
-            Alors, regarder les petits trains, en être fasciné, oui, bien sûr, cela n’a rien de stupide !
-            Et d’ailleurs, quand le monde sera trop dur, j’irai encore une fois m’émerveiller devant celui
-            qu’a créé mon grand-père Francis, et cela me fera du bien, beaucoup de bien.
+            Parfois, il mélange des rêves entre eux et les chevaliers se retrouvent en tutu tandis que les
+            chevaux font du ski ! La nuit, il n’est pas rare d’entendre les enfants rire dans leur sommeil.
+            Mais un jour, Noctabus fait une grosse bêtise. En prenant la commande d’un enfant, il tapote
+            l’un des mots de travers.
+            Et le rêve fabuleux se transforme… en cauchemar !
+            Certes ce n’est qu’un tout petit cauchemar, mais cela fait si longtemps que les enfants n’en
+            font plus que l’on en parle à la télévision.
+            Noctabus est confus. Aussitôt, il s’achète une paire de lunettes et change d’ordinateur. Il en
+            choisit un où les mots sont dessinés sur les touches : princesse, lapin, gâteau, mousquetaire,
+            fée… Ainsi, il ne peut plus se tromper. Et pour être sûr de ne plus jamais faire de bêtise, il
+            prend bien soin de supprimer les touches des sorcières, des loups ou des ogres. Et aujourd’hui,
+            le mot cauchemar a complètement disparu du dictionnaire !
             - Les plus belles histoires du soir
             CONTENT,
         ],
         '19' => [
-            'title' => 'LA POUPÉE',
+            'title' => 'FORÊT TRANSLUCIDE',
             'content' => <<<CONTENT
-            Berce-la ta poupée
-            Serre-la dans tes bras
-            Plus tard, tu apprendras
-            Qu’elle riait aux fées
-            Garde-la ta poupée
-            Plus tard tu pleureras
-            Le matin triste et froid
-            Où tu l’auras donnée
-            Garde-la ta poupée
-            Tout ce que tu auras
-            Plus tard, ne vaudra pas
-            Sa robe chiffonnée
-            Chéris-la, ta poupée
-            Plus tard, tu pleureras
-            Le matin triste et froid
-            Où tu l’auras donnée
-            Serre-la dans tes bras,
-            Car, plus tard, tes journées,
-            Sans livres, sans poupée
-            Ne riront plus aux fées
-            - Maurice Carême
+            Sous mes chaussures la neige craque, et je me questionne. Le monde existe-t-il encore
+            derrière cette couche blanche qui reflète la lueur de la Lune ? J'avance sans réfléchir et les
+            arbres nus défilent à mes côtés comme des spectres. Dans la lumière blafarde, ils me
+            rappellent les choses que je n'ai pas faites : mortes et fantomatiques, se dressant dans
+            l'obscurité du fond de ma tête.
+            Sous ma plume la feuille craque. Les arbres s'écroulent, la nuit fond, la neige s'efface. Pendant
+            un instant j'ai marché dans le froid, m'échappant, sans savoir où j'allais. Maintenant le monde
+            devant mes yeux n'est plus et je me rappelle celui que j'ai vraiment quitté : un hiver sans neige,
+            dont les rafales glacées ne sont connues que de moi seul.
+            Je froisse la feuille, enfermant cet hiver inventé dans des plis indélébiles : j'écrirai plus tard.
+            Quand le printemps sera revenu, peut-être.
+            - @Eowyn#5122
             CONTENT,
         ],
         '20' => [
