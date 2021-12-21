@@ -39,6 +39,14 @@ var CalendarWindow = {
     animationFrame: 0,
     animationFrameEnd: null,
 
+    clone: function () {
+        var clonedObject = Object.assign({}, CalendarWindow);
+
+        clonedObject.colours = Object.assign({}, CalendarWindow.colours);
+
+        return clonedObject;
+    },
+
     isMouseOver: function (mousePosition) {
         var x = mousePosition.x - this.x;
         var y = mousePosition.y - this.y;
@@ -47,7 +55,7 @@ var CalendarWindow = {
     },
 
     setActive: function (active) {
-        this.colours = CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].colours;
+        this.colours = Object.assign({}, CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].colours);
         this.fullRadius = CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].radius;
         this.radius = CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].radius;
         this.active = !!active;
@@ -58,7 +66,10 @@ var CalendarWindow = {
     },
 
     bumpColour: function () {
-        if (this.active && window.canOpenTodayWindow) {
+        var today = window.day || new Date().getDate();
+        var thisDay = parseInt(this.text);
+
+        if (this.active && window.canOpenTodayWindow || !isNaN(thisDay) && thisDay < today) {
             this.colours.stroke = FRENCH_COLOURS[this.frenchColoursIndex % FRENCH_COLOURS.length];
             this.frenchColoursIndex++;
         } else {
@@ -410,8 +421,9 @@ var Calendar = {
     },
 
     createCalendarWindow: function (context, text, active) {
-        var calendarWindow = Object.assign({}, CalendarWindow);
+        var calendarWindow = CalendarWindow.clone();
 
+        calendarWindow.text = text;
         calendarWindow.setActive(active);
 
         calendarWindow.vx = this.getRandomSpeed();
@@ -419,8 +431,6 @@ var Calendar = {
 
         calendarWindow.x = Math.random() * (this.canvas.offsetWidth - calendarWindow.fullRadius * 2) + calendarWindow.fullRadius;
         calendarWindow.y = Math.random() * (this.canvas.offsetHeight - calendarWindow.fullRadius * 2) + calendarWindow.fullRadius;
-
-        calendarWindow.text = text;
 
         return calendarWindow;
     },
