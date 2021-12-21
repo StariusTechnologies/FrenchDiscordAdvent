@@ -3,6 +3,7 @@
 namespace Home\Entity;
 
 use Befew\Request;
+use Befew\Response;
 use Exception;
 
 class DiscordAPI {
@@ -70,13 +71,16 @@ class DiscordAPI {
         $data = $this->apiRequest(self::BASE_API_URL . self::API_ENDPOINTS['me']);
 
         if (isset($data->code) && $data->code === 0) {
-            throw new Exception($data->message);
+            Request::getInstance()->destroySession();
+            Response::redirect(Request::getInstance()->getBaseURL());
         }
 
         return $data;
     }
 
     /**
+     * @param $user
+     *
      * @return Object
      * @throws Exception
      */
