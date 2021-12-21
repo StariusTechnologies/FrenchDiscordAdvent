@@ -53,7 +53,6 @@ var Modal = {
             var separator = document.createElement('hr');
             var rewardImg = document.createElement('img');
             var rewardLabel = document.createElement('p');
-            var rewardContent = '';
 
             rewardLabel.classList.add('rewardLabel');
             rewardLabel.innerHTML = '✨ ' + reward['amount'] + ' ' + reward['label'] + ' ✨';

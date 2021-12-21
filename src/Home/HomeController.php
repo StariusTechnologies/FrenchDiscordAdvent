@@ -41,11 +41,6 @@ class HomeController extends Controller {
             $goalDate = new DateTime('2022-01-01');
             $daysLeft = ceil(($goalDate->getTimestamp() - time()) / (24 * 60 * 60));
 
-            $canOpenTodayWindow = CalendarOpenedWindow::canOpenTodayWindow(
-                $user,
-                date('d')
-            );
-
             $relativeCalendarActiveImagesFolderPath = (clone $this->assetsPath)
                 ->concat('images', 'calendar-windows', 'active')
                 ->withTrailingSlash()
@@ -78,7 +73,6 @@ class HomeController extends Controller {
                 'calendarInactiveImages' => $calendarInactiveImages,
                 'day' => (int) date('d'),
                 'daysLeft' => $daysLeft,
-                'canOpenTodayWindow' => $canOpenTodayWindow,
                 'debug' => Request::getInstance()->has('debug'),
             ]);
         } else {

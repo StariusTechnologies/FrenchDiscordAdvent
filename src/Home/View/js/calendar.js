@@ -1,20 +1,20 @@
-var CALENDAR_WINDOW_PROPERTIES = {
-    inactive: {
-        colours: {
-            background: '#CCCCCC',
-            stroke: '#666666',
-            text: '#888888',
-        },
-        radius: 40,
+// Can open: colours
+// Today's bubble: beeg!
+var CALENDAR_WINDOW_COLOURS = {
+    cantOpen: {
+        background: '#CCCCCC',
+        stroke: '#666666',
+        text: '#888888',
     },
-    active: {
-        colours: {
-            background: 'white',
-            stroke: '#AAAAAA',
-            text: '#000000',
-        },
-        radius: 100,
+    canOpen: {
+        background: 'white',
+        stroke: '#AAAAAA',
+        text: '#000000',
     },
+};
+var CALENDAR_WINDOW_RADIUS = {
+    active: 100,
+    inactive: 40,
 };
 var ANIMATION_DURATION = 0.5;
 var FRENCH_COLOURS = ['#7eb301', '#fdcd00', '#0198e9', '#e40001', '#5d0073'];
@@ -24,12 +24,12 @@ var CalendarWindow = {
     y: 0,
     vx: 0,
     vy: 0,
-    fullRadius: CALENDAR_WINDOW_PROPERTIES.inactive.radius,
-    radius: CALENDAR_WINDOW_PROPERTIES.inactive.radius,
-    colours: CALENDAR_WINDOW_PROPERTIES.inactive.colours,
+    fullRadius: CALENDAR_WINDOW_RADIUS.inactive,
+    radius: CALENDAR_WINDOW_RADIUS.inactive,
+    colours: CALENDAR_WINDOW_COLOURS.cantOpen,
     opacity: 1,
     text: '',
-    active: false,
+    canOpen: false,
     fps: 60,
     appearing: false,
     popping: false,
@@ -54,11 +54,15 @@ var CalendarWindow = {
         return Math.abs(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))) < this.radius;
     },
 
-    setActive: function (active) {
-        this.colours = Object.assign({}, CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].colours);
-        this.fullRadius = CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].radius;
-        this.radius = CALENDAR_WINDOW_PROPERTIES[active ? 'active' : 'inactive'].radius;
-        this.active = !!active;
+    setCanOpen: function (canOpen) {
+        var today = window.day || new Date().getDate();
+        var thisDay = parseInt(this.text);
+        var active = !isNaN(thisDay) && thisDay === today;
+
+        this.colours = Object.assign({}, CALENDAR_WINDOW_COLOURS[canOpen ? 'canOpen' : 'cantOpen']);
+        this.fullRadius = CALENDAR_WINDOW_RADIUS[active ? 'active' : 'inactive'];
+        this.radius = CALENDAR_WINDOW_RADIUS[active ? 'active' : 'inactive'];
+        this.canOpen = !!canOpen;
 
         this.bumpColour();
 
@@ -66,14 +70,11 @@ var CalendarWindow = {
     },
 
     bumpColour: function () {
-        var today = window.day || new Date().getDate();
-        var thisDay = parseInt(this.text);
-
-        if (this.active && window.canOpenTodayWindow || !isNaN(thisDay) && thisDay < today) {
+        if (this.canOpen) {
             this.colours.stroke = FRENCH_COLOURS[this.frenchColoursIndex % FRENCH_COLOURS.length];
             this.frenchColoursIndex++;
         } else {
-            this.colours.stroke = CALENDAR_WINDOW_PROPERTIES.inactive.colours.stroke;
+            this.colours.stroke = CALENDAR_WINDOW_COLOURS.cantOpen.stroke;
         }
 
         return this;
@@ -344,11 +345,13 @@ var Calendar = {
         this.windows = [];
 
         for (var i = 0; i < 31; i++) {
-            if (this.active === 31 - i) {
+            const day = 31 - i;
+
+            if (this.active === day) {
                 continue;
             }
 
-            this.windows.push(this.createCalendarWindow(context, (31 - i).toString(), false));
+            this.windows.push(this.createCalendarWindow(context, day.toString(), this.active > day));
         }
 
         this.windows.push(this.createCalendarWindow(context, (this.active).toString(), true));
@@ -420,11 +423,11 @@ var Calendar = {
         }
     },
 
-    createCalendarWindow: function (context, text, active) {
+    createCalendarWindow: function (context, text, canOpen) {
         var calendarWindow = CalendarWindow.clone();
 
         calendarWindow.text = text;
-        calendarWindow.setActive(active);
+        calendarWindow.setCanOpen(canOpen);
 
         calendarWindow.vx = this.getRandomSpeed();
         calendarWindow.vy = this.getRandomSpeed();
@@ -487,7 +490,7 @@ var Calendar = {
 
             for (var i = 0; i < this.windows.length; i++) {
                 var calendarWindow = this.windows[i];
-                var image = calendarWindow.active
+                var image = calendarWindow.canOpen
                     ? calendarWindowActiveImageIterator.next().value
                     : calendarWindowInactiveImageIterator.next().value;
 
@@ -561,8 +564,7 @@ var Calendar = {
                         this.getWindowInstanceFromDay(day).animate('appearing', this.fps);
                     }.bind(this);
 
-                    window.canOpenTodayWindow = false;
-                    calendarWindow.setActive(calendarWindow.active);
+                    calendarWindow.setCanOpen(calendarWindow.canOpen);
                     Modal.open(response);
                 } else {
                     setTimeout(function () {
