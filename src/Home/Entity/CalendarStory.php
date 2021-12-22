@@ -544,159 +544,340 @@ class CalendarStory extends Entity
             CONTENT,
         ],
         '20' => [
-            'title' => 'LA PLANTE DANGEREUSE',
-            'content' => <<<CONTENT
-            Il était une fois une tortue qui était très avisée et tous les animaux avaient beaucoup d’estime
-            pour elle. De temps en temps, elle se rendait dans un village d’hommes pour écouter ce qu’ils
-            se disaient, après quoi elle mettait les animaux en garde :
-            " Attention les hommes vont partir chasser ! "
-            Ou bien encore :
-            " Les hommes vont brûler l’herbe, il faut vous enfuir ! "
-            Un jour, la tortue remarqua dans le champ des hommes une tige qu’elle n’avait jamais vue
-            auparavant. Quand ils furent partis, la tortue s’approcha du champ de son pas dandinant et
-            déclara :
-            " Comme tu es fraîche, jolie et verte. Je viens pour faire ta découverte. Dis-moi, quel est ton
-            nom ? Quelle est sa signification ? "
-            Et la plante inconnue répondit :
-            " Les hommes m’ont donné un nom noble et beau. Il veut dire " danger pour tous les
-            animaux ". "
-            La tortue remercia les feuilles vertes et retourna prévenir ses amis.
-            " Nous devrions détruire ce champ, car les hommes nous préparent un mauvais tour. "
-            Seulement, les animaux étaient paresseux et n’avaient aucune envie de déterrer des racines
-            sur une surface aussi grande.
-            " Nous allons éviter cet endroit, conclurent-ils. Si nous ne mangeons pas de cette plante, rien
-            ne pourra nous arriver. "
-            En peu de temps, des tiges robustes poussèrent dans le champ. Les hommes les arrachèrent
-            et en firent des cordes. Grâce à ces cordes, ils tressèrent des filets avec lesquels ils attrapèrent
-            des oiseaux, des poissons et des antilopes. Ils attachèrent les pattes des animaux pour les
-            empêcher de s’enfuir. Ils nouèrent aussi des fils aux flèches pour faire tomber leur proie à
-            terre.
-            Les animaux n’étaient plus en sécurité nulle part. Désespérés, ils se rappelèrent les paroles de
-            la tortue. Elle était la seule à ne pas être en proie à ce danger car, avec ses dents pointues, elle
-            pouvait ronger sans mal le plus solide des filets.
-            La tortue, quant à elle, continuait à mettre en garde les petits des animaux contre cette plante
-            dangereuse :
-            " Les hommes lui ont donné un nom noble et beau. Il veut dire " danger pour tous les
-            animaux ". "
-            La plante si terrible de ce conte est le chanvre. Dans nos pays, on en fait des cordes.
-            - Les nouvelles histoires du soir, 
-            Conte du Burkina Faso
-            CONTENT,
+            'title' => 'LA CHÈVRE AMALTHÉE: LES CORYBANTES',
+            'content' => 
+<<<CONTENT
+Jupiter, Neptune et Pluton, sauvés de l’appétit paternel par l’ingénieux stratagème de Rhéa,
+leur mère, furent donc emmenés clandestinement dans l’île de Crète.
+Ils furent confiés aux habitants du pays, les Corybantes, qui les nourrirent du miel du mont Ida
+et du lait de la chèvre Amalthée.
+Ils avaient bien grandi le jour où Jupiter s’adressa à ses frères en ces termes :
+- Neptune, Pluton, détrônons notre père et bannissons Titan notre oncle qui fait
+obstacle à notre règne.
+Ainsi, chassé par son fils Jupiter qui avait obtenu des armes irrésistibles – le tonnerre, la foudre
+et les éclairs –, Saturne se réfugia en Italie.
+
+- Les plus belles légendes de la mythologie
+CONTENT,
         ],
         '21' => [
-            'title' => 'LA POULE DE LUCILE',
-            'content' => <<<CONTENT
-            C’est une toute petite poule dont prend soin Lucile. Chaque jour, Lucile va au fond du jardin
-            renouveler sa provision de graines. Elle place aussi un récipient avec de l’eau bien propre.
-            La poulette, que Lucile a nommée " Didounette " est très contente qu’on s’occupe si bien
-            d‘elle. Elle dispose même d’une minuscule cabane en bois pour s’abriter.
-            Cependant, ce matin, quand Lucile arrive à la cabane, plus de poule ! Elle cherche partout, fait
-            le tour du jardin, écarte les branches des haies, mais rien !
-            Le jardin est pourtant bien clos par des haies et du grillage. Didounette n’aurait pas pu partir…
-            Se serait-elle envolée ? Mais non ! Les poules ne volent pas, tout le monde le sait. Elles
-            peuvent tout au plus s’élever à quelques centimètres du sol en courant très vite et en battant
-            des ailes. Mais ce n’est pas voler ça ! Alors qu’est devenue Didounette ?
-            Lucile cherche partout sans comprendre, puis elle a l’idée de regarder au bas des haies. Peutêtre y a-t-il une brèche ?
-            Effectivement, tout au fond du jardin, il y a comme un petit trou entre les branches basses.
-            Didounette aurait très bien pu passer par là. Pour en avoir le cœur net, Lucile ouvre le portillon
-            au fond du jardin. Il donne sur un chemin ombragé.
-            Elle n’a pas fait quelques pas qu’elle voit Didounette dans l’herbe, immobile.
-            Lucile s’approche, contente.
-            - Ah ! Enfin je t’ai retrouvée !
-            Puis, voyant que Didounette ne bouge pas :
-            - Mais qu’est-ce que tu fais là ? Tu ne couves pas un œuf, toi qui n’es encore qu’une
-            poulette ?
-            Lucile pousse un peu la poule, mais rien à faire, celle-ci ne veut pas bouger. Lucile la prend
-            alors dans ses mains. Didounette, furieuse, bat des ailes en poussant de petits cris. Lucile pose
-            alors Didounette un peu plus loin et murmure :
-            - Maintenant, je vais voir ce qu’elle couvait.
-            Dans l’herbe, Lucile aperçoit quelque chose qui brille, mais au moment où elle s’approche
-            pour voir ce que c’est, Didounette qui est revenue, s’empare de l’objet brillant avec son bec.
-            Lucile n’a que le temps de l’immobiliser afin de lui reprendre ce qu’elle a pris.
-            - Oh ! mais c’est une bague !
-            Elle regarde de plus près le bijou doré et s’exclame :
-            - Mais c’est la jolie bague que j’avais perdue l’hiver dernier dans la neige !
-            Et contente de l’avoir retrouvée, Lucile la glisse à son doigt. Mais il y en a une qui n’est pas
-            contente du tout. C’est Didounette qui tourne autour de Lucile, en colère. Lucile se penche
-            vers elle.
-            - Oh ! ma pauvre Didounette, je t’ai pris ta bague… Attends, je vais te consoler.
-            Lucile ramène la poulette à sa cabane, puis elle court jusqu’à la maison et en ressort presque
-            aussitôt.
-            Maintenant, Lucile et Didounette sont satisfaites. Lucile est heureuse de contempler sa belle
-            bague retrouvée. Didounette est aussi contente, car elle jour avec une petite bague sans
-            valeur, en plastique, que vient de lui donner Lucile.
-            CONTENT,
+            'title' => 'LES TROIS MÉGÈRES ET LA BAGUE DU DIABLE - PARTIE 1',
+            'content' => 
+<<<CONTENT
+Dans un village, vivaient trois femmes : Béatrice, Barbara et Rose. Les trois mégères étaient
+méchantes et cancanières. Leurs époux étaient de braves hommes ou des imbéciles.
+Un jour, en revenant du marché, elles virent briller sur le chemin une magnifique bague en
+or ! Elles se poussèrent, se bousculèrent pour que les autres n’arrivent à la prendre et
+s’injurièrent plus que de mesure !
+« J’ai une idée ! dit Béatrice. Que la bague appartienne à celle de nous trois qui mentira le
+mieux à son mari !
+- D’accord ! » dirent les deux autres, trouvant l’idée amusante.
+Elles cachèrent la bague et rentrèrent chez elles.
+Dès que Béatrice franchit le seuil de sa maison, elle se mit à pleurer et à geindre.
+« Adieu, mon époux, sanglota-t-elle. Je suis malade et je vais mourir… »
+Son mari la regarda avec inquiétude.
+« Que puis-je faire pour toi ? dit-t-il avec empressement.
+- Oh ! soupira Béatrice. Il y a bien un remède… J’ai vu un guérisseur qui m’a dit que seule
+la poudre d’une dent saine de mon époux me ferait recouvrer la santé. »
+Puis elle poussa un cri déchirant. Le mari courut chez le forgeron et le supplia de lui arracher
+une dent. La douleur fut épouvantable ! Le pauvre homme rentra chez lui, la bouche en sang
+mais vraiment heureux de pouvoir donner une de ses dents réduite en poudre à sa femme et
+la sauver !
+Barbara, pendant ce temps, était passée voir le bedeau ; elle lui promit une pièce d’or s’il lui
+prêtait la robe de l’évêque, sa crosse, ses gants et sa mitre.
+« En ville, j’ai rencontré Monseigneur l’évêque, dit-elle toute joyeuse à son mari en arrivant
+chez elle. Il a beaucoup entendu parler de toi et veut te nommer prélat ! Il t’envoie cette robe,
+ces gants et cette mitre pour que tu les essaies !
+- Me nommer prélat… balbutia le pauvre homme. Je connais à peine une prière et ne
+connais pas un seul mot de latin !
+- La fonction d’évêque te tombe du ciel ! répliqua Barbara. Le latin te tombera du ciel
+lui aussi ! »
+Alors, le pauvre mari enfila les habits et avança à pas lents dans la pièce, la crosse à la main.
+
+- Les nouvelles histoires du soir
+CONTENT,
         ],
         '22' => [
-            'title' => 'LE LION FIDÈLE',
-            'content' => <<<CONTENT
-            Il était une fois un chef de tribu qui était bien cruel avec ses sujets. Ils devaient lui obéir
-            aveuglément. C’est pourquoi ils lui faisaient offrande de leurs biens les plus chers et, le soir
-            venu, ils dansaient pour lui, malgré leur extrême fatigue.
-            Un jour, un de ses sujets se rebella : il ne voulait plus se soumettre à ces ordres et décida de
-            partir dans la savane.
-            " Tu seras une proie facile pour les animaux sauvages, lui dirent ses amis.
-            - Un homme intelligent arrive toujours à trouver une solution. Je préfère mourir plutôt
-            que de continuer à vivre privé de liberté. "
-            Il décida de ne pas écouter les conseils de ses amis, prit donc sa lance et quitta le village. Dans
-            sa colère, il partit sur-le-champ et vécut quelques jours dans la savane, se nourrissant de ce
-            qu’il chassait et étanchant sa soif dans la rivière. Un jour, l’herbe se mit à ondoyer devant lui
-            et des buissons sortit un énorme lion.
-            L’homme saisit sa lance et attendit un mouvement du lion. À sa grande surprise, le fauve ne
-            l’attaqua pas, il s’arrêta et, tout en gémissant, lui tendit la patte. Alors, l’homme s’aperçut que
-            le lion était très blessé et qu’une longue épine était enfoncée dans sa patte.
-            " Le lion est un ennemi puissant, pensa l’homme, mais aider un ennemi tombé à terre est une
-            preuve de noblesse. Je dois surmonter ma peur. "
-            Il domina sa peur et s’approcha doucement, pas à pas. Il posa sa lance dans l’herbe,
-            s’agenouilla devant le lion et retira délicatement l’épine. Ensuite, il banda la plaie d’un
-            morceau de tissu arraché à sa propre chemise. Le lion, ayant compris que l’homme l’avait
-            secouru, rugit en guise de remerciement et ne le quitta plus. Dès que sa patte fut guérie, il
-            chassa aux côtés de son sauveur et l’amitié entre l’homme et l’animal grandit de jour en jour.
-            Au bout de quelques mois, l’homme et le lion décidèrent de retourner au village. Les
-            habitants, terrorisés par le fauve, se cachèrent à leur approche, mais l’homme leur dit qu’ils
-            n’avaient rien à craindre. Le lion ne ferait pas de mal aux honnêtes gens, il était venu dans
-            l’unique but de punir le tyran…
-            Le chef de la tribu, comprenant que son heure était proche, s’enfuit à toutes jambes et ne
-            revint plus jamais au village. Depuis ce jour, tous vécurent en paix. L’homme sage fut élu chef
-            de la tribu et la dirigea avec honnêteté et justice. Le lion protégeait le village des envahisseurs
-            et chassait en compagnie de son ami les animaux qui suffisaient à nourrir le peuple.
-            CONTENT,
+            'title' => 'LES TROIS MÉGÈRES ET LA BAGUE DU DIABLE - PARTIE 2',
+            'content' => 
+<<<CONTENT
+Quand Rose rentra chez elle, son mari dormait profondément. Elle cueillit des fleurs et les
+arrangea tout autour du lit, puis posa sur la couverture une plaque mortuaire, qu’elle était
+allée réclamer au fossoyeur, et alluma des bougies.
+Quand le mari se réveilla, il regarda autour de lui sans comprendre.
+« Que se passe-t-il ? demanda-t-il à sa femme, qui priait.
+- Oh, mon chéri ! dit-elle entre deux sanglots. Tu es mort…
+- Tu es folle ! » s’écria le mari en voulant se lever.
+Mais il n’y parvint pas. La plaque mortuaire l’empêchait de bouger. Il respira l’odeur des fleurs,
+entendit les cris de douleur de sa femme et se dit qu’elle devait avoir raison.
+« Quitter la vie aussi soudainement, gémit-il. J’aimerais tant, avant d’être enterré, faire le tour
+du village. »
+« Pourquoi pas ? », pensa Rose. Elle mit son mari dans une brouette, le couvrit de fleurs et
+passa sous les fenêtres de Barbara.
+« Tu vois, dit-elle, l’évêque est déjà là pour ton enterrement… »
+Puis elle passa devant la maison de Béatrice. Son pauvre mari, assis devant la porte, gémissait
+de douleur une main sur sa joue.
+« Tu vois, dit-elle, ton voisin te pleure… »
+Le mari de Rose n’eut alors plus aucun doute : il était bien mort !
+C’est à cet instant que le bedeau, le fossoyeur et le forgeron se rencontrèrent à l’auberge et
+s’informèrent les uns les autres des étranges demandes des trois mégères.
+« Il y a une diablerie là-dessous ! conclut le forgeron. Je vais aller voir cela de plus près. »
+Quand le forgeron vit le mari de Rose dans la brouette, il lui envoya une telle gifle que cela lui
+remit les idées en place. Il comprit que sa femme s’était moquée de lui. Il passa prendre le
+mari de Béatrice, qui, le pauvre, comprit qu’il s’était fait arracher une dent pour rien, et ils
+allèrent trouver le mari de Barbara. Tous trois prirent la décision d’être désormais plus fermes
+et autoritaires.
+Quant à la bague, elle avait disparu, c’était le diable qui avait tendu un piège aux trois
+mégères !
+
+- Les nouvelles histoires du soir
+CONTENT,
         ],
         '23' => [
-            'title' => 'title day 23',
-            'content' => 'texte day 23',
+            'title' => 'LA CHÈVRE AMALTHÉE: LA CORNE D’ABONDANCE',
+            'content' => 
+<<<CONTENT
+Vous n’avez certainement pas oublié la chèvre Amalthée broutant sur le mont Ida.
+Jupiter non plus n’avait pas oublié son opulente nourrice aux succulentes mamelles, dont il
+avait gloutonnement sucé le lait délicieux. Il n’avait pas oublié davantage les jeux auxquels,
+dès sa plus tendre enfance, il se livrait avec l’animal haut encorné ; il se rappelait les bonds
+joyeux, les prodigieuses gambades, les sauts prestigieux et les luttes de grâce, d’adresse et de
+force.
+Mais il se souvenait surtout d’avoir, d’une main trop nerveuse, arraché l’une des belles cornes
+qui surmontaient le front de sa plantureuse nourrice. Voulant réparer le tort involontaire
+d’une bouillante jeunesse, et prouver la reconnaissance de l’ancien nourrisson, Jupiter élève
+Amalthée au rang des constellations célestes. Quant à la corne malencontreusement ravie, il
+en gratifia les nymphes du mont Ida, en lui donnant le pouvoir de prodiguer à profusion fleurs,
+fruits d’or et pierreries, d’où son nom de Corne d’abondance.
+
+- Les plus belles légendes de la mythologie
+CONTENT,
         ],
         '24' => [
-            'title' => 'title day 24',
-            'content' => 'texte day 24',
+            'title' => 'LE POURBOIRE',
+            'content' => 
+<<<CONTENT
+On vient de construire un nouveau hammam, beaucoup plus beau que l’ancien paraît-il, et
+Nasr Eddin veut y aller.
+Les deux garçons de bain ne se montrent pas empressés avec ce client pauvre et mal habillé.
+Ils bâclent littéralement leurs soins, tout en se cachant à peine de rire du gros ventre du
+bonhomme. Aussi sont-ils très agréablement surpris qu’en partant il leur laisse à chacun un
+beau pourboire.
+Dès le lendemain, Nasr Eddin y retourne et il est alors accueilli comme un prince. On le lave
+soigneusement, on lui applique les boues chaudes, on le parfume… Les deux garçons ne savent
+plus quoi faire pour satisfaire ce riche client. Ils sont donc très déçus qu’il leur laisse seulement
+une misérable petite pièce de monnaie dont même un mendiant ne voudrait pas.
+- Ô Seigneur, nous ne comprenons pas ton mécontentement. Ne t’avons-nous pas bien
+traité ?
+- Vous m’avez traité à merveille, leur répond Nasr Eddin, mais il y a une chose que vous
+ne comprenez pas : le pourboire d’aujourd’hui, c’est pour hier, et le pourboire d’hier,
+c’était pour aujourd’hui.
+
+- Nasr Eddin Hodja
+Un drôle d’idiot
+CONTENT,
         ],
         '25' => [
-            'title' => 'title day 25',
-            'content' => 'texte day 25',
+            'title' => 'LES SAPINS',
+            'content' => 
+<<<CONTENT
+Les sapins en bonnets pointus
+De longues robes revêtus
+Comme des astrologues
+Saluent leurs frères abattus
+Les bateaux qui sur le Rhin voguent
+Dans les sept arts endoctrinés
+Par les vieux sapins leurs aînés
+Qui sont de grands poètes
+Ils se savent prédestinés
+À briller plus que des planètes
+À briller doucement changés
+En étoiles et enneigés
+Aux Noëls bienheureuses
+Fêtes des sapins ensongés
+Aux longues branches langoureuses
+Les sapins beaux musiciens
+Chantent des noëls anciens
+Au vent des soirs d’automne
+Ou bien graves magiciens
+Incantent le ciel quand il tonne
+Des rangées de blancs chérubins
+Remplacent l’hiver les sapins
+Et balancent leurs ailes
+L’été ce sont de grands rabbins
+Ou bien de vieilles demoiselles
+Sapins médecins divaguants
+Ils vont offrant leurs bons onguents
+Quand la montagne accouche
+De temps en temps sous l’ouragan
+Un vieux sapin geint et se couche
+
+- Alcools
+Guillaume Apollinaire
+CONTENT,
         ],
         '26' => [
-            'title' => 'title day 26',
-            'content' => 'texte day 26',
+            'title' => 'SI JE MOURAIS LÀ-BAS…',
+            'content' => 
+<<<CONTENT
+Si je mourais là-bas sur le front de l'armée
+Tu pleurerais un jour ô Lou ma bien-aimée
+Et puis mon souvenir s'éteindrait comme meurt
+Un obus éclatant sur le front de l'armée
+Un bel obus semblable aux mimosas en fleur
+Et puis ce souvenir éclaté dans l'espace
+Couvrirait de mon sang le monde tout entier
+La mer les monts les vals et l'étoile qui passe
+Les soleils merveilleux mûrissant dans l'espace
+Comme font les fruits d'or autour de Baratier
+Souvenir oublié vivant dans toutes choses
+Je rougirais le bout de tes jolis seins roses
+Je rougirais ta bouche et tes cheveux sanglants
+Tu ne vieillirais point toutes ces belles choses
+Rajeuniraient toujours pour leurs destins galants
+Le fatal giclement de mon sang sur le monde
+Donnerait au soleil plus de vive clarté
+Aux fleurs plus de couleur plus de vitesse à l'onde
+Un amour inouï descendrait sur le monde
+L'amant serait plus fort dans ton corps écarté
+Lou si je meurs là-bas souvenir qu'on oublie
+- Souviens-t'en quelquefois aux instants de folie
+De jeunesse et d'amour et d'éclatante ardeur -
+Mon sang c'est la fontaine ardente du bonheur
+Et sois la plus heureuse étant la plus jolie
+Ô mon unique amour et ma grande folie
+
+- 30 janvier 1915, Nîmes
+
+La nuit descend
+On y pressent
+Un long un long destin de sang
+
+- Poèmes à Lou
+Guillaume Apollinaire
+CONTENT,
         ],
         '27' => [
-            'title' => 'title day 27',
-            'content' => 'texte day 27',
+            'title' => 'ÉQUERRE',
+            'content' => 
+<<<CONTENT
+J’ai
+choisi
+cette page
+blanche un p
+eu par hasard u
+n peu par raison p
+our faire d’un jeudi
+soir le matin d’un dima
+nche et un palais de ma m
+aison j’ai choisi cette page
+blanche pour d’un rêve au long c
+ours tracer l’itinéraire nous hiss
+erons la voile aux îles des amours no
+us ferons le tour de la terre et nous dé
+barquerons aux vieux débarcadères des îles
+de l’amour j’ai choisi cette page blanche po
+ur de cœurs inconnus mériter l’intérêt espérant
+en secret qu’une tête se penche et boive
+ce poème comme un bol de lait frais
+
+- L’accent circonflexe et la petite cédille
+CONTENT,
         ],
         '28' => [
-            'title' => 'title day 28',
-            'content' => 'texte day 28',
+            'title' => 'PAN',
+            'content' => 
+<<<CONTENT
+De l’ensemble des divinités secondaires se détache la physionomie originale, pittoresque et
+amusante du dieu Pan, toujours riant, sautant, dansant, chantant au son de la flûte champêtre,
+à l’ombre des bois.
+S’il avait un caractère agréable et charmeur, Pan avait un nez énorme et busqué, au-dessus
+d’une bouche lippue, proéminente et fendue jusqu’aux oreilles en un rictus sardonique. Ses
+oreilles pointues, de largeur démesurée, dissimulaient mal la racine de deux cornes rugueuses
+rappelant celles du bélier et dominant des cheveux hirsutes. Quant au corps, il avait pour se
+soutenir d’énormes cuisses et pieds de chèvre. Son dos se terminait par une queue de bouc.
+Son naturel jovial l’entraînait quelquefois, surtout la nuit, à effrayer bêtes et gens, par des
+courses inconsidérées et des apparitions subites derrière les arbres, au coins des bois, ou
+caché dans les sites déserts et sauvages. La peur, qui ne raisonne pas, lui attribuait l’effroi
+ressenti dans le noir, au bruit du vent dans le feuillage, à la chute d’une pierre sur les rochers.
+Ce sentiment se généralisa au point de l’en rendre responsable et d’appeler terreur panique
+la crainte éprouvée par les poltrons.
+Cette tendance malicieuse ne doit pas faire oublier son courage à la chasse des bêtes fauves
+et dans les aventures lointaines. C’est ainsi qu’il suivit Bacchus jusqu’aux Indes.
+
+- Les plus belles légendes de la mythologie
+CONTENT,
         ],
         '29' => [
-            'title' => 'title day 29',
-            'content' => 'texte day 29',
+            'title' => 'QUI EST INVITÉ ?',
+            'content' => 
+<<<CONTENT
+Ayant appris que le cadi organisait chez lui une grande réception, Nasr Eddin s’y rend sans
+même juger bon de s’habiller autrement que d’habitude. Ni le maître de maison ni ses
+serviteurs, tout occupés avec les invités importants, ne portent attention à ce bonhomme
+pauvrement vêtu d’une djellaba toute rapiécée et d’un turban à la propreté douteuse, et les
+plats passent et repassent devant lui sans que personne ne le serve.
+Au bout d’un moment, le Hodja repart et va chez lui pour mettre le beau manteau brodé
+qu’il a ramené d’Istanbul et son plus grand turban, d’une blancheur immaculée.
+Cette fois-ci, dès qu’il arrive, les serviteurs s’empressent autour de lui pour lui offrir à
+manger. Alors il empoigne un grand plat de poulet au citron servi sur du riz et lentement,
+avec délices, devant les nombreuses personnes présentes, il se déverse le tout sur la tête en
+disant l’air gourmand :
+- Tiens, mange, mon turban ! Mange, mon manteau ! Régalez-vous !
+Le cadi a vu la scène et il se précipite, furieux :
+- Hodja, quel est ce scandale ? Es-tu venu ici pour gâcher ma fête ?
+- Au contraire, cadi, je suis venu régaler mes habits puisque ce sont eux que tu as
+invités.
+
+- Nasr Eddin Hodja
+Un drôle d’idiot
+CONTENT,
         ],
         '30' => [
-            'title' => 'title day 30',
-            'content' => 'texte day 30',
+            'title' => 'CHANSON D’AUTOMNE',
+            'content' => 
+<<<CONTENT
+Les sanglots longs
+Des violons
+De l'automne
+Blessent mon cœur
+D'une langueur
+Monotone.
+Tout suffocant
+Et blême, quand
+Sonne l'heure,
+Je me souviens
+Des jours anciens
+Et je pleure ;
+Et je m'en vais
+Au vent mauvais
+Qui m'emporte,
+De çà, de là,
+Pareil à la
+Feuille morte.
+
+- Paul Verlaine
+CONTENT,
         ],
         '31' => [
-            'title' => 'title day 31',
-            'content' => 'texte day 31',
+            'title' => 'LA FLÛTE DE PAN',
+            'content' => 
+<<<CONTENT
+Au retour de ce long voyage, Pan regagne avec plaisir ses bois, ses campagnes et surtout ses
+nymphes. Il les poursuivait avec agilité, cherchant à les convaincre de sa sincérité et de sa
+tendresse. Il promettait d’être un bon et fidèle mari. Toutes lui échappaient, railleuses. Une
+seule, sa préférée, sur le point d’être rejointe, appela les naïades à son secours et plongea
+dans le fleuve Ladon où elle disparut.
+Pan se précipite pour la tirer de l’onde. Au moment où il croyait l’avoir sauvée ; ses bras ne
+serrent qu’une gerbe de roseaux agités par le vent et simulant de légers soupirs. Désespéré
+de voir s’évanouir la douce vie à deux qu’il avait rêvée, Pan détache sept roseaux, les taille
+d’inégale et graduelle longueur, les juxtapose en biseau, les fixe avec de la cire et forme la
+flûte.
+Il en tire des sons délicats et tendres remémorant la douce voix de l’inhumaine Syrinx et
+l’appelle de ce nom en souvenir de celle qui l’avait dédaigné et qu’il regrettera toute sa vie.
+
+- Les plus belles légendes de la mythologie
+CONTENT,
         ],
     ];
 
